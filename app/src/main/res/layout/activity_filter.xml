@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".uiComponents.FilterActivity"
     tools:ignore="SpeakableTextPresentCheck">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:orientation="vertical">
 
@@ -19,45 +21,81 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:layout_height="match_parent"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/_8sdp">
+                android:layout_height="wrap_content"
+                android:layout_weight="1.9"
+                android:orientation="vertical">
+
                 <EditText
-                    android:id="@+id/editRFPrice"
-                    style="@style/EditText"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:layout_weight="1.5"
-                    android:hint="@string/_2000"
-                    android:importantForAutofill="no"
+                    android:id="@+id/editKatNumber"
+                    style="@style/editTextFilter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_color_white_1sdp"
+                    android:hint="@string/kat_number"
                     android:includeFontPadding="false"
                     android:inputType="number"
-                    android:maxWidth="@dimen/_100sdp"
-                    tools:ignore="DuplicateSpeakableTextCheck,NestedWeights,TouchTargetSizeCheck" />
+                    android:maxLength="10"
+                    android:paddingVertical="@dimen/_8sdp"
+                    android:paddingStart="@dimen/_10sdp"
+                    tools:ignore="DuplicateSpeakableTextCheck,NestedWeights,RtlSymmetry,TouchTargetSizeCheck" />
+
+
+                <Button
+                    android:id="@+id/buttonReset"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@drawable/solid_color_6a1b9a"
+                    android:includeFontPadding="false"
+                    android:text="@string/get_kat_information"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/buttonReset"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_30sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
                 android:layout_weight="1"
-                android:layout_marginEnd="@dimen/_40sdp"
-                android:background="@drawable/solid_color_6a1b9a"
-                android:includeFontPadding="false"
-                android:text="get Data" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/editKatStatus"
+                    style="@style/textViewFilter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_color_white_1sdp"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:paddingVertical="@dimen/_8sdp"
+                    tools:text="@string/katnustatus" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/textViewFilter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_color_white_1sdp"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:paddingVertical="@dimen/_8sdp"
+                        tools:text="@string/katnustatus" />
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
 
-
     </LinearLayout>
-
 
 </androidx.core.widget.NestedScrollView>

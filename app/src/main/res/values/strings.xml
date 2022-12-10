@@ -20,4 +20,7 @@
     <string name="_50">50</string>
     <string name="_32">32</string>
     <string name="_10">10</string>
+    <string name="kat_number">કટ નંબર </string>
+    <string name="get_kat_information">કટ વિશે મેરવો</string>
+    <string name="katnustatus">કટ નું સ્ટૅટ્સ</string>
 </resources>
