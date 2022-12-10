@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Rough Diamond Estimate</string>
+    <string name="rafano_bhav_keret">રફનો ભાવ / કેરેટ :</string>
+    <string name="rafanu_rijalt_keret">રફનું રિજલ્ટ % માં :</string>
+    <string name="size_diamond">સાઈઝ :</string>
+    <string name="majuri_diamond">મજૂરી :</string>
+    <string name="polish_ni_padater">પોલિશની પડતર =</string>
+    <string name="polish_diamond_result">પોલિશનું રિજલ્ટ % માં :</string>
+    <string name="profit_in_percentage">લેસ / નફો % માં :</string>
+    <string name="Rs">\u20B9</string>
+    <string name="taka">%</string>
+    <string name="pcs">pcs</string>
+    <string name="_1000">10000</string>
+    <string name="reset">Reset</string>
+    <string name="get_rate">get Rate</string>
+    <string name="endPriceSymbol">/-</string>
+    <string name="_2000">2000</string>
+    <string name="_35">35</string>
+    <string name="_30">30</string>
+    <string name="_50">50</string>
+    <string name="_32">32</string>
+    <string name="_10">10</string>
+</resources>

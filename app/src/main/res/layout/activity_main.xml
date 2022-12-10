@@ -1,0 +1,363 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_f3e5f6"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_8sdp">
+
+                <TextView
+                    style="@style/textViewAndEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="@string/rafano_bhav_keret" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="RelativeOverlap">
+
+                    <EditText
+                        android:id="@+id/editRFPrice"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_weight="1.5"
+                        android:hint="@string/_2000"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="number"
+                        android:maxWidth="@dimen/_100sdp"
+                        tools:ignore="DuplicateSpeakableTextCheck,NestedWeights,TouchTargetSizeCheck" />
+
+                    <TextView
+                        style="@style/textViewAndEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Rs" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_8sdp">
+
+                <TextView
+                    style="@style/textViewAndEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="@string/rafanu_rijalt_keret" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="RelativeOverlap">
+
+                    <EditText
+                        android:id="@+id/editRFTaka"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_weight="1.5"
+                        android:hint="@string/_35"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="number"
+                        android:maxWidth="@dimen/_100sdp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <TextView
+                        style="@style/textViewAndEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/taka" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_8sdp">
+
+                <TextView
+                    style="@style/textViewAndEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="@string/size_diamond" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="RelativeOverlap">
+
+                    <EditText
+                        android:id="@+id/editDiamondSize"
+                        style="@style/EditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:hint="@string/_30"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="number"
+                        android:maxWidth="@dimen/_100sdp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <TextView
+                        style="@style/textViewAndEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pcs" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_8sdp">
+
+                <TextView
+                    style="@style/textViewAndEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="@string/majuri_diamond" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="RelativeOverlap">
+
+                    <EditText
+                        android:id="@+id/editDiamondMajuri"
+                        style="@style/EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:layout_weight="1.5"
+                        android:hint="@string/_50"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="number"
+                        android:maxWidth="@dimen/_100sdp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <TextView
+                        style="@style/textViewAndEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Rs" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_8sdp">
+
+                <TextView
+                    style="@style/textViewAndEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="@string/polish_diamond_result" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="RelativeOverlap">
+
+                    <EditText
+                        android:id="@+id/editDiamondPolishResult"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_weight="1.5"
+                        android:hint="@string/_32"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="number"
+                        android:maxWidth="@dimen/_100sdp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <TextView
+                        style="@style/textViewAndEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/taka" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/_8sdp">
+
+                <TextView
+                    style="@style/textViewAndEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:includeFontPadding="false"
+                    android:text="@string/profit_in_percentage" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    tools:ignore="RelativeOverlap">
+
+                    <EditText
+                        android:id="@+id/editProfitInPercentage"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_weight="1.5"
+                        android:hint="@string/_10"
+                        android:importantForAutofill="no"
+                        android:includeFontPadding="false"
+                        android:inputType="number"
+                        android:maxWidth="@dimen/_100sdp"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <TextView
+                        style="@style/textViewAndEditText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/taka" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp">
+
+                <Button
+                    android:id="@+id/buttonReset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/solid_color_6a1b9a"
+                    android:includeFontPadding="false"
+                    android:text="@string/reset" />
+
+                <Button
+                    android:id="@+id/buttonGetRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/solid_color_6a1b9a"
+                    android:fadeScrollbars="false"
+                    android:text="@string/get_rate" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutPolishReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:orientation="horizontal"
+                android:padding="@dimen/_8sdp"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/textViewAndEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="@string/polish_ni_padater" />
+
+                <TextView
+                    android:id="@+id/textPolishReport"
+                    style="@style/textViewAndEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:includeFontPadding="false"
+                    tools:text="@string/_1000" />
+
+                <TextView
+                    style="@style/textViewAndEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:includeFontPadding="false"
+                    android:text="@string/endPriceSymbol" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
