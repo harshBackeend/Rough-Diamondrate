@@ -1,12 +1,17 @@
 package com.harsh.roughdiamondrate.viewModel
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.harsh.roughdiamondrate.Utility
+import com.harsh.roughdiamondrate.model.ApiUrlKey
 import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.repository.MainRepository
+import com.harsh.roughdiamondrate.uiComponents.FilterActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -45,7 +50,7 @@ class MainViewModel : ViewModel() {
         getRateData.postValue(0F)
     }
 
-    fun getUrl(password: String) {
+    fun getUrl(password: String,context: Context) {
         Log.e("ViewModel", "getUrl: Api call")
         val requestModel:RequestModel = RequestModel(password, filter = "")
         requestModel.college = password
@@ -57,7 +62,12 @@ class MainViewModel : ViewModel() {
                 Log.e("getUrl", "getStatus: ${result.body()!!.Status}", )
                 if (result.body()!!.Status.equals("1")) {
                     val url = result.body()!!.Url
-                    requestModel.college = "dishant"
+                    viewModelScope.launch(Dispatchers.IO){
+                        Utility.setSharedPreferences(context,ApiUrlKey.firstUrl, url!!)
+                    }
+                    context.startActivity(Intent(context,FilterActivity::class.java))
+
+                    /*requestModel.college = "dishant"
                     requestModel.filter = "National Institute of Technology Rourkela"
                     viewModelScope.launch(Dispatchers.IO) {
                         val result2 = MainRepository(url!!).getData(requestModel)
@@ -67,7 +77,7 @@ class MainViewModel : ViewModel() {
                             Log.e("getUrl", "getStatus: ${result2.body()!!.Status}")
                         }
 
-                    }
+                    }*/
                 }
             }
         }

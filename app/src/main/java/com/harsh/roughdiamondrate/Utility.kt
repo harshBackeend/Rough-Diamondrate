@@ -3,7 +3,6 @@ package com.harsh.roughdiamondrate
 import android.content.Context
 import android.widget.EditText
 import android.widget.Toast
-import java.time.Duration
 
 public class Utility {
 
@@ -15,5 +14,17 @@ public class Utility {
         fun showToast(context: Context,message:String,duration:Int){
             Toast.makeText(context,message,duration).show()
         }
+        suspend fun setSharedPreferences(activity: Context, Key: String, Value: String) {
+            val sharedpreferences =
+                activity.getSharedPreferences(activity.resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+            val editor = sharedpreferences.edit()
+            editor.putString(Key, Value)
+            editor.apply()
+        }
+        fun getSharedPreferences(activity: Context, Key: String?): String? {
+            val sharedpreferences = activity.getSharedPreferences(activity.resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+            return sharedpreferences.getString(Key, "")
+        }
+
     }
 }

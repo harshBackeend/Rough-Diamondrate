@@ -33,15 +33,13 @@
                     android:background="@drawable/border_color_white_1sdp"
                     android:hint="@string/kat_number"
                     android:includeFontPadding="false"
-                    android:inputType="number"
-                    android:maxLength="10"
                     android:paddingVertical="@dimen/_8sdp"
                     android:paddingStart="@dimen/_10sdp"
                     tools:ignore="DuplicateSpeakableTextCheck,NestedWeights,RtlSymmetry,TouchTargetSizeCheck" />
 
 
                 <Button
-                    android:id="@+id/buttonReset"
+                    android:id="@+id/getData"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_5sdp"

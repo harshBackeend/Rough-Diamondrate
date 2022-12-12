@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                     Utility.getTextFromEditText(binding.editDiamondPolishResult).isEmpty() &&
                     Utility.getTextFromEditText(binding.editProfitInPercentage).isEmpty()
                 ) {
-                    viewModel.getUrl(Utility.getTextFromEditText(binding.editDiamondSize))
+                    viewModel.getUrl(Utility.getTextFromEditText(binding.editDiamondSize),this)
                 }
             }
         }
