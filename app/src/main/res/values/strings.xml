@@ -23,4 +23,11 @@
     <string name="kat_number">કટ નંબર </string>
     <string name="get_kat_information">કટ વિશે મેરવો</string>
     <string name="katnustatus">કટ નું સ્ટૅટ્સ</string>
+    <string name="date">તારીખ</string>
+    <string name="paltyName">પાર્ટી નામ</string>
+    <string name="deposit">જમા</string>
+    <string name="no">no.</string>
+    <string name="withdrawal">ઉપાડ</string>
+    <string name="detail">વિગત</string>
+    <string name="send">મોકલો</string>
 </resources>

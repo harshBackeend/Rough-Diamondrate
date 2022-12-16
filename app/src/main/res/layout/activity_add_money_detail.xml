@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".uiComponents.AddMoneyDetailActivity">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editDate"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/date"
+                android:padding="@dimen/_7sdp" />
+
+            <EditText
+                android:id="@+id/editPaltyName"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/paltyName"
+                android:inputType="textPersonName"
+                android:padding="@dimen/_7sdp" />
+
+            <EditText
+                android:id="@+id/editDeposit"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/deposit"
+                android:inputType="textPersonName"
+                android:padding="@dimen/_7sdp" />
+
+            <EditText
+                android:id="@+id/editDepositNumber"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/no"
+                android:inputType="number"
+                android:padding="@dimen/_7sdp" />
+
+            <EditText
+                android:id="@+id/editWithdrawal"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/withdrawal"
+                android:inputType="number"
+                android:padding="@dimen/_7sdp" />
+
+            <EditText
+                android:id="@+id/editWithdrawalNumber"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/no"
+                android:inputType="number"
+                android:padding="@dimen/_7sdp" />
+
+            <EditText
+                android:id="@+id/editDetail"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/detail"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/_7sdp" />
+
+            <Button
+                android:id="@+id/buttonSend"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_weight="1"
+                android:textSize="@dimen/_15ssp"
+                android:background="@drawable/solid_color_6a1b9a"
+                android:fadeScrollbars="false"
+                android:text="@string/send" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

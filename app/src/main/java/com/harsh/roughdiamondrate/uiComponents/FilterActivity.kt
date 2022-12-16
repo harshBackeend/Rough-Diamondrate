@@ -21,7 +21,7 @@ class FilterActivity : AppCompatActivity() {
         binding = ActivityFilterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.getData.setOnClickListener {
+       /* binding.getData.setOnClickListener {
             val url = Utility.getSharedPreferences(this@FilterActivity,ApiUrlKey.firstUrl)
             val requestModel = RequestModel(college = "dishant", filter = Utility.getTextFromEditText(binding.editKatNumber))
             MainScope().launch(Dispatchers.IO){
@@ -35,6 +35,6 @@ class FilterActivity : AppCompatActivity() {
                     }
                 }
             }
-        }
+        }*/
     }
 }

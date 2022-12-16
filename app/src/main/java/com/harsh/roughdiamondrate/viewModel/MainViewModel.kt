@@ -2,7 +2,6 @@ package com.harsh.roughdiamondrate.viewModel
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,14 +10,14 @@ import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.model.ApiUrlKey
 import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.repository.MainRepository
-import com.harsh.roughdiamondrate.uiComponents.FilterActivity
+import com.harsh.roughdiamondrate.uiComponents.AddMoneyDetailActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
     val baseUrl =
-        "https://script.google.com/macros/s/AKfycbxCKbQyGmAZi6xrCJu5orWIYgynY-Dx3PA0dD2ZlypJG43fltgXNJuPLvQxgcXXxxnb6Q/"
+        "https://script.google.com/macros/s/AKfycbxcZhrjxnwiHGKcSMKjks-PMRokQhxeXeBnjP2EgrHI86clWxGtDcZNj3tk2SvABQrM/"
 
     private val getRateData = MutableLiveData<Float>()
     val getRate: LiveData<Float>
@@ -51,33 +50,16 @@ class MainViewModel : ViewModel() {
     }
 
     fun getUrl(password: String,context: Context) {
-        Log.e("ViewModel", "getUrl: Api call")
-        val requestModel:RequestModel = RequestModel(password, filter = "")
-        requestModel.college = password
+        val requestModel = RequestModel(code = password)
         viewModelScope.launch(Dispatchers.IO) {
             val result = MainRepository(baseUrl).getData(requestModel)
             if (result.body() != null) {
-                Log.e("getUrl", "getUrl: ${result.body()!!.Url}", )
-                Log.e("getUrl", "getMessage: ${result.body()!!.Message}", )
-                Log.e("getUrl", "getStatus: ${result.body()!!.Status}", )
                 if (result.body()!!.Status.equals("1")) {
-                    val url = result.body()!!.Url
+                    val url = result.body()!!.data!![0].url
                     viewModelScope.launch(Dispatchers.IO){
                         Utility.setSharedPreferences(context,ApiUrlKey.firstUrl, url!!)
                     }
-                    context.startActivity(Intent(context,FilterActivity::class.java))
-
-                    /*requestModel.college = "dishant"
-                    requestModel.filter = "National Institute of Technology Rourkela"
-                    viewModelScope.launch(Dispatchers.IO) {
-                        val result2 = MainRepository(url!!).getData(requestModel)
-                        if (result2.body() != null) {
-                            Log.e("getUrl", "getUrl: ${result2.body()!!.data.toString()}")
-                            Log.e("getUrl", "getMessage: ${result2.body()!!.Message}")
-                            Log.e("getUrl", "getStatus: ${result2.body()!!.Status}")
-                        }
-
-                    }*/
+                    context.startActivity(Intent(context,AddMoneyDetailActivity::class.java))
                 }
             }
         }
