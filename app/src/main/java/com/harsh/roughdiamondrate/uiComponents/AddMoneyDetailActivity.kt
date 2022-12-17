@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View.OnFocusChangeListener
 import android.widget.DatePicker
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.harsh.roughdiamondrate.Utility
@@ -53,18 +54,17 @@ class AddMoneyDetailActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.getData.observe(this) {
-            Log.e("TAG", "onCreate: $it", )
-            if (it) {
-                resetEditText(binding.editDate)
-                resetEditText(binding.editPaltyName)
+        viewModel.getResponseModel.observe(this) {
+            Log.e("TAG", "onCreate: $it")
+            Toast.makeText(this,it.Message,Toast.LENGTH_LONG).show()
+            if (it.Status.equals("1")) {
                 resetEditText(binding.editDeposit)
                 resetEditText(binding.editDepositNumber)
                 resetEditText(binding.editWithdrawal)
                 resetEditText(binding.editWithdrawalNumber)
                 resetEditText(binding.editDetail)
-            } else {
-
+                resetEditText(binding.editDate)
+                resetEditText(binding.editPaltyName)
             }
         }
 

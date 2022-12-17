@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.model.ApiUrlKey
 import com.harsh.roughdiamondrate.model.RequestModel
+import com.harsh.roughdiamondrate.model.ResponseModel
 import com.harsh.roughdiamondrate.repository.MainRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -17,9 +18,9 @@ import kotlinx.coroutines.launch
 
 class AddMoneyDetailViewModel : ViewModel() {
 
-    private var dataShow: MutableLiveData<Boolean> = MutableLiveData()
-    val getData: LiveData<Boolean>
-        get() = dataShow
+    private var setResponseModel: MutableLiveData<ResponseModel> = MutableLiveData()
+    val getResponseModel: LiveData<ResponseModel>
+        get() = setResponseModel
 
 
     fun setDataToApi(
@@ -43,14 +44,10 @@ class AddMoneyDetailViewModel : ViewModel() {
         viewModelScope.async(Dispatchers.IO) {
             val result = MainRepository(url!!).getData(requestModel)
             if (result.body() != null) {
-
-                viewModelScope.launch(Dispatchers.Main) {
-                    Toast.makeText(context, result.body()!!.Message, Toast.LENGTH_LONG).show()
-                }
                 if (result.body()!!.Status.equals("1")) {
-                    dataShow.postValue(true)
+                    setResponseModel.postValue(result.body())
                 } else {
-                    dataShow.postValue(false)
+                    setResponseModel.postValue(result.body())
                 }
                 Log.e("TAG", "setDataToApi: ${result.body()!!.Message}")
             }

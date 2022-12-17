@@ -37,7 +37,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.getResponseModel.observe(this){
             if(it != null){
                 if(it.Status.equals("1")){
+                    binding.editDiamondSize.text.clear()
                     startActivity(Intent(this,AddMoneyDetailActivity::class.java))
+                    finish()
                 }else{
                     Toast.makeText(this,it.Message,Toast.LENGTH_LONG).show()
                 }
