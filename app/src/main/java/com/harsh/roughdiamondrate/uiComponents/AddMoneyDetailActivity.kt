@@ -88,6 +88,6 @@ class AddMoneyDetailActivity : AppCompatActivity() {
     }
 
     private fun resetEditText(editText: EditText) {
-        editText.text = null
+        editText.text.clear()
     }
 }

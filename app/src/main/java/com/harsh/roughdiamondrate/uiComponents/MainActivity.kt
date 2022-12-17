@@ -2,9 +2,11 @@
 
 package com.harsh.roughdiamondrate.uiComponents
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.harsh.roughdiamondrate.Utility
@@ -31,6 +33,15 @@ class MainActivity : AppCompatActivity() {
                 binding.layoutPolishReport.visibility = View.GONE
             }
 
+        }
+        viewModel.getResponseModel.observe(this){
+            if(it != null){
+                if(it.Status.equals("1")){
+                    startActivity(Intent(this,AddMoneyDetailActivity::class.java))
+                }else{
+                    Toast.makeText(this,it.Message,Toast.LENGTH_LONG).show()
+                }
+            }
         }
 
 
@@ -67,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun checkError(): Boolean {
+    private fun checkError(): Boolean {
         return if (Utility.getTextFromEditText(binding.editRFPrice).isEmpty()) {
             false
         } else if (Utility.getTextFromEditText(binding.editRFTaka).isEmpty()) {

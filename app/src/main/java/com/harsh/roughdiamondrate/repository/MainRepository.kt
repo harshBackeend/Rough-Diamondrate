@@ -12,9 +12,9 @@ class MainRepository(baseUrl:String) {
     var apiInterface: ApiInterface? = null
 
     init {
-        if (apiInterface == null){
+      /*  if (apiInterface == null){*/
             apiInterface = RetrofitHelper.getInstance(baseUrl).create(ApiInterface::class.java)
-        }
+//        }
     }
 
     suspend fun getData(password:RequestModel):Response<ResponseModel> = apiInterface!!.getData(password)

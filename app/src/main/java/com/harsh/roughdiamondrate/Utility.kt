@@ -2,6 +2,7 @@ package com.harsh.roughdiamondrate
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -37,6 +38,14 @@ public class Utility {
                 view = View(activity)
             }
             imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+
+        fun printLog(tag: String,message: String){
+            if(BuildConfig.DEBUG){
+                if(tag.isNotEmpty() && message.isNotEmpty()){
+                    Log.e(tag,message)
+                }
+            }
         }
 
     }

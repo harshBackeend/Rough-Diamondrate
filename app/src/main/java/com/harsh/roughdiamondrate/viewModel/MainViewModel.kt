@@ -19,11 +19,14 @@ import kotlinx.coroutines.launch
 class MainViewModel : ViewModel() {
 
     val baseUrl =
-        "https://script.google.com/macros/s/AKfycbxcZhrjxnwiHGKcSMKjks-PMRokQhxeXeBnjP2EgrHI86clWxGtDcZNj3tk2SvABQrM/"
+        "https://script.google.com/macros/s/AKfycbx68bdreUEcNGx8xAp_d2F49lbPeJxihRNKaDTWdXLsAK3gUsKYA9ImKeAzsL2CtWwj/"
 
     private val getRateData = MutableLiveData<Float>()
+    private val setResponseModel = MutableLiveData<ResponseModel>()
     val getRate: LiveData<Float>
         get() = getRateData
+    val getResponseModel: LiveData<ResponseModel>
+        get() = setResponseModel
 
 
     @Suppress("NAME_SHADOWING")
@@ -52,17 +55,19 @@ class MainViewModel : ViewModel() {
     }
 
     fun getUrl(password: String,context: Context) {
+        Log.e("getUrl", "getUrl: $password", )
         val requestModel = RequestModel(code = password)
         viewModelScope.launch(Dispatchers.IO) {
             val result = MainRepository(baseUrl).getData(requestModel)
             if (result.body() != null) {
+                setResponseModel.postValue(result.body())
                 if (result.body()!!.Status.equals("1")) {
                     val url = result.body()!!.data!![0].url
                     Log.e("TAG", "getUrl: $url", )
+                    Utility.setSharedPreferences(context,ApiUrlKey.firstUrl, url!!)
 //                    viewModelScope.launch(Dispatchers.IO){
-                        Utility.setSharedPreferences(context,ApiUrlKey.firstUrl, url!!)
 //                    }
-                    context.startActivity(Intent(context,AddMoneyDetailActivity::class.java))
+//                    context.startActivity(Intent(context,AddMoneyDetailActivity::class.java))
                 }
             }
         }
