@@ -12,8 +12,6 @@ import com.harsh.roughdiamondrate.model.ApiUrlKey
 import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.model.ResponseModel
 import com.harsh.roughdiamondrate.repository.MainRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
