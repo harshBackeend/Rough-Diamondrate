@@ -7,8 +7,11 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-public class Utility {
+class Utility {
 
     companion object{
 
@@ -18,7 +21,7 @@ public class Utility {
         fun showToast(context: Context,message:String,duration:Int){
             Toast.makeText(context,message,duration).show()
         }
-        suspend fun setSharedPreferences(activity: Context, Key: String, Value: String) {
+        fun setSharedPreferences(activity: Context, Key: String, Value: String) {
             val sharedpreferences =
                 activity.getSharedPreferences(activity.resources.getString(R.string.app_name), Context.MODE_PRIVATE)
             val editor = sharedpreferences.edit()
@@ -46,6 +49,11 @@ public class Utility {
                     Log.e(tag,message)
                 }
             }
+        }
+
+        fun CoroutineScope.launchIO(block: suspend (CoroutineScope) -> Unit) = this.launch(
+            Dispatchers.IO) {
+            block(this)
         }
 
     }

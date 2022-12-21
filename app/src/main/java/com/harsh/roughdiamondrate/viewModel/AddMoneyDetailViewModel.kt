@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harsh.roughdiamondrate.Utility
+import com.harsh.roughdiamondrate.Utility.Companion.launchIO
 import com.harsh.roughdiamondrate.model.ApiUrlKey
 import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.model.ResponseModel
@@ -15,10 +16,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class AddMoneyDetailViewModel : ViewModel() {
-
-    private var setResponseModel: MutableLiveData<ResponseModel> = MutableLiveData()
-    val getResponseModel: LiveData<ResponseModel>
-        get() = setResponseModel
 
 
     fun setDataToApi(
@@ -30,7 +27,8 @@ class AddMoneyDetailViewModel : ViewModel() {
         withdrawalNumber: String,
         detail: String,
         context: Context
-    ) {
+    ) :LiveData<ResponseModel> {
+        val responseModel by lazy { MutableLiveData<ResponseModel>() }
 
         val requestModel = RequestModel(
             dateValue = dateValue, paltyName = paltyName,
@@ -39,23 +37,15 @@ class AddMoneyDetailViewModel : ViewModel() {
         )
         Utility.printLog("startApi",dateValue)
         val url = Utility.getSharedPreferences(context, ApiUrlKey.firstUrl)
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launchIO{
             val result = MainRepository(url!!).getData(requestModel)
             if (result.body() != null) {
-                if (result.body()!!.Status.equals("1")) {
-                    setResponseModel.postValue(result.body())
-                } else {
-                    setResponseModel.postValue(result.body())
-                }
+                responseModel.postValue(result.body())
                 Log.e("TAG", "setDataToApi: ${result.body()!!.Message}")
             }
         }
-//        return if(job.isCompleted){
-//            apiResponse!!.Status.equals("1")
-//        }else{
-//            false
-//        }
 
+        return responseModel
     }
 
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harsh.roughdiamondrate.Utility
+import com.harsh.roughdiamondrate.Utility.Companion.launchIO
 import com.harsh.roughdiamondrate.model.ApiUrlKey
 import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.model.ResponseModel
@@ -19,12 +20,9 @@ class MainViewModel : ViewModel() {
     val baseUrl =
         "https://script.google.com/macros/s/AKfycbx68bdreUEcNGx8xAp_d2F49lbPeJxihRNKaDTWdXLsAK3gUsKYA9ImKeAzsL2CtWwj/"
 
-    private val getRateData = MutableLiveData<Float>()
-    private val setResponseModel = MutableLiveData<ResponseModel>()
+    private val getRateData by lazy { MutableLiveData<Float>() }
     val getRate: LiveData<Float>
         get() = getRateData
-    val getResponseModel: LiveData<ResponseModel>
-        get() = setResponseModel
 
 
     @Suppress("NAME_SHADOWING")
@@ -36,6 +34,7 @@ class MainViewModel : ViewModel() {
         editDiamondPolishResult: String,
         editProfitInPercentage: String
     ) {
+
 
         val editRFPrice: Float? = editRFPrice.trim().toFloatOrNull()
         val editRFTaka: Float? = editRFTaka.toFloatOrNull()
@@ -52,24 +51,22 @@ class MainViewModel : ViewModel() {
         getRateData.postValue(0F)
     }
 
-    fun getUrl(password: String,context: Context) {
-        Log.e("getUrl", "getUrl: $password", )
+    fun getUrl(password: String, context: Context): LiveData<ResponseModel> {
+        val responseModel by lazy { MutableLiveData<ResponseModel>() }
         val requestModel = RequestModel(code = password)
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launchIO {
             val result = MainRepository(baseUrl).getData(requestModel)
             if (result.body() != null) {
-                setResponseModel.postValue(result.body())
                 if (result.body()!!.Status.equals("1")) {
                     val url = result.body()!!.data!![0].url
-                    Log.e("TAG", "getUrl: $url", )
-                    Utility.setSharedPreferences(context,ApiUrlKey.firstUrl, url!!)
+                    Log.e("TAG", "getUrl: $url")
+                    Utility.setSharedPreferences(context, ApiUrlKey.firstUrl, url!!)
                 }
+                responseModel.postValue(result.body())
             }
         }
-
-
+        return responseModel
     }
-
 
 }
 

@@ -36,20 +36,6 @@ class MainActivity : AppCompatActivity() {
             } else {
                 binding.layoutPolishReport.visibility = View.GONE
             }
-
-        }
-        viewModel.getResponseModel.observe(this){
-            if(it != null){
-                if(it.Status.equals("1")){
-                    binding.buttonGetRate.isEnabled = true
-                    progressBar.dismiss()
-                    binding.editDiamondSize.text.clear()
-                    startActivity(Intent(this, AddMoneyDetailActivity::class.java))
-                    finish()
-                }else{
-                    Toast.makeText(this,it.Message,Toast.LENGTH_LONG).show()
-                }
-            }
         }
 
 
@@ -75,7 +61,18 @@ class MainActivity : AppCompatActivity() {
                     progressBar = ProgressBar.getDialog(this)
                     progressBar.setCancelable(false)
                     progressBar.show()
-                    viewModel.getUrl(Utility.getTextFromEditText(binding.editDiamondSize),this)
+                    viewModel.getUrl(Utility.getTextFromEditText(binding.editDiamondSize), this)
+                        .observe(this) {
+                            if (it.Status.equals("1")) {
+                                binding.buttonGetRate.isEnabled = true
+                                progressBar.dismiss()
+                                binding.editDiamondSize.text.clear()
+                                startActivity(Intent(this, AddMoneyDetailActivity::class.java))
+                                finish()
+                            } else {
+                                Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
+                            }
+                        }
                 }
             }
         }

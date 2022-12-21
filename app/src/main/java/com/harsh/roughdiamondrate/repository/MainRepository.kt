@@ -9,7 +9,7 @@ import retrofit2.Response
 class MainRepository(baseUrl:String) {
 
     @Volatile
-    var apiInterface: ApiInterface? = null
+    lateinit var apiInterface: ApiInterface
 
     init {
       /*  if (apiInterface == null){*/
@@ -17,5 +17,5 @@ class MainRepository(baseUrl:String) {
 //        }
     }
 
-    suspend fun getData(password:RequestModel):Response<ResponseModel> = apiInterface!!.getData(password)
+    suspend fun getData(password:RequestModel):Response<ResponseModel> = apiInterface.getData(password)
 }

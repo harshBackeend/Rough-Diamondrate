@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object RetrofitHelper {
-    var gson = GsonBuilder()
+    private val gson = GsonBuilder()
         .setLenient()
         .create()
 
