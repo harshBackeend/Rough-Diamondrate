@@ -1,7 +1,6 @@
 package com.harsh.roughdiamondrate.viewModel
 
 import android.content.Context
-import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,7 +11,6 @@ import com.harsh.roughdiamondrate.model.ApiUrlKey
 import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.model.ResponseModel
 import com.harsh.roughdiamondrate.repository.MainRepository
-import com.harsh.roughdiamondrate.uiComponents.AddMoneyDetailActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -65,9 +63,6 @@ class MainViewModel : ViewModel() {
                     val url = result.body()!!.data!![0].url
                     Log.e("TAG", "getUrl: $url", )
                     Utility.setSharedPreferences(context,ApiUrlKey.firstUrl, url!!)
-//                    viewModelScope.launch(Dispatchers.IO){
-//                    }
-//                    context.startActivity(Intent(context,AddMoneyDetailActivity::class.java))
                 }
             }
         }

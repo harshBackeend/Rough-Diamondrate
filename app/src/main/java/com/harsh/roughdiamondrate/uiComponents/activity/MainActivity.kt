@@ -1,7 +1,8 @@
 @file:Suppress("NAME_SHADOWING")
 
-package com.harsh.roughdiamondrate.uiComponents
+package com.harsh.roughdiamondrate.uiComponents.activity
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -11,12 +12,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ActivityMainBinding
+import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
 import com.harsh.roughdiamondrate.viewModel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
+    private lateinit var progressBar: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getRate.observe(this) {
             Log.e("TAG", "onCreate: $it")
+            binding.buttonGetRate.isEnabled = true
             if (it > 0) {
                 binding.textPolishReport.text = it.toString()
                 binding.layoutPolishReport.visibility = View.VISIBLE
@@ -37,8 +41,10 @@ class MainActivity : AppCompatActivity() {
         viewModel.getResponseModel.observe(this){
             if(it != null){
                 if(it.Status.equals("1")){
+                    binding.buttonGetRate.isEnabled = true
+                    progressBar.dismiss()
                     binding.editDiamondSize.text.clear()
-                    startActivity(Intent(this,AddMoneyDetailActivity::class.java))
+                    startActivity(Intent(this, AddMoneyDetailActivity::class.java))
                     finish()
                 }else{
                     Toast.makeText(this,it.Message,Toast.LENGTH_LONG).show()
@@ -48,6 +54,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.buttonGetRate.setOnClickListener {
+            binding.buttonGetRate.isEnabled = false
             if (checkError()) {
                 viewModel.getRateFromUi(
                     Utility.getTextFromEditText(binding.editRFPrice),
@@ -65,17 +72,20 @@ class MainActivity : AppCompatActivity() {
                     Utility.getTextFromEditText(binding.editDiamondPolishResult).isEmpty() &&
                     Utility.getTextFromEditText(binding.editProfitInPercentage).isEmpty()
                 ) {
+                    progressBar = ProgressBar.getDialog(this)
+                    progressBar.setCancelable(false)
+                    progressBar.show()
                     viewModel.getUrl(Utility.getTextFromEditText(binding.editDiamondSize),this)
                 }
             }
         }
         binding.buttonReset.setOnClickListener {
-            binding.editRFPrice.text = null
-            binding.editRFTaka.text = null
-            binding.editDiamondSize.text = null
-            binding.editDiamondMajuri.text = null
-            binding.editDiamondPolishResult.text = null
-            binding.editProfitInPercentage.text = null
+            binding.editRFPrice.text.clear()
+            binding.editRFTaka.text.clear()
+            binding.editDiamondSize.text.clear()
+            binding.editDiamondMajuri.text.clear()
+            binding.editDiamondPolishResult.text.clear()
+            binding.editProfitInPercentage.text.clear()
             viewModel.resetRateData()
         }
     }

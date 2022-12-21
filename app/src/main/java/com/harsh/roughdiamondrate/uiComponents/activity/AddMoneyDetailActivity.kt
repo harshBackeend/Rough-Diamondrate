@@ -1,7 +1,8 @@
-package com.harsh.roughdiamondrate.uiComponents
+package com.harsh.roughdiamondrate.uiComponents.activity
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ActivityAddMoneyDetailBinding
+import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
 import com.harsh.roughdiamondrate.viewModel.AddMoneyDetailViewModel
 import java.util.*
 
@@ -20,6 +22,7 @@ class AddMoneyDetailActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityAddMoneyDetailBinding
     lateinit var viewModel: AddMoneyDetailViewModel
+    lateinit var progressBar: Dialog
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,8 +59,10 @@ class AddMoneyDetailActivity : AppCompatActivity() {
 
         viewModel.getResponseModel.observe(this) {
             Log.e("TAG", "onCreate: $it")
-            Toast.makeText(this,it.Message,Toast.LENGTH_LONG).show()
+            Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
             if (it.Status.equals("1")) {
+                progressBar.dismiss()
+                binding.buttonSend.isEnabled = true
                 resetEditText(binding.editDeposit)
                 resetEditText(binding.editDepositNumber)
                 resetEditText(binding.editWithdrawal)
@@ -72,6 +77,10 @@ class AddMoneyDetailActivity : AppCompatActivity() {
 
 
         binding.buttonSend.setOnClickListener {
+            progressBar = ProgressBar.getDialog(this)
+            progressBar.setCancelable(false)
+            progressBar.show()
+            binding.buttonSend.isEnabled = false
             viewModel.setDataToApi(
                 Utility.getTextFromEditText(binding.editDate),
                 Utility.getTextFromEditText(binding.editPaltyName),

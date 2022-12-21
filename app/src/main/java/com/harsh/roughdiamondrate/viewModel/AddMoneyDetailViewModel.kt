@@ -2,7 +2,6 @@ package com.harsh.roughdiamondrate.viewModel
 
 import android.content.Context
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,7 +12,6 @@ import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.model.ResponseModel
 import com.harsh.roughdiamondrate.repository.MainRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class AddMoneyDetailViewModel : ViewModel() {
@@ -41,7 +39,7 @@ class AddMoneyDetailViewModel : ViewModel() {
         )
         Utility.printLog("startApi",dateValue)
         val url = Utility.getSharedPreferences(context, ApiUrlKey.firstUrl)
-        viewModelScope.async(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.IO) {
             val result = MainRepository(url!!).getData(requestModel)
             if (result.body() != null) {
                 if (result.body()!!.Status.equals("1")) {

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/c_f3e5f6"
     android:orientation="vertical"
-    tools:context=".uiComponents.MainActivity">
+    tools:context=".uiComponents.activity.MainActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
