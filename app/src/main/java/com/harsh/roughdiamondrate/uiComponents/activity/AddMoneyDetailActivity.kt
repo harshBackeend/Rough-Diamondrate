@@ -57,25 +57,6 @@ class AddMoneyDetailActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.getResponseModel.observe(this) {
-            Log.e("TAG", "onCreate: $it")
-            Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
-            if (it.Status.equals("1")) {
-                progressBar.dismiss()
-                binding.buttonSend.isEnabled = true
-                resetEditText(binding.editDeposit)
-                resetEditText(binding.editDepositNumber)
-                resetEditText(binding.editWithdrawal)
-                resetEditText(binding.editWithdrawalNumber)
-                resetEditText(binding.editDetail)
-                resetEditText(binding.editDate)
-                resetEditText(binding.editPaltyName)
-            }
-        }
-
-
-
-
         binding.buttonSend.setOnClickListener {
             progressBar = ProgressBar.getDialog(this)
             progressBar.setCancelable(false)
@@ -90,7 +71,21 @@ class AddMoneyDetailActivity : AppCompatActivity() {
                 Utility.getTextFromEditText(binding.editWithdrawalNumber),
                 Utility.getTextFromEditText(binding.editDetail),
                 this
-            )
+            ).observe(this) {
+                Log.e("TAG", "onCreate: $it")
+                Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
+                if (it.Status.equals("1")) {
+                    progressBar.dismiss()
+                    binding.buttonSend.isEnabled = true
+                    resetEditText(binding.editDeposit)
+                    resetEditText(binding.editDepositNumber)
+                    resetEditText(binding.editWithdrawal)
+                    resetEditText(binding.editWithdrawalNumber)
+                    resetEditText(binding.editDetail)
+                    resetEditText(binding.editDate)
+                    resetEditText(binding.editPaltyName)
+                }
+            }
         }
 
 
