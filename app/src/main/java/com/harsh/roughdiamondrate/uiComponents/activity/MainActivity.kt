@@ -67,9 +67,10 @@ class MainActivity : AppCompatActivity() {
                                 binding.buttonGetRate.isEnabled = true
                                 progressBar.dismiss()
                                 binding.editDiamondSize.text.clear()
-                                startActivity(Intent(this, AddMoneyDetailActivity::class.java))
+                                startActivity(Intent(this, ShowPartyList::class.java))
                                 finish()
                             } else {
+                                progressBar.dismiss()
                                 Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
                             }
                         }

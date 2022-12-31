@@ -3,6 +3,7 @@ package com.harsh.roughdiamondrate.uiComponents.activity
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ActivityAddMoneyDetailBinding
+import com.harsh.roughdiamondrate.model.IntentKey
 import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
 import com.harsh.roughdiamondrate.viewModel.AddMoneyDetailViewModel
 import java.util.*
@@ -30,6 +32,12 @@ class AddMoneyDetailActivity : AppCompatActivity() {
         binding = ActivityAddMoneyDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[AddMoneyDetailViewModel::class.java]
+
+
+        if (intent != null) {
+            val partyName: String = intent.getStringExtra(IntentKey.partyName)!!.toString()
+            binding.editPaltyName.setText(partyName)
+        }
 
         binding.editDate.setOnClickListener {
             val c = Calendar.getInstance()
@@ -84,6 +92,11 @@ class AddMoneyDetailActivity : AppCompatActivity() {
                     resetEditText(binding.editDetail)
                     resetEditText(binding.editDate)
                     resetEditText(binding.editPaltyName)
+                    startActivity(Intent(this,ShowPartyList::class.java))
+                    finish()
+                }else{
+                    progressBar.dismiss()
+                    Toast.makeText(this,it.Message,Toast.LENGTH_LONG).show()
                 }
             }
         }

@@ -13,35 +13,14 @@ import com.harsh.roughdiamondrate.model.MethodName
 import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.model.ResponseModel
 import com.harsh.roughdiamondrate.repository.MainRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-class AddMoneyDetailViewModel : ViewModel() {
+class ShowPartyListViewModel : ViewModel() {
 
-
-    fun setDataToApi(
-        dateValue: String,
-        paltyName: String,
-        deposit: String,
-        depositNumber: String,
-        withdrawal: String,
-        withdrawalNumber: String,
-        detail: String,
-        context: Context
-    ): LiveData<ResponseModel> {
+    fun getPartyList(context: Context): LiveData<ResponseModel> {
         val responseModel by lazy { MutableLiveData<ResponseModel>() }
 
-        val requestModel = RequestModel(
-            dateValue = dateValue,
-            paltyName = paltyName,
-            deposit = deposit,
-            depositNumber = depositNumber,
-            withdrawal = withdrawal,
-            withdrawalNumber = withdrawalNumber,
-            detail = detail,
-            methodName = MethodName.insertData
-        )
-        Utility.printLog("startApi", dateValue)
+        val requestModel = RequestModel(methodName = MethodName.getList)
+
         val url = Utility.getSharedPreferences(context, ApiUrlKey.firstUrl)
         viewModelScope.launchIO {
             val result = MainRepository(url!!).getData(requestModel)
@@ -54,5 +33,4 @@ class AddMoneyDetailViewModel : ViewModel() {
 
         return responseModel
     }
-
 }

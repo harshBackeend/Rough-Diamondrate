@@ -1,13 +1,14 @@
 package com.harsh.roughdiamondrate.uiComponents.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.harsh.roughdiamondrate.databinding.PartyListItemBinding
 import com.harsh.roughdiamondrate.model.Data
+import com.harsh.roughdiamondrate.model.IntentKey
+import com.harsh.roughdiamondrate.uiComponents.activity.AddMoneyDetailActivity
 
 class PartyListAdapter(val partyList: ArrayList<Data>, val context: Context) :
     RecyclerView.Adapter<PartyListAdapter.ViewHolder>() {
@@ -18,15 +19,22 @@ class PartyListAdapter(val partyList: ArrayList<Data>, val context: Context) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             PartyListItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+                LayoutInflater.from(parent.context), parent, false
             )
         )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val model = partyList[position]
+
+        holder.partyListItemBinding.textPartyName.text = model.partyName
+        holder.partyListItemBinding.textPartyTotal.text = model.partyTotal
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, AddMoneyDetailActivity::class.java)
+            intent.putExtra(IntentKey.partyName, model.partyName)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = partyList.size
