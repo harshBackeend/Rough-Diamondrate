@@ -28,7 +28,7 @@
                 android:paddingHorizontal="@dimen/_8sdp">
 
                 <TextView
-                    style="@style/textViewAndEditText"
+                    style="@style/textViewForForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -58,7 +58,7 @@
                         tools:ignore="DuplicateSpeakableTextCheck,NestedWeights,TouchTargetSizeCheck" />
 
                     <TextView
-                        style="@style/textViewAndEditText"
+                        style="@style/textViewForForm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/Rs" />
@@ -75,7 +75,7 @@
                 android:paddingHorizontal="@dimen/_8sdp">
 
                 <TextView
-                    style="@style/textViewAndEditText"
+                    style="@style/textViewForForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -105,7 +105,7 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <TextView
-                        style="@style/textViewAndEditText"
+                        style="@style/textViewForForm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/taka" />
@@ -122,7 +122,7 @@
                 android:paddingHorizontal="@dimen/_8sdp">
 
                 <TextView
-                    style="@style/textViewAndEditText"
+                    style="@style/textViewForForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -151,7 +151,7 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <TextView
-                        style="@style/textViewAndEditText"
+                        style="@style/textViewForForm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/pcs" />
@@ -168,7 +168,7 @@
                 android:paddingHorizontal="@dimen/_8sdp">
 
                 <TextView
-                    style="@style/textViewAndEditText"
+                    style="@style/textViewForForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -198,7 +198,7 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <TextView
-                        style="@style/textViewAndEditText"
+                        style="@style/textViewForForm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/Rs" />
@@ -215,7 +215,7 @@
                 android:paddingHorizontal="@dimen/_8sdp">
 
                 <TextView
-                    style="@style/textViewAndEditText"
+                    style="@style/textViewForForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -245,7 +245,7 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <TextView
-                        style="@style/textViewAndEditText"
+                        style="@style/textViewForForm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/taka" />
@@ -262,7 +262,7 @@
                 android:paddingHorizontal="@dimen/_8sdp">
 
                 <TextView
-                    style="@style/textViewAndEditText"
+                    style="@style/textViewForForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -292,7 +292,7 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <TextView
-                        style="@style/textViewAndEditText"
+                        style="@style/textViewForForm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/taka" />
@@ -335,7 +335,7 @@
                 android:visibility="gone">
 
                 <TextView
-                    style="@style/textViewAndEditText"
+                    style="@style/textViewForForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:includeFontPadding="false"
@@ -343,7 +343,7 @@
 
                 <TextView
                     android:id="@+id/textPolishReport"
-                    style="@style/textViewAndEditText"
+                    style="@style/textViewForForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_4sdp"
@@ -351,7 +351,7 @@
                     tools:text="@string/_1000" />
 
                 <TextView
-                    style="@style/textViewAndEditText"
+                    style="@style/textViewForForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_2sdp"

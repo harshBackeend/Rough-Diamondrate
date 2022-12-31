@@ -15,8 +15,7 @@ import com.harsh.roughdiamondrate.repository.MainRepository
 
 class MainViewModel : ViewModel() {
 
-    val baseUrl =
-        "https://script.google.com/macros/s/AKfycbx68bdreUEcNGx8xAp_d2F49lbPeJxihRNKaDTWdXLsAK3gUsKYA9ImKeAzsL2CtWwj/"
+    val baseUrl = "https://script.google.com/macros/s/AKfycbx68bdreUEcNGx8xAp_d2F49lbPeJxihRNKaDTWdXLsAK3gUsKYA9ImKeAzsL2CtWwj/"
 
     private val getRateData by lazy { MutableLiveData<Float>() }
     val getRate: LiveData<Float>

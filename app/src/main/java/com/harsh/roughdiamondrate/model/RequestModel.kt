@@ -21,5 +21,7 @@ data class RequestModel(
     @SerializedName("withdrawalNumber")
     var withdrawalNumber: String? = null,
     @SerializedName("detail")
-    var detail: String? = null
+    var detail: String? = null,
+    @SerializedName("methodName")
+    var methodName: String? = null
 )

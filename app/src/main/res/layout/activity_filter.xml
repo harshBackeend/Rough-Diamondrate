@@ -59,7 +59,7 @@
 
                 <TextView
                     android:id="@+id/editKatStatus"
-                    style="@style/textViewFilter"
+                    style="@style/textViewForForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_color_white_1sdp"
@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        style="@style/textViewFilter"
+                        style="@style/textViewForForm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/border_color_white_1sdp"

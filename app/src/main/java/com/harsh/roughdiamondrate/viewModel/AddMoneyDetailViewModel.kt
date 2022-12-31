@@ -30,11 +30,12 @@ class AddMoneyDetailViewModel : ViewModel() {
     ) :LiveData<ResponseModel> {
         val responseModel by lazy { MutableLiveData<ResponseModel>() }
 
-        val requestModel = RequestModel(
-            dateValue = dateValue, paltyName = paltyName,
-            deposit = deposit, depositNumber = depositNumber,
-            withdrawal = withdrawal, withdrawalNumber = withdrawalNumber, detail = detail
-        )
+//        val requestModel = RequestModel(
+//            dateValue = dateValue, paltyName = paltyName,
+//            deposit = deposit, depositNumber = depositNumber,
+//            withdrawal = withdrawal, withdrawalNumber = withdrawalNumber, detail = detail
+//        )
+        val requestModel = RequestModel(methodName = "getList")
         Utility.printLog("startApi",dateValue)
         val url = Utility.getSharedPreferences(context, ApiUrlKey.firstUrl)
         viewModelScope.launchIO{
@@ -42,6 +43,7 @@ class AddMoneyDetailViewModel : ViewModel() {
             if (result.body() != null) {
                 responseModel.postValue(result.body())
                 Log.e("TAG", "setDataToApi: ${result.body()!!.Message}")
+                Log.e("TAG", "getApi data : ${result.body()}")
             }
         }
 
