@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,93 +7,24 @@
     tools:context=".uiComponents.activity.FilterActivity"
     tools:ignore="SpeakableTextPresentCheck">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewPartyHistory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.9"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/editKatNumber"
-                    style="@style/editTextFilter"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border_color_white_1sdp"
-                    android:hint="@string/kat_number"
-                    android:includeFontPadding="false"
-                    android:paddingVertical="@dimen/_8sdp"
-                    android:paddingStart="@dimen/_10sdp"
-                    tools:ignore="DuplicateSpeakableTextCheck,NestedWeights,RtlSymmetry,TouchTargetSizeCheck" />
-
-
-                <Button
-                    android:id="@+id/getData"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_30sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/solid_color_6a1b9a"
-                    android:includeFontPadding="false"
-                    android:text="@string/get_kat_information"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/editKatStatus"
-                    style="@style/textViewForForm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/border_color_white_1sdp"
-                    android:gravity="center"
-                    android:includeFontPadding="false"
-                    android:paddingVertical="@dimen/_8sdp"
-                    tools:text="@string/katnustatus" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        style="@style/textViewForForm"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/border_color_white_1sdp"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:paddingVertical="@dimen/_8sdp"
-                        tools:text="@string/katnustatus" />
-
-
-
-                </LinearLayout>
-
-            </LinearLayout>
+                tools:listitem="@layout/list_of_history_layout" />
 
 
         </LinearLayout>
 
+    </androidx.core.widget.NestedScrollView>
 
-    </LinearLayout>
-
-</androidx.core.widget.NestedScrollView>
+</LinearLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/dateText"
+                style="@style/textViewForTableLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_2sdp"
+                tools:text="25" />
+
+            <TextView
+                android:id="@+id/partyName"
+                style="@style/textViewForTableLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_2sdp"
+                tools:text="25" />
+
+            <TextView
+                android:id="@+id/depositText"
+                style="@style/textViewForTableLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_2sdp"
+                tools:text="25" />
+
+            <TextView
+                android:id="@+id/depositNumberText"
+                style="@style/textViewForTableLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_2sdp"
+                tools:text="25" />
+
+            <TextView
+                android:id="@+id/creditText"
+                style="@style/textViewForTableLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_2sdp"
+                tools:text="25" />
+
+            <TextView
+                android:id="@+id/creditNumberText"
+                style="@style/textViewForTableLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_2sdp"
+                tools:text="25" />
+
+            <TextView
+                android:id="@+id/detailText"
+                style="@style/textViewForTableLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingVertical="@dimen/_2sdp"
+                tools:text="25" />
+
+        </TableRow>
+
+    </TableLayout>
+
+
+</LinearLayout>

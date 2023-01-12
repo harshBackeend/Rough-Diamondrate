@@ -9,6 +9,7 @@ import com.harsh.roughdiamondrate.databinding.PartyListItemBinding
 import com.harsh.roughdiamondrate.model.Data
 import com.harsh.roughdiamondrate.model.IntentKey
 import com.harsh.roughdiamondrate.uiComponents.activity.AddMoneyDetailActivity
+import com.harsh.roughdiamondrate.uiComponents.activity.FilterActivity
 
 class PartyListAdapter(val partyList: ArrayList<Data>, val context: Context) :
     RecyclerView.Adapter<PartyListAdapter.ViewHolder>() {
@@ -31,7 +32,7 @@ class PartyListAdapter(val partyList: ArrayList<Data>, val context: Context) :
         holder.partyListItemBinding.textPartyTotal.text = model.partyTotal
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, AddMoneyDetailActivity::class.java)
+            val intent = Intent(context, FilterActivity::class.java)
             intent.putExtra(IntentKey.partyName, model.partyName)
             context.startActivity(intent)
         }
