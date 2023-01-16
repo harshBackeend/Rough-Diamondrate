@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName
 data class ResponseModel(
 
     @SerializedName("Message")
-    var Message: String? = null,
+    var Message: String,
     @SerializedName("Status")
-    var Status: String? = null,
+    var Status: String,
     @SerializedName("Data")
-    var data: ArrayList<Data>? = null
+    var data: ArrayList<Data>
 )

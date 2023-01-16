@@ -36,7 +36,7 @@ class ShowPartyList : AppCompatActivity() {
         viewModel.getPartyList(this).observe(this) {
             if (it.Status.equals("1")) {
                 progressBar.dismiss()
-                val adapter by lazy { PartyListAdapter(it.data!!, this) }
+                val adapter by lazy { PartyListAdapter(it.data, this) }
                 binding.recyclerViewPartyLis.layoutManager = LinearLayoutManager(this)
                 binding.recyclerViewPartyLis.adapter = adapter
             } else {

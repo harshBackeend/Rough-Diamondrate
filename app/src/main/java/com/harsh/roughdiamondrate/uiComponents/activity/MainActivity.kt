@@ -63,8 +63,8 @@ class MainActivity : AppCompatActivity() {
                     progressBar.show()
                     viewModel.getUrl(Utility.getTextFromEditText(binding.editDiamondSize), this)
                         .observe(this) {
+                            binding.buttonGetRate.isEnabled = true
                             if (it.Status.equals("1")) {
-                                binding.buttonGetRate.isEnabled = true
                                 progressBar.dismiss()
                                 binding.editDiamondSize.text.clear()
                                 startActivity(Intent(this, ShowPartyList::class.java))
