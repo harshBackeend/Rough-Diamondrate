@@ -1,10 +1,10 @@
 package com.harsh.roughdiamondrate.uiComponents.activity
 
 import android.app.Dialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.harsh.roughdiamondrate.Utility
@@ -29,22 +29,36 @@ class FilterActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[FilterViewModel::class.java]
 
         if (intent != null) {
-            progressBar = ProgressBar.getDialog(this)
-            progressBar.setCancelable(false)
-            progressBar.show()
             partyName = intent.getStringExtra(IntentKey.partyName)!!.toString()
-            viewModel.getHistory(this, partyName).observe(this) {
-                progressBar.dismiss()
-                if (it.Status == "1") {
-                    val adapter by lazy { HistoryAdapter(it.data) }
-                    binding.recyclerViewPartyHistory.layoutManager = LinearLayoutManager(this)
-                    binding.recyclerViewPartyHistory.adapter = adapter
-                } else {
-                    Utility.showToast(this, it.Message, Toast.LENGTH_LONG)
-                }
-            }
         }
 
+        binding.enterDetails.setOnClickListener {
+            if (partyName.isNotEmpty()) {
+                val intent = Intent(this, AddMoneyDetailActivity::class.java)
+                intent.putExtra(IntentKey.partyName, partyName)
+                startActivity(intent)
+            }
 
+        }
     }
+
+    override fun onStart() {
+        super.onStart()
+        progressBar = ProgressBar.getDialog(this)
+        progressBar.setCancelable(false)
+        progressBar.show()
+        viewModel.getHistory(this, partyName).observe(this) {
+            progressBar.dismiss()
+            if (it.Status == "1") {
+                binding.totalPayment.text = it.totalAmount
+                val adapter by lazy { HistoryAdapter(it.data) }
+                binding.recyclerViewPartyHistory.layoutManager = LinearLayoutManager(this)
+                binding.recyclerViewPartyHistory.adapter = adapter
+            } else {
+                binding.totalPayment.text = "0"
+                Utility.showToast(this, it.Message, Toast.LENGTH_LONG)
+            }
+        }
+    }
+
 }

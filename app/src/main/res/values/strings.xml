@@ -30,4 +30,6 @@
     <string name="withdrawal">ઉપાડ</string>
     <string name="detail">વિગત</string>
     <string name="send">મોકલો</string>
+    <string name="totalamount">ટોટલ રકમ :</string>
+    <string name="enter_details">વિગત નાખો.</string>
 </resources>

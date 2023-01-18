@@ -3,7 +3,6 @@ package com.harsh.roughdiamondrate.uiComponents.activity
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -92,7 +91,6 @@ class AddMoneyDetailActivity : AppCompatActivity() {
                     resetEditText(binding.editDetail)
                     resetEditText(binding.editDate)
                     resetEditText(binding.editPaltyName)
-                    startActivity(Intent(this,ShowPartyList::class.java))
                     finish()
                 }else{
                     progressBar.dismiss()

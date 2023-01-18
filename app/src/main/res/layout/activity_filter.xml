@@ -4,13 +4,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".uiComponents.activity.FilterActivity"
     tools:ignore="SpeakableTextPresentCheck">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:paddingHorizontal="@dimen/_5sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/totalamount"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+
+            <TextView
+                android:id="@+id/totalPayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                tools:text="@string/_1000"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/enterDetails"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/white"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_14ssp"
+            android:background="@drawable/solid_color_6a1b9a"
+            android:fadeScrollbars="false"
+            android:text="@string/enter_details"
+            tools:ignore="RelativeOverlap" />
+
+    </RelativeLayout>
+
+
     <HorizontalScrollView
         android:layout_width="match_parent"
-        android:scrollbars="none"
         android:layout_height="wrap_content"
+        android:scrollbars="none"
         tools:ignore="UselessParent">
 
         <LinearLayout

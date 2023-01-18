@@ -23,11 +23,15 @@ class FilterViewModel : ViewModel() {
 
         val url = Utility.getSharedPreferences(context, ApiUrlKey.firstUrl)
         viewModelScope.launchIO {
-            val result = MainRepository(url!!).getData(requestModel)
-            if (result.body() != null) {
-                responseModel.postValue(result.body())
-                Log.e("TAG", "setDataToApi: ${result.body()!!.Message}")
-                Log.e("TAG", "getApi data : ${result.body()}")
+            try {
+                val result = MainRepository(url!!).getData(requestModel)
+                if (result.body() != null) {
+                    responseModel.postValue(result.body())
+                    Log.e("TAG", "setDataToApi: ${result.body()!!.Message}")
+                    Log.e("TAG", "getApi data : ${result.body()}")
+                }
+            } catch (error: Exception) {
+                Utility.printLog("respons", error.message.toString())
             }
         }
         return responseModel

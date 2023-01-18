@@ -8,6 +8,8 @@ data class ResponseModel(
     var Message: String,
     @SerializedName("Status")
     var Status: String,
+    @SerializedName("totalAmount")
+    var totalAmount: String,
     @SerializedName("Data")
     var data: ArrayList<Data>
 )
