@@ -26,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
                 android:hint="@string/date"
-                android:padding="@dimen/_7sdp" />
+                android:padding="@dimen/_7sdp"
+                tools:ignore="Autofill,TextFields,TouchTargetSizeCheck" />
 
             <EditText
                 android:id="@+id/editPaltyName"
@@ -37,7 +38,8 @@
                 android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
                 android:hint="@string/paltyName"
                 android:inputType="textPersonName"
-                android:padding="@dimen/_7sdp" />
+                android:padding="@dimen/_7sdp"
+                tools:ignore="Autofill,TouchTargetSizeCheck" />
 
             <EditText
                 android:id="@+id/editDeposit"
@@ -48,7 +50,8 @@
                 android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
                 android:hint="@string/deposit"
                 android:inputType="number"
-                android:padding="@dimen/_7sdp" />
+                android:padding="@dimen/_7sdp"
+                tools:ignore="Autofill,TouchTargetSizeCheck" />
 
             <EditText
                 android:id="@+id/editDepositNumber"
@@ -59,7 +62,8 @@
                 android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
                 android:hint="@string/no"
                 android:inputType="number"
-                android:padding="@dimen/_7sdp" />
+                android:padding="@dimen/_7sdp"
+                tools:ignore="Autofill,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
             <EditText
                 android:id="@+id/editWithdrawal"
@@ -70,7 +74,8 @@
                 android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
                 android:hint="@string/withdrawal"
                 android:inputType="number"
-                android:padding="@dimen/_7sdp" />
+                android:padding="@dimen/_7sdp"
+                tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
             <EditText
                 android:id="@+id/editWithdrawalNumber"
@@ -81,7 +86,8 @@
                 android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
                 android:hint="@string/no"
                 android:inputType="number"
-                android:padding="@dimen/_7sdp" />
+                android:padding="@dimen/_7sdp"
+                tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
             <EditText
                 android:id="@+id/editDetail"
@@ -92,7 +98,8 @@
                 android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
                 android:hint="@string/detail"
                 android:inputType="textMultiLine"
-                android:padding="@dimen/_7sdp" />
+                android:padding="@dimen/_7sdp"
+                tools:ignore="Autofill,TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/buttonSend"
