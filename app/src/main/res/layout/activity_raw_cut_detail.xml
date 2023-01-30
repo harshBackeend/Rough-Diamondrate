@@ -8,13 +8,14 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_10sdp">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_10sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+
             android:orientation="vertical">
 
             <EditText
@@ -22,11 +23,147 @@
                 style="@style/editTextFilter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
                 android:hint="@string/date"
-                android:padding="@dimen/_7sdp"
-                tools:ignore="Autofill,TextFields,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+                android:inputType="date"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/mainKatNumber"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/main_kat_no"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/no"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/no"
+                android:inputType="text"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/katName"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/kat_name"
+                android:inputType="textPersonName"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/maineWeight"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/maine_weight"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/bag"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/bag"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/weight"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/weight"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/price"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/price"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/dollarPrice"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/dollar_price"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/brokeragePrice"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/brokerage_price"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/sellingPrice"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/selling_price"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/totalPrice"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/total_price"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/numberWeight"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/number_weight"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 
