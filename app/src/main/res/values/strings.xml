@@ -46,4 +46,6 @@
     <string name="number_price">નંબર ભાવ</string>
     <string name="number_percentage">નંબર %</string>
     <string name="number_rate">નંબર ₹</string>
+    <string name="final_price">ફાઈનલ ભાવ</string>
+    <string name="month">મહિનો</string>
 </resources>
