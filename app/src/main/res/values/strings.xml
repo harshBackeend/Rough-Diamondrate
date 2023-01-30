@@ -41,6 +41,9 @@
     <string name="dollar_price">ડોલર</string>
     <string name="brokerage_price">દલાલી</string>
     <string name="selling_price">વેચ વાનો નો ભાવ</string>
-    <string name="total_price">ટોટલ ભાવ</string>
+    <string name="total_price">₹</string>
     <string name="number_weight">નંબર વજન</string>
+    <string name="number_price">નંબર ભાવ</string>
+    <string name="number_percentage">નંબર %</string>
+    <string name="number_rate">નંબર ₹</string>
 </resources>

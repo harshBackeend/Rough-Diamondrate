@@ -161,6 +161,38 @@
                 android:inputType="number"
                 tools:ignore="Autofill,VisualLintTextFieldSize" />
 
+            <EditText
+                android:id="@+id/numberPrice"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/number_price"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/numberPercentage"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/number_percentage"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+            <EditText
+                android:id="@+id/numberTotalPrice"
+                style="@style/editTextFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
+                android:hint="@string/number_rate"
+                android:inputType="number"
+                tools:ignore="Autofill,VisualLintTextFieldSize" />
 
         </LinearLayout>
 
