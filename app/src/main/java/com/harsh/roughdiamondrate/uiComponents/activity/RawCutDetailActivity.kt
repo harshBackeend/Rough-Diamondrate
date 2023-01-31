@@ -14,6 +14,7 @@ import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ActivityRawCutDetailBinding
 import java.util.*
 import kotlin.collections.HashMap
+import kotlin.math.roundToInt
 
 class RawCutDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRawCutDetailBinding
@@ -27,9 +28,10 @@ class RawCutDetailActivity : AppCompatActivity() {
         liveData = MutableLiveData<HashMap<String, Double>>()
         val hashMap = kotlin.collections.HashMap<String, Double>()
 
-        hashMap["weight"] =0.00
-        hashMap["price"] =0.00
-        hashMap["dollarPrice"] =0.00
+        hashMap["weight"] = 0.00
+        hashMap["price"] = 0.00
+        hashMap["dollarPrice"] = 0.00
+        hashMap["brokeragePrice"] = 0.00
 
         binding.editDate.setOnClickListener {
             val c = Calendar.getInstance()
@@ -88,6 +90,7 @@ class RawCutDetailActivity : AppCompatActivity() {
                 liveData.postValue(hashMap)
             }
         })
+
         binding.dollarPrice.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -105,9 +108,39 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
         })
 
-        /*liveData.observe(this) {
+        binding.brokeragePrice.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+                hashMap["brokeragePrice"] = p0.toString().toDouble()
+
+                liveData.postValue(hashMap)
+            }
+        })
+
+        liveData.observe(this) {
             Utility.printLog("weight", it["weight"].toString())
             Utility.printLog("price", it["price"].toString())
-        }*/
+            val constant = 100
+            val firstSum:Double = it["weight"]!! * it["price"]!! * it["dollarPrice"]!!
+            var secondSum = 0.00
+            if(it["brokeragePrice"]!! > 0.00){
+                secondSum = firstSum * (it["brokeragePrice"]!!/constant)
+            }
+            if(secondSum > 0.00){
+                Utility.printLog("secondSum","$secondSum")
+                binding.sellingPrice.setText("${(firstSum + secondSum).roundToInt()}")
+            }else{
+                binding.sellingPrice.setText("0")
+            }
+        }
     }
+
 }
