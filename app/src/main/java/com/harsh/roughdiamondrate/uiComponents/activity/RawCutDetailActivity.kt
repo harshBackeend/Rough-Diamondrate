@@ -29,6 +29,7 @@ class RawCutDetailActivity : AppCompatActivity() {
 
         hashMap["weight"] =0.00
         hashMap["price"] =0.00
+        hashMap["dollarPrice"] =0.00
 
         binding.editDate.setOnClickListener {
             val c = Calendar.getInstance()
@@ -66,9 +67,7 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-
                 hashMap["weight"] = p0.toString().toDouble()
-
                 liveData.postValue(hashMap)
             }
         })
@@ -89,10 +88,26 @@ class RawCutDetailActivity : AppCompatActivity() {
                 liveData.postValue(hashMap)
             }
         })
+        binding.dollarPrice.addTextChangedListener(object : TextWatcher {
 
-        liveData.observe(this) {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+                hashMap["dollarPrice"] = p0.toString().toDouble()
+
+                liveData.postValue(hashMap)
+            }
+        })
+
+        /*liveData.observe(this) {
             Utility.printLog("weight", it["weight"].toString())
             Utility.printLog("price", it["price"].toString())
-        }
+        }*/
     }
 }
