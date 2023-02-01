@@ -2,18 +2,21 @@ package com.harsh.roughdiamondrate.uiComponents.activity
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
+import android.view.View
 import android.view.View.OnFocusChangeListener
+import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ActivityRawCutDetailBinding
 import java.util.*
-import kotlin.collections.HashMap
 import kotlin.math.roundToInt
 
 class RawCutDetailActivity : AppCompatActivity() {
@@ -27,6 +30,10 @@ class RawCutDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         liveData = MutableLiveData<HashMap<String, Double>>()
         val hashMap = kotlin.collections.HashMap<String, Double>()
+        /**
+         * This code use for focus editText from layoutHolder.
+         */
+        requestFouc(binding.layoutMainKat, binding.mainKatNumber)
 
         hashMap["weight"] = 0.00
         hashMap["price"] = 0.00
@@ -61,10 +68,6 @@ class RawCutDetailActivity : AppCompatActivity() {
 
         binding.layoutDate.setOnClickListener {
             binding.editDate.performClick()
-        }
-
-        binding.layoutMainKat.setOnClickListener {
-            binding.mainKatNumber.requestFocus()
         }
 
         binding.weight.addTextChangedListener(object : TextWatcher {
@@ -148,6 +151,15 @@ class RawCutDetailActivity : AppCompatActivity() {
             } else {
                 binding.sellingPrice.setText("0")
             }
+        }
+    }
+
+    private fun requestFouc(view: View, editText: EditText) {
+        view.setOnClickListener {
+            editText.requestFocus()
+            val imm: InputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
         }
     }
 

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".uiComponents.activity.RawCutDetailActivity">
 
@@ -67,29 +68,49 @@
 
             </LinearLayout>
 
-            <!--<EditText
-                android:id="@+id/editDate"
-                style="@style/editTextFilter"
+            <LinearLayout
+                android:id="@+id/layoutNo"
+                style="@style/layoutHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/textViewAndEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/no" />
+
+                <EditText
+                    android:id="@+id/no"
+                    style="@style/textViewAndEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    tools:ignore="Autofill,LabelFor,TouchTargetSizeCheck,VisualLintTextFieldSize,SpeakableTextPresentCheck" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/filledTextField"
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/date"
-                android:inputType="date"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />-->
+                android:hint="Enter something">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text"
+                    android:layout_width="match_parent"
+                    android:theme="@style/textViewAndEditText"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <!--<EditText
-                android:id="@+id/mainKatNumber"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/main_kat_no"
-                android:inputType="numberDecimal"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />-->
-
-            <EditText
                 android:id="@+id/no"
                 style="@style/editTextFilter"
                 android:layout_width="match_parent"
@@ -98,7 +119,7 @@
                 android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
                 android:hint="@string/no"
                 android:inputType="text"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+                tools:ignore="Autofill,VisualLintTextFieldSize" />-->
 
             <EditText
                 android:id="@+id/katName"
