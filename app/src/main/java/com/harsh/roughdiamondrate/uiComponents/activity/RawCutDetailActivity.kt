@@ -198,7 +198,6 @@ class RawCutDetailActivity : AppCompatActivity() {
             if (it["weight"]!! > it["numberWeight"]!!) {
                 binding.finalPrice.setText("${((it["sellingPrice"]!! - it["numberTotalPrice"]!!) / (it["weight"]!! - it["numberWeight"]!!)).roundToInt()}")
             }
-
         }
     }
 
