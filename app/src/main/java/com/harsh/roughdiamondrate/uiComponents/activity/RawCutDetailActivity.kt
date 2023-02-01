@@ -51,12 +51,16 @@ class RawCutDetailActivity : AppCompatActivity() {
             datePickerDialog.show()
         }
 
-        binding.editDate.inputType = InputType.TYPE_NULL
+        /*binding.editDate.inputType = InputType.TYPE_NULL
         binding.editDate.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 Utility.hideKeyboard(this)
                 binding.editDate.performClick()
             }
+        }*/
+
+        binding.layoutDate.setOnClickListener {
+            binding.editDate.performClick()
         }
 
         binding.weight.addTextChangedListener(object : TextWatcher {

@@ -15,10 +15,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_10sdp"
-
             android:orientation="vertical">
 
-            <EditText
+            <LinearLayout
+                android:id="@+id/layoutDate"
+                style="@style/layoutHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <TextView
+                    style="@style/textViewAndEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/date" />
+
+                <EditText
+                    android:id="@+id/editDate"
+                    style="@style/textViewAndEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:importantForAutofill="no"
+                    android:inputType="date"
+                    tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+            </LinearLayout>
+
+            <!--<EditText
                 android:id="@+id/editDate"
                 style="@style/editTextFilter"
                 android:layout_width="match_parent"
@@ -27,7 +51,7 @@
                 android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
                 android:hint="@string/date"
                 android:inputType="date"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+                tools:ignore="Autofill,VisualLintTextFieldSize" />-->
 
             <EditText
                 android:id="@+id/mainKatNumber"
