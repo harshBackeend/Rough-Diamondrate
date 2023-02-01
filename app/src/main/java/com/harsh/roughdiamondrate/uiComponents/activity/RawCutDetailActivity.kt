@@ -42,6 +42,8 @@ class RawCutDetailActivity : AppCompatActivity() {
         hashMap["price"] = 0.00
         hashMap["dollarPrice"] = 0.00
         hashMap["brokeragePrice"] = 0.00
+        hashMap["sellingPrice"] = 0.00
+        hashMap["numberWeight"] = 0.00
 
         binding.editDate.setOnClickListener {
             val c = Calendar.getInstance()
@@ -51,8 +53,7 @@ class RawCutDetailActivity : AppCompatActivity() {
 
             val datePickerDialog = DatePickerDialog(
                 this, { _: DatePicker?, year: Int, monthOfYear: Int, dayOfMonth: Int ->
-                    val day =
-                        if (dayOfMonth > 9) dayOfMonth.toString() else "0$dayOfMonth"
+                    val day = if (dayOfMonth > 9) dayOfMonth.toString() else "0$dayOfMonth"
                     val month =
                         if (monthOfYear + 1 > 9) (monthOfYear + 1).toString() else "0" + (monthOfYear + 1)
                     binding.editDate.setText("$day/$month/$year")
@@ -138,22 +139,45 @@ class RawCutDetailActivity : AppCompatActivity() {
                 liveData.postValue(hashMap)
             }
         })
+        binding.numberWeight.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+                hashMap["numberWeight"] = p0.toString().toDouble()
+
+                liveData.postValue(hashMap)
+            }
+        })
+
 
         liveData.observe(this) {
             Utility.printLog("weight", it["weight"].toString())
             Utility.printLog("price", it["price"].toString())
             val constant = 100
-            val firstSum: Double = it["weight"]!! * it["price"]!! * it["dollarPrice"]!!
             var secondSum = 0.00
             if (it["brokeragePrice"]!! > 0.00) {
-                secondSum = firstSum * (it["brokeragePrice"]!! / constant)
+                secondSum =
+                    it["weight"]!! * it["price"]!! * it["dollarPrice"]!! * (it["brokeragePrice"]!! / constant)
             }
             if (secondSum > 0.00) {
                 Utility.printLog("secondSum", "$secondSum")
-                binding.sellingPrice.setText("${(firstSum + secondSum).roundToInt()}")
-            } else {
-                binding.sellingPrice.setText("0")
+                hashMap["sellingPrice"] =
+                    it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum.roundToInt()
+                binding.sellingPrice.setText("${(it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum).roundToInt()}")
             }
+
+            if (it["weight"]!! > 0.00) {
+                binding.totalPrice.setText("${it["sellingPrice"]!! / it["weight"]!!}")
+                binding.numberPercentage.setText("${it["numberWeight"]!! / (it["weight"]!! / constant)}")
+            }
+
         }
     }
 
