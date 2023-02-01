@@ -11,7 +11,6 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/_10sdp">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -162,115 +161,184 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/dollarPrice"
-                style="@style/editTextFilter"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/dollar_price"
-                android:inputType="numberDecimal"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+                android:hint="@string/dollar_price">
 
-            <EditText
-                android:id="@+id/brokeragePrice"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/brokerage_price"
-                android:inputType="numberDecimal"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dollarPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
 
-            <EditText
-                android:id="@+id/sellingPrice"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/india_rs_symbol"
-                android:inputType="numberDecimal"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/totalPrice"
-                style="@style/editTextFilter"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/total_price"
-                android:inputType="numberDecimal"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+                android:hint="@string/brokerage_price">
 
-            <EditText
-                android:id="@+id/numberWeight"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/number_weight"
-                android:inputType="numberDecimal"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/brokeragePrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
 
-            <EditText
-                android:id="@+id/numberPrice"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/number_price"
-                android:inputType="numberDecimal"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/numberPercentage"
-                style="@style/editTextFilter"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/number_percentage"
-                android:inputType="numberDecimal"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+                android:hint="@string/india_rs_symbol">
 
-            <EditText
-                android:id="@+id/numberTotalPrice"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/number_rate"
-                android:inputType="numberDecimal"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/sellingPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
 
-            <EditText
-                android:id="@+id/finalPrice"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/final_price"
-                android:inputType="numberDecimal"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/editDetail"
-                style="@style/editTextFilter"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/detail"
-                android:inputType="textMultiLine"
-                tools:ignore="Autofill,VisualLintTextFieldSize" />
+                android:hint="@string/total_price">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/totalPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_weight">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/numberWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_price">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/numberPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_percentage">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/numberPercentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/number_rate">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/numberTotalPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/final_price">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/finalPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/detail">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
