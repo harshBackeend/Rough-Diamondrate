@@ -20,7 +20,14 @@ import java.util.*
 import kotlin.math.roundToInt
 
 class RawCutDetailActivity : AppCompatActivity() {
+    /**
+     * This use for bind xml file to java file.
+     */
     private lateinit var binding: ActivityRawCutDetailBinding
+
+    /**
+     * This use for live calculation in this activity.
+     */
     private lateinit var liveData: MutableLiveData<HashMap<String, Double>>
 
     @SuppressLint("SetTextI18n")
@@ -30,10 +37,6 @@ class RawCutDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         liveData = MutableLiveData<HashMap<String, Double>>()
         val hashMap = kotlin.collections.HashMap<String, Double>()
-        /**
-         * This code use for focus editText from layoutHolder.
-         */
-        requestFouc(binding.layoutMainKat, binding.mainKatNumber)
 
         hashMap["weight"] = 0.00
         hashMap["price"] = 0.00
@@ -154,13 +157,5 @@ class RawCutDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun requestFouc(view: View, editText: EditText) {
-        view.setOnClickListener {
-            editText.requestFocus()
-            val imm: InputMethodManager =
-                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
-        }
-    }
 
 }
