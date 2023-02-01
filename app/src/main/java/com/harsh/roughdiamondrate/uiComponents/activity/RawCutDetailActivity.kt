@@ -51,16 +51,20 @@ class RawCutDetailActivity : AppCompatActivity() {
             datePickerDialog.show()
         }
 
-        /*binding.editDate.inputType = InputType.TYPE_NULL
+        binding.editDate.inputType = InputType.TYPE_NULL
         binding.editDate.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 Utility.hideKeyboard(this)
                 binding.editDate.performClick()
             }
-        }*/
+        }
 
         binding.layoutDate.setOnClickListener {
             binding.editDate.performClick()
+        }
+
+        binding.layoutMainKat.setOnClickListener {
+            binding.mainKatNumber.requestFocus()
         }
 
         binding.weight.addTextChangedListener(object : TextWatcher {
@@ -133,15 +137,15 @@ class RawCutDetailActivity : AppCompatActivity() {
             Utility.printLog("weight", it["weight"].toString())
             Utility.printLog("price", it["price"].toString())
             val constant = 100
-            val firstSum:Double = it["weight"]!! * it["price"]!! * it["dollarPrice"]!!
+            val firstSum: Double = it["weight"]!! * it["price"]!! * it["dollarPrice"]!!
             var secondSum = 0.00
-            if(it["brokeragePrice"]!! > 0.00){
-                secondSum = firstSum * (it["brokeragePrice"]!!/constant)
+            if (it["brokeragePrice"]!! > 0.00) {
+                secondSum = firstSum * (it["brokeragePrice"]!! / constant)
             }
-            if(secondSum > 0.00){
-                Utility.printLog("secondSum","$secondSum")
+            if (secondSum > 0.00) {
+                Utility.printLog("secondSum", "$secondSum")
                 binding.sellingPrice.setText("${(firstSum + secondSum).roundToInt()}")
-            }else{
+            } else {
                 binding.sellingPrice.setText("0")
             }
         }
