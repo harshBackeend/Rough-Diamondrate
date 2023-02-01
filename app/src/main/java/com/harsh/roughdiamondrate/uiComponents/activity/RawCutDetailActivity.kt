@@ -2,16 +2,12 @@ package com.harsh.roughdiamondrate.uiComponents.activity
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
-import android.view.View
 import android.view.View.OnFocusChangeListener
-import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import com.harsh.roughdiamondrate.Utility
@@ -44,6 +40,8 @@ class RawCutDetailActivity : AppCompatActivity() {
         hashMap["brokeragePrice"] = 0.00
         hashMap["sellingPrice"] = 0.00
         hashMap["numberWeight"] = 0.00
+        hashMap["numberPrice"] = 0.00
+        hashMap["numberTotalPrice"] = 0.00
 
         binding.editDate.setOnClickListener {
             val c = Calendar.getInstance()
@@ -139,6 +137,7 @@ class RawCutDetailActivity : AppCompatActivity() {
                 liveData.postValue(hashMap)
             }
         })
+
         binding.numberWeight.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -156,10 +155,24 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
         })
 
+        binding.numberPrice.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+                hashMap["numberPrice"] = p0.toString().toDouble()
+
+                liveData.postValue(hashMap)
+            }
+        })
 
         liveData.observe(this) {
-            Utility.printLog("weight", it["weight"].toString())
-            Utility.printLog("price", it["price"].toString())
             val constant = 100
             var secondSum = 0.00
             if (it["brokeragePrice"]!! > 0.00) {
@@ -167,15 +180,23 @@ class RawCutDetailActivity : AppCompatActivity() {
                     it["weight"]!! * it["price"]!! * it["dollarPrice"]!! * (it["brokeragePrice"]!! / constant)
             }
             if (secondSum > 0.00) {
-                Utility.printLog("secondSum", "$secondSum")
                 hashMap["sellingPrice"] =
                     it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum.roundToInt()
                 binding.sellingPrice.setText("${(it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum).roundToInt()}")
             }
 
             if (it["weight"]!! > 0.00) {
-                binding.totalPrice.setText("${it["sellingPrice"]!! / it["weight"]!!}")
-                binding.numberPercentage.setText("${it["numberWeight"]!! / (it["weight"]!! / constant)}")
+                binding.totalPrice.setText("${(it["sellingPrice"]!! / it["weight"]!!).roundToInt()}")
+                binding.numberPercentage.setText("${(it["numberWeight"]!! / (it["weight"]!! / constant)).roundToInt()}")
+            }
+
+            if (it["numberWeight"]!! > 0 && it["numberPrice"]!! > 0) {
+                hashMap["numberTotalPrice"] = it["numberWeight"]!! * it["numberPrice"]!!
+                binding.numberTotalPrice.setText("${(it["numberWeight"]!! * it["numberPrice"]!!).roundToInt()}")
+            }
+
+            if (it["weight"]!! > it["numberWeight"]!!) {
+                binding.finalPrice.setText("${((it["sellingPrice"]!! - it["numberTotalPrice"]!!) / (it["weight"]!! - it["numberWeight"]!!)).roundToInt()}")
             }
 
         }
