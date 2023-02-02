@@ -340,7 +340,15 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
+            <Button
+                android:id="@+id/buttonSend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@drawable/solid_color_6a1b9a"
+                android:text="@string/send"
+                android:textSize="@dimen/_15ssp"
+                tools:ignore="VisualLintButtonSize" />
 
         </LinearLayout>
 

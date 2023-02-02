@@ -50,4 +50,5 @@
     <string name="month">મહિનો</string>
     <string name="total_price">ટોટલ ભાવ</string>
     <string name="money">પૈસા</string>
+    <string name="raw_cut">કાચી કટ</string>
 </resources>
