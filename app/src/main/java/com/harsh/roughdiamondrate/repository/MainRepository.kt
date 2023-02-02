@@ -9,7 +9,7 @@ import retrofit2.Response
 class MainRepository(baseUrl:String) {
 
     @Volatile
-    lateinit var apiInterface: ApiInterface
+    var apiInterface: ApiInterface
 
     init {
       /*  if (apiInterface == null){*/

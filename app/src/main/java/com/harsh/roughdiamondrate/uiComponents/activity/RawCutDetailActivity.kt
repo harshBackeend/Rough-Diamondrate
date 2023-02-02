@@ -93,9 +93,13 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (p0!!.isNotEmpty()) {
-                    hashMap["weight"] = p0.toString().toDouble()
-                    liveData.postValue(hashMap)
+                try {
+                    if (p0!!.isNotEmpty()) {
+                        hashMap["weight"] = p0.toString().toDouble()
+                        liveData.postValue(hashMap)
+                    }
+                } catch (e: Exception) {
+
                 }
             }
         })
@@ -110,9 +114,14 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (p0!!.isNotEmpty()) {
-                    hashMap["price"] = p0.toString().toDouble()
-                    liveData.postValue(hashMap)
+                try {
+
+                    if (p0!!.isNotEmpty()) {
+                        hashMap["price"] = p0.toString().toDouble()
+                        liveData.postValue(hashMap)
+                    }
+                } catch (e: Exception) {
+
                 }
 
             }
@@ -128,9 +137,13 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (p0!!.isNotEmpty()) {
-                    hashMap["dollarPrice"] = p0.toString().toDouble()
-                    liveData.postValue(hashMap)
+                try {
+                    if (p0!!.isNotEmpty()) {
+                        hashMap["dollarPrice"] = p0.toString().toDouble()
+                        liveData.postValue(hashMap)
+                    }
+                } catch (e: Exception) {
+
                 }
 
             }
@@ -146,10 +159,15 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (p0!!.isNotEmpty()) {
-                    hashMap["brokeragePrice"] = p0.toString().toDouble()
-                    liveData.postValue(hashMap)
+                try {
+                    if (p0!!.isNotEmpty()) {
+                        hashMap["brokeragePrice"] = p0.toString().toDouble()
+                        liveData.postValue(hashMap)
+                    }
+                } catch (e: Exception) {
+
                 }
+
 
             }
         })
@@ -164,10 +182,15 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (p0!!.isNotEmpty()) {
-                    hashMap["numberWeight"] = p0.toString().toDouble()
-                    liveData.postValue(hashMap)
+                try {
+                    if (p0!!.isNotEmpty()) {
+                        hashMap["numberWeight"] = p0.toString().toDouble()
+                        liveData.postValue(hashMap)
+                    }
+                } catch (e: Exception) {
+
                 }
+
 
             }
         })
@@ -182,9 +205,13 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (p0!!.isNotEmpty()) {
-                    hashMap["numberPrice"] = p0.toString().toDouble()
-                    liveData.postValue(hashMap)
+                try {
+                    if (p0!!.isNotEmpty()) {
+                        hashMap["numberPrice"] = p0.toString().toDouble()
+                        liveData.postValue(hashMap)
+                    }
+                } catch (e: Exception) {
+
                 }
 
             }

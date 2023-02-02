@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "542232971077",
+    "project_id": "rawdiamondeastimate",
+    "storage_bucket": "rawdiamondeastimate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542232971077:android:415818c3bd89f3c479a02c",
+        "android_client_info": {
+          "package_name": "com.harsh.roughdiamondrate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542232971077-9s82brvtntcftv8jh8vs48c4352d23f7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJuUjUXzSsZr7mf36rTFJ_I9S6R9pE2d4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542232971077-9s82brvtntcftv8jh8vs48c4352d23f7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
