@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                             if (it.Status.equals("1")) {
                                 progressBar.dismiss()
                                 binding.editDiamondSize.text.clear()
-                                startActivity(Intent(this, ShowPartyList::class.java))
+                                startActivity(Intent(this, MenuActivity::class.java))
                                 finish()
                             } else {
                                 progressBar.dismiss()

@@ -15,25 +15,17 @@
         android:theme="@style/Theme.RoughDiamondEastimate"
         tools:targetApi="31">
         <activity
+            android:name=".uiComponents.activity.MenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".uiComponents.activity.ShowPartyList"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".uiComponents.activity.AddMoneyDetailActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".uiComponents.activity.FilterActivity"
-            android:exported="false">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".uiComponents.activity.MainActivity"
             android:exported="true">
