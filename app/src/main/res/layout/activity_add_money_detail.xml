@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,94 +15,142 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/editDate"
-                style="@style/editTextFilter"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutDate"
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/date"
-                tools:ignore="Autofill,TextFields,TouchTargetSizeCheck" />
+                android:hint="@string/date">
 
-            <EditText
-                android:id="@+id/editPaltyName"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/paltyName"
-                android:inputType="textPersonName"
-                tools:ignore="Autofill,TouchTargetSizeCheck" />
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
 
-            <EditText
-                android:id="@+id/editDeposit"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/deposit"
-                android:inputType="number"
-                tools:ignore="Autofill,TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/editDepositNumber"
-                style="@style/editTextFilter"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/no"
-                android:inputType="number"
-                tools:ignore="Autofill,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+                android:hint="@string/paltyName">
 
-            <EditText
-                android:id="@+id/editWithdrawal"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/withdrawal"
-                android:inputType="number"
-                tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editPaltyName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
 
-            <EditText
-                android:id="@+id/editWithdrawalNumber"
-                style="@style/editTextFilter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/no"
-                android:inputType="number"
-                tools:ignore="Autofill,TouchTargetSizeCheck,VisualLintTextFieldSize" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/editDetail"
-                style="@style/editTextFilter"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/border_color_6a1b9a_1sdp_r_10sdp"
-                android:hint="@string/detail"
-                android:inputType="textMultiLine"
-                tools:ignore="Autofill,TouchTargetSizeCheck" />
+                android:hint="@string/deposit">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editDeposit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/no">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editDepositNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/withdrawal">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editWithdrawal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/no">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editWithdrawalNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/detail">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:theme="@style/textViewAndEditText"
+                    tools:ignore="VisualLintTextFieldSize" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/buttonSend"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:layout_weight="1"
                 android:background="@drawable/solid_color_6a1b9a"
-                android:fadeScrollbars="false"
                 android:text="@string/send"
-                android:textSize="@dimen/_15ssp" />
+                android:textSize="@dimen/_15ssp"
+                tools:ignore="VisualLintButtonSize" />
 
         </LinearLayout>
 
