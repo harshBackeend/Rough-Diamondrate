@@ -2,16 +2,23 @@ package com.harsh.roughdiamondrate.uiComponents.activity
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View.OnFocusChangeListener
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModelProvider
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ActivityRawCutDetailBinding
+import com.harsh.roughdiamondrate.model.ValidationModel
+import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
+import com.harsh.roughdiamondrate.viewModel.RawCutDetailViewModel
 import java.util.*
 import kotlin.math.roundToInt
 
@@ -25,12 +32,16 @@ class RawCutDetailActivity : AppCompatActivity() {
      * This use for live calculation in this activity.
      */
     private lateinit var liveData: MutableLiveData<HashMap<String, Double>>
+    private lateinit var progressBar: Dialog
+    lateinit var viewModel: RawCutDetailViewModel
+
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRawCutDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModel = ViewModelProvider(this)[RawCutDetailViewModel::class.java]
         liveData = MutableLiveData<HashMap<String, Double>>()
         val hashMap = kotlin.collections.HashMap<String, Double>()
 
@@ -82,8 +93,10 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                hashMap["weight"] = p0.toString().toDouble()
-                liveData.postValue(hashMap)
+                if (p0!!.isNotEmpty()) {
+                    hashMap["weight"] = p0.toString().toDouble()
+                    liveData.postValue(hashMap)
+                }
             }
         })
 
@@ -97,10 +110,11 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
+                if (p0!!.isNotEmpty()) {
+                    hashMap["price"] = p0.toString().toDouble()
+                    liveData.postValue(hashMap)
+                }
 
-                hashMap["price"] = p0.toString().toDouble()
-
-                liveData.postValue(hashMap)
             }
         })
 
@@ -114,10 +128,11 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
+                if (p0!!.isNotEmpty()) {
+                    hashMap["dollarPrice"] = p0.toString().toDouble()
+                    liveData.postValue(hashMap)
+                }
 
-                hashMap["dollarPrice"] = p0.toString().toDouble()
-
-                liveData.postValue(hashMap)
             }
         })
 
@@ -131,10 +146,11 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
+                if (p0!!.isNotEmpty()) {
+                    hashMap["brokeragePrice"] = p0.toString().toDouble()
+                    liveData.postValue(hashMap)
+                }
 
-                hashMap["brokeragePrice"] = p0.toString().toDouble()
-
-                liveData.postValue(hashMap)
             }
         })
 
@@ -148,10 +164,11 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
+                if (p0!!.isNotEmpty()) {
+                    hashMap["numberWeight"] = p0.toString().toDouble()
+                    liveData.postValue(hashMap)
+                }
 
-                hashMap["numberWeight"] = p0.toString().toDouble()
-
-                liveData.postValue(hashMap)
             }
         })
 
@@ -165,10 +182,11 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
+                if (p0!!.isNotEmpty()) {
+                    hashMap["numberPrice"] = p0.toString().toDouble()
+                    liveData.postValue(hashMap)
+                }
 
-                hashMap["numberPrice"] = p0.toString().toDouble()
-
-                liveData.postValue(hashMap)
             }
         })
 
@@ -198,6 +216,117 @@ class RawCutDetailActivity : AppCompatActivity() {
             if (it["weight"]!! > it["numberWeight"]!!) {
                 binding.finalPrice.setText("${((it["sellingPrice"]!! - it["numberTotalPrice"]!!) / (it["weight"]!! - it["numberWeight"]!!)).roundToInt()}")
             }
+        }
+
+        binding.buttonSend.setOnClickListener {
+            if (isValid()) {
+                progressBar = ProgressBar.getDialog(this)
+                progressBar.setCancelable(false)
+                progressBar.show()
+                binding.buttonSend.isEnabled = false
+                viewModel.setDataToApi(
+                    Utility.getTextFromEditText(binding.editDate),
+                    Utility.getTextFromEditText(binding.mainKatNumber),
+                    Utility.getTextFromEditText(binding.no),
+                    Utility.getTextFromEditText(binding.katName),
+                    Utility.getTextFromEditText(binding.maineWeight),
+                    Utility.getTextFromEditText(binding.bag),
+                    Utility.getTextFromEditText(binding.weight),
+                    Utility.getTextFromEditText(binding.price),
+                    Utility.getTextFromEditText(binding.dollarPrice),
+                    Utility.getTextFromEditText(binding.brokeragePrice),
+                    Utility.getTextFromEditText(binding.sellingPrice),
+                    Utility.getTextFromEditText(binding.totalPrice),
+                    Utility.getTextFromEditText(binding.numberWeight),
+                    Utility.getTextFromEditText(binding.numberPrice),
+                    Utility.getTextFromEditText(binding.numberPercentage),
+                    Utility.getTextFromEditText(binding.numberTotalPrice),
+                    Utility.getTextFromEditText(binding.finalPrice),
+                    Utility.getTextFromEditText(binding.editDetail),
+                    this
+                ).observe(this) {
+                    Log.e("TAG", "onCreate: $it")
+                    Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
+                    if (it.Status == "1") {
+                        progressBar.dismiss()
+                        binding.buttonSend.isEnabled = true
+                        Utility.resetEditText(binding.editDate)
+                        Utility.resetEditText(binding.mainKatNumber)
+                        Utility.resetEditText(binding.no)
+                        Utility.resetEditText(binding.katName)
+                        Utility.resetEditText(binding.maineWeight)
+                        Utility.resetEditText(binding.bag)
+                        Utility.resetEditText(binding.weight)
+                        Utility.resetEditText(binding.price)
+                        Utility.resetEditText(binding.dollarPrice)
+                        Utility.resetEditText(binding.brokeragePrice)
+                        Utility.resetEditText(binding.sellingPrice)
+                        Utility.resetEditText(binding.totalPrice)
+                        Utility.resetEditText(binding.numberWeight)
+                        Utility.resetEditText(binding.numberPrice)
+                        Utility.resetEditText(binding.numberPercentage)
+                        Utility.resetEditText(binding.numberTotalPrice)
+                        Utility.resetEditText(binding.finalPrice)
+                        Utility.resetEditText(binding.editDetail)
+                        finish()
+                    } else {
+                        progressBar.dismiss()
+                        Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
+                    }
+                }
+
+            }
+        }
+    }
+
+    private fun isValid(): Boolean {
+        return if (Utility.getTextFromEditText(binding.editDate).isEmpty()) {
+            Utility.showToast(this, ValidationModel.dateValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.mainKatNumber).isEmpty()) {
+            Utility.showToast(this, ValidationModel.mainKatNumberValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.maineWeight).isEmpty()) {
+            Utility.showToast(this, ValidationModel.maineWeightValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.bag).isEmpty()) {
+            Utility.showToast(this, ValidationModel.bagValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.weight).isEmpty()) {
+            Utility.showToast(this, ValidationModel.weightValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.price).isEmpty()) {
+            Utility.showToast(this, ValidationModel.priceValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.dollarPrice).isEmpty()) {
+            Utility.showToast(this, ValidationModel.dollarPriceValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.brokeragePrice).isEmpty()) {
+            Utility.showToast(this, ValidationModel.brokeragePriceValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.sellingPrice).isEmpty()) {
+            Utility.showToast(this, ValidationModel.sellingPriceValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.totalPrice).isEmpty()) {
+            Utility.showToast(this, ValidationModel.totalPriceValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.numberWeight).isEmpty()) {
+            Utility.showToast(this, ValidationModel.numberWeightValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.numberPrice).isEmpty()) {
+            Utility.showToast(this, ValidationModel.numberPriceValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.numberPercentage).isEmpty()) {
+            Utility.showToast(this, ValidationModel.numberPercentageValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.numberTotalPrice).isEmpty()) {
+            Utility.showToast(this, ValidationModel.numberTotalPriceValidation, Toast.LENGTH_LONG)
+            false
+        } else if (Utility.getTextFromEditText(binding.finalPrice).isEmpty()) {
+            Utility.showToast(this, ValidationModel.finalPriceValidation, Toast.LENGTH_LONG)
+            false
+        } else {
+            true
         }
     }
 

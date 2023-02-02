@@ -86,13 +86,13 @@ class AddMoneyDetailActivity : AppCompatActivity() {
                 if (it.Status.equals("1")) {
                     progressBar.dismiss()
                     binding.buttonSend.isEnabled = true
-                    resetEditText(binding.editDeposit)
-                    resetEditText(binding.editDepositNumber)
-                    resetEditText(binding.editWithdrawal)
-                    resetEditText(binding.editWithdrawalNumber)
-                    resetEditText(binding.editDetail)
-                    resetEditText(binding.editDate)
-                    resetEditText(binding.editPaltyName)
+                    Utility.resetEditText(binding.editDeposit)
+                    Utility.resetEditText(binding.editDepositNumber)
+                    Utility.resetEditText(binding.editWithdrawal)
+                    Utility.resetEditText(binding.editWithdrawalNumber)
+                    Utility.resetEditText(binding.editDetail)
+                    Utility.resetEditText(binding.editDate)
+                    Utility.resetEditText(binding.editPaltyName)
                     finish()
                 } else {
                     progressBar.dismiss()
@@ -104,7 +104,5 @@ class AddMoneyDetailActivity : AppCompatActivity() {
 
     }
 
-    private fun resetEditText(editText: EditText) {
-        editText.text.clear()
-    }
+
 }

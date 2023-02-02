@@ -55,10 +55,9 @@ class MainViewModel : ViewModel() {
             val result = MainRepository(baseUrl).getData(requestModel)
             if (result.body() != null) {
                 if (result.body()!!.Status == "1") {
-                    val url = result.body()!!.data[0].url
-                    Log.e("TAG", "getUrl: $url")
-                    Utility.setSharedPreferences(context, ApiUrlKey.firstUrl, url.toString())
-                    Utility.setSharedPreferences(context, ApiUrlKey.secondUrl, url.toString())
+                    Log.e("TAG", "getUrl: ${result.body()!!.data}")
+                    Utility.setSharedPreferences(context, ApiUrlKey.firstUrl, result.body()!!.data[0].url.toString())
+                    Utility.setSharedPreferences(context, ApiUrlKey.secondUrl, result.body()!!.data[1].url.toString())
                 }
                 responseModel.postValue(result.body())
             }

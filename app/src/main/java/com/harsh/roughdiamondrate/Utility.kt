@@ -13,25 +13,35 @@ import kotlinx.coroutines.launch
 
 class Utility {
 
-    companion object{
+    companion object {
 
-        fun getTextFromEditText(editText: EditText):String{
+        fun getTextFromEditText(editText: EditText): String {
             return editText.text.toString().trim()
         }
-        fun showToast(context: Context,message:String,duration:Int){
-            Toast.makeText(context,message,duration).show()
+
+        fun showToast(context: Context, message: String, duration: Int) {
+            Toast.makeText(context, message, duration).show()
         }
+
         fun setSharedPreferences(activity: Context, Key: String, Value: String) {
             val sharedpreferences =
-                activity.getSharedPreferences(activity.resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+                activity.getSharedPreferences(
+                    activity.resources.getString(R.string.app_name),
+                    Context.MODE_PRIVATE
+                )
             val editor = sharedpreferences.edit()
             editor.putString(Key, Value)
             editor.apply()
         }
+
         fun getSharedPreferences(activity: Context, Key: String?): String? {
-            val sharedpreferences = activity.getSharedPreferences(activity.resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+            val sharedpreferences = activity.getSharedPreferences(
+                activity.resources.getString(R.string.app_name),
+                Context.MODE_PRIVATE
+            )
             return sharedpreferences.getString(Key, "")
         }
+
         fun hideKeyboard(activity: Activity) {
             val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             //Find the currently focused view, so we can grab the correct window token from it.
@@ -43,17 +53,22 @@ class Utility {
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
 
-        fun printLog(tag: String,message: String){
-            if(BuildConfig.DEBUG){
-                if(tag.isNotEmpty() && message.isNotEmpty()){
-                    Log.e(tag,message)
+        fun printLog(tag: String, message: String) {
+            if (BuildConfig.DEBUG) {
+                if (tag.isNotEmpty() && message.isNotEmpty()) {
+                    Log.e(tag, message)
                 }
             }
         }
 
         fun CoroutineScope.launchIO(block: suspend (CoroutineScope) -> Unit) = this.launch(
-            Dispatchers.IO) {
+            Dispatchers.IO
+        ) {
             block(this)
+        }
+
+        fun resetEditText(editText: EditText) {
+            editText.text.clear()
         }
 
 
