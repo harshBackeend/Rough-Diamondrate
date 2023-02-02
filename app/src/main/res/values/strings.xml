@@ -32,5 +32,22 @@
     <string name="send">મોકલો</string>
     <string name="totalamount">ટોટલ રકમ :</string>
     <string name="enter_details">વિગત નાખો.</string>
+    <string name="main_kat_no">મૈન કટ no.</string>
+    <string name="kat_name">કટ નામ</string>
+    <string name="maine_weight">મૈન વજન</string>
+    <string name="bag">થેલી</string>
+    <string name="weight">વજન</string>
+    <string name="price">ભાવ</string>
+    <string name="dollar_price">ડોલર</string>
+    <string name="brokerage_price">દલાલી</string>
+    <string name="selling_price">વેચ વાનો નો ભાવ</string>
+    <string name="india_rs_symbol">₹</string>
+    <string name="number_weight">નંબર વજન</string>
+    <string name="number_price">નંબર ભાવ</string>
+    <string name="number_percentage">નંબર %</string>
+    <string name="number_rate">નંબર ₹</string>
+    <string name="final_price">ફાઈનલ ભાવ</string>
+    <string name="month">મહિનો</string>
+    <string name="total_price">ટોટલ ભાવ</string>
     <string name="money">પૈસા</string>
 </resources>

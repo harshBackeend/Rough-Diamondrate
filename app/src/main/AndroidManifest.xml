@@ -15,20 +15,30 @@
         android:theme="@style/Theme.RoughDiamondEastimate"
         tools:targetApi="31">
         <activity
-            android:name=".uiComponents.activity.MenuActivity"
-            android:exported="false" />
+            android:name=".uiComponents.activity.RawCutDetailActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".uiComponents.activity.ShowPartyList"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".uiComponents.activity.AddMoneyDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".uiComponents.activity.FilterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".uiComponents.activity.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

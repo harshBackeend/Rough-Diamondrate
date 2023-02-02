@@ -35,7 +35,9 @@ class AddMoneyDetailActivity : AppCompatActivity() {
 
         if (intent != null) {
             val partyName: String = intent.getStringExtra(IntentKey.partyName)!!.toString()
-            binding.editPaltyName.setText(partyName)
+            if (partyName.isNotEmpty()) {
+                binding.editPaltyName.setText(partyName)
+            }
         }
 
         binding.editDate.setOnClickListener {
@@ -92,9 +94,9 @@ class AddMoneyDetailActivity : AppCompatActivity() {
                     resetEditText(binding.editDate)
                     resetEditText(binding.editPaltyName)
                     finish()
-                }else{
+                } else {
                     progressBar.dismiss()
-                    Toast.makeText(this,it.Message,Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
                 }
             }
         }
