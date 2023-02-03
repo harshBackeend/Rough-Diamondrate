@@ -117,7 +117,6 @@ class RawCutDetailActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
-
             override fun afterTextChanged(p0: Editable?) {
                 try {
                     if (p0!!.toString() == ".") {
@@ -177,7 +176,7 @@ class RawCutDetailActivity : AppCompatActivity() {
                 try {
                     if (p0!!.toString() == ".") {
                         binding.brokeragePrice.setText("0.")
-                        binding.brokeragePrice.setSelection(Utility.getTextFromEditText(binding.dollarPrice).length)
+                        binding.brokeragePrice.setSelection(Utility.getTextFromEditText(binding.brokeragePrice).length)
                     } else {
                         if (p0.isNotEmpty()) {
                             hashMap["brokeragePrice"] = p0.toString().toDouble()
@@ -247,11 +246,11 @@ class RawCutDetailActivity : AppCompatActivity() {
 
             }
         })
-        binding.sellingPrice.addTextChangedListener(object : TextWatcher {
+        /*binding.sellingPrice.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
 
+            }
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
@@ -272,8 +271,8 @@ class RawCutDetailActivity : AppCompatActivity() {
                 }
 
             }
-        })
-        binding.numberTotalPrice.addTextChangedListener(object : TextWatcher {
+        })*/
+        /*binding.numberTotalPrice.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -298,7 +297,7 @@ class RawCutDetailActivity : AppCompatActivity() {
                 }
 
             }
-        })
+        })*/
 
         liveData.observe(this) {
             val constant = 100
@@ -315,7 +314,7 @@ class RawCutDetailActivity : AppCompatActivity() {
 
             if (it["weight"]!! > 0.00) {
                 binding.totalPrice.setText("${(it["sellingPrice"]!! / it["weight"]!!).roundToInt()}")
-                binding.numberPercentage.setText("${(it["numberWeight"]!! / (it["weight"]!! / constant)).roundToInt()}")
+                binding.numberPercentage.setText("${(it["numberWeight"]!! / (it["weight"]!! / constant)).toFloat()}")
             }
 
             if (it["numberWeight"]!! > 0 && it["numberPrice"]!! > 0) {
