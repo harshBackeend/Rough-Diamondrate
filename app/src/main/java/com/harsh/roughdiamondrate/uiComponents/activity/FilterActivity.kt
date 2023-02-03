@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ActivityFilterBinding
 import com.harsh.roughdiamondrate.model.IntentKey
-import com.harsh.roughdiamondrate.uiComponents.Adapter.HistoryAdapter
+import com.harsh.roughdiamondrate.uiComponents.adapter.HistoryAdapter
 import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
 import com.harsh.roughdiamondrate.viewModel.FilterViewModel
 

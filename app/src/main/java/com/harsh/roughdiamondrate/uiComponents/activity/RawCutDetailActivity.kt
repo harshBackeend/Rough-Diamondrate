@@ -328,7 +328,6 @@ class RawCutDetailActivity : AppCompatActivity() {
         }
 
         binding.buttonSend.setOnClickListener {
-            if (isValid()) {
                 progressBar = ProgressBar.getDialog(this)
                 progressBar.setCancelable(false)
                 progressBar.show()
@@ -385,58 +384,5 @@ class RawCutDetailActivity : AppCompatActivity() {
                 }
 
             }
-        }
     }
-
-    private fun isValid(): Boolean {
-        return if (Utility.getTextFromEditText(binding.editDate).isEmpty()) {
-            Utility.showToast(this, ValidationModel.dateValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.mainKatNumber).isEmpty()) {
-            Utility.showToast(this, ValidationModel.mainKatNumberValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.maineWeight).isEmpty()) {
-            Utility.showToast(this, ValidationModel.maineWeightValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.bag).isEmpty()) {
-            Utility.showToast(this, ValidationModel.bagValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.weight).isEmpty()) {
-            Utility.showToast(this, ValidationModel.weightValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.price).isEmpty()) {
-            Utility.showToast(this, ValidationModel.priceValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.dollarPrice).isEmpty()) {
-            Utility.showToast(this, ValidationModel.dollarPriceValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.brokeragePrice).isEmpty()) {
-            Utility.showToast(this, ValidationModel.brokeragePriceValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.sellingPrice).isEmpty()) {
-            Utility.showToast(this, ValidationModel.sellingPriceValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.totalPrice).isEmpty()) {
-            Utility.showToast(this, ValidationModel.totalPriceValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.numberWeight).isEmpty()) {
-            Utility.showToast(this, ValidationModel.numberWeightValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.numberPrice).isEmpty()) {
-            Utility.showToast(this, ValidationModel.numberPriceValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.numberPercentage).isEmpty()) {
-            Utility.showToast(this, ValidationModel.numberPercentageValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.numberTotalPrice).isEmpty()) {
-            Utility.showToast(this, ValidationModel.numberTotalPriceValidation, Toast.LENGTH_LONG)
-            false
-        } else if (Utility.getTextFromEditText(binding.finalPrice).isEmpty()) {
-            Utility.showToast(this, ValidationModel.finalPriceValidation, Toast.LENGTH_LONG)
-            false
-        } else {
-            true
-        }
-    }
-
 }

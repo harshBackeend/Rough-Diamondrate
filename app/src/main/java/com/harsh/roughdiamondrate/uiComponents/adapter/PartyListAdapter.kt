@@ -1,4 +1,4 @@
-package com.harsh.roughdiamondrate.uiComponents.Adapter
+package com.harsh.roughdiamondrate.uiComponents.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -8,10 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.harsh.roughdiamondrate.databinding.PartyListItemBinding
 import com.harsh.roughdiamondrate.model.Data
 import com.harsh.roughdiamondrate.model.IntentKey
-import com.harsh.roughdiamondrate.uiComponents.activity.AddMoneyDetailActivity
 import com.harsh.roughdiamondrate.uiComponents.activity.FilterActivity
 
-class PartyListAdapter(val partyList: ArrayList<Data>, val context: Context) :
+class PartyListAdapter(private val partyList: ArrayList<Data>, val context: Context) :
     RecyclerView.Adapter<PartyListAdapter.ViewHolder>() {
 
     inner class ViewHolder(val partyListItemBinding: PartyListItemBinding) :

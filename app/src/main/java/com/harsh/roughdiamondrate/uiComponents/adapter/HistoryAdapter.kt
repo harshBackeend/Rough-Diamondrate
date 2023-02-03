@@ -1,4 +1,4 @@
-package com.harsh.roughdiamondrate.uiComponents.Adapter
+package com.harsh.roughdiamondrate.uiComponents.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

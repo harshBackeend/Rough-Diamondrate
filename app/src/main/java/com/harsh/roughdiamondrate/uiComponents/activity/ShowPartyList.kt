@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.harsh.roughdiamondrate.databinding.ActivityShowPartyListBinding
-import com.harsh.roughdiamondrate.uiComponents.Adapter.PartyListAdapter
+import com.harsh.roughdiamondrate.uiComponents.adapter.PartyListAdapter
 import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
 import com.harsh.roughdiamondrate.viewModel.ShowPartyListViewModel
 
@@ -34,7 +33,7 @@ class ShowPartyList : AppCompatActivity() {
         progressBar.setCancelable(false)
         progressBar.show()
         viewModel.getPartyList(this).observe(this) {
-            if (it.Status.equals("1")) {
+            if (it.Status == "1") {
                 progressBar.dismiss()
                 val adapter by lazy { PartyListAdapter(it.data, this) }
                 binding.recyclerViewPartyLis.layoutManager = LinearLayoutManager(this)
