@@ -81,7 +81,7 @@
         <item name="android:windowSoftInputMode">adjustResize|adjustPan</item>
     </style>
 
-    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+    <style name="ListOfTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/them_color</item>
         <item name="boxStrokeWidth">@dimen/_1sdp</item>
         <item name="boxCornerRadiusBottomEnd">@dimen/_8sdp</item>
@@ -89,5 +89,14 @@
         <item name="boxCornerRadiusTopEnd">@dimen/_8sdp</item>
         <item name="boxCornerRadiusTopStart">@dimen/_8sdp</item>
         <item name="android:layout_marginTop">@dimen/_10sdp</item>
+    </style>
+
+    <style name="SingleTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/them_color</item>
+        <item name="boxStrokeWidth">@dimen/_1sdp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_8sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_8sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_8sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_8sdp</item>
     </style>
 </resources>
