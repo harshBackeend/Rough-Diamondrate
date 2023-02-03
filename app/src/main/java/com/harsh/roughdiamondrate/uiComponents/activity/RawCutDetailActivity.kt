@@ -94,12 +94,17 @@ class RawCutDetailActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 try {
-                    if (p0!!.isNotEmpty()) {
-                        hashMap["weight"] = p0.toString().toDouble()
-                        liveData.postValue(hashMap)
+                    if (p0!!.toString() == ".") {
+                        binding.weight.setText("0.")
+                        binding.weight.setSelection(Utility.getTextFromEditText(binding.weight).length)
+                    } else {
+                        if (p0.isNotEmpty()) {
+                            hashMap["weight"] = p0.toString().toDouble()
+                            liveData.postValue(hashMap)
+                        }
                     }
                 } catch (e: Exception) {
-
+                    Utility.printLog("weight", "$p0 ${e.message}")
                 }
             }
         })
@@ -115,12 +120,17 @@ class RawCutDetailActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 try {
-
-                    if (p0!!.isNotEmpty()) {
-                        hashMap["price"] = p0.toString().toDouble()
-                        liveData.postValue(hashMap)
+                    if (p0!!.toString() == ".") {
+                        binding.price.setText("0.")
+                        binding.price.setSelection(Utility.getTextFromEditText(binding.price).length)
+                    } else {
+                        if (p0.isNotEmpty()) {
+                            hashMap["price"] = p0.toString().toDouble()
+                            liveData.postValue(hashMap)
+                        }
                     }
                 } catch (e: Exception) {
+                    Utility.printLog("price", "$p0 ${e.message}")
 
                 }
 
@@ -138,12 +148,17 @@ class RawCutDetailActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 try {
-                    if (p0!!.isNotEmpty()) {
-                        hashMap["dollarPrice"] = p0.toString().toDouble()
-                        liveData.postValue(hashMap)
+                    if (p0!!.toString() == ".") {
+                        binding.dollarPrice.setText("0.")
+                        binding.dollarPrice.setSelection(Utility.getTextFromEditText(binding.dollarPrice).length)
+                    } else {
+                        if (p0.isNotEmpty()) {
+                            hashMap["dollarPrice"] = p0.toString().toDouble()
+                            liveData.postValue(hashMap)
+                        }
                     }
                 } catch (e: Exception) {
-
+                    Utility.printLog("dollarPrice", "$p0 ${e.message}")
                 }
 
             }
@@ -160,11 +175,17 @@ class RawCutDetailActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 try {
-                    if (p0!!.isNotEmpty()) {
-                        hashMap["brokeragePrice"] = p0.toString().toDouble()
-                        liveData.postValue(hashMap)
+                    if (p0!!.toString() == ".") {
+                        binding.brokeragePrice.setText("0.")
+                        binding.brokeragePrice.setSelection(Utility.getTextFromEditText(binding.dollarPrice).length)
+                    } else {
+                        if (p0.isNotEmpty()) {
+                            hashMap["brokeragePrice"] = p0.toString().toDouble()
+                            liveData.postValue(hashMap)
+                        }
                     }
                 } catch (e: Exception) {
+                    Utility.printLog("brokeragePrice", "$p0 ${e.message}")
 
                 }
 
@@ -183,12 +204,17 @@ class RawCutDetailActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 try {
-                    if (p0!!.isNotEmpty()) {
-                        hashMap["numberWeight"] = p0.toString().toDouble()
-                        liveData.postValue(hashMap)
+                    if (p0!!.toString() == ".") {
+                        binding.numberWeight.setText("0.")
+                        binding.numberWeight.setSelection(Utility.getTextFromEditText(binding.numberWeight).length)
+                    } else {
+                        if (p0.isNotEmpty()) {
+                            hashMap["numberWeight"] = p0.toString().toDouble()
+                            liveData.postValue(hashMap)
+                        }
                     }
                 } catch (e: Exception) {
-
+                    Utility.printLog("numberWeight", "$p0 ${e.message}")
                 }
 
 
@@ -206,12 +232,69 @@ class RawCutDetailActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 try {
-                    if (p0!!.isNotEmpty()) {
-                        hashMap["numberPrice"] = p0.toString().toDouble()
-                        liveData.postValue(hashMap)
+                    if (p0!!.toString() == ".") {
+                        binding.numberPrice.setText("0.")
+                        binding.numberPrice.setSelection(Utility.getTextFromEditText(binding.numberPrice).length)
+                    } else {
+                        if (p0.isNotEmpty()) {
+                            hashMap["numberPrice"] = p0.toString().toDouble()
+                            liveData.postValue(hashMap)
+                        }
                     }
                 } catch (e: Exception) {
+                    Utility.printLog("numberPrice", "$p0 ${e.message}")
+                }
 
+            }
+        })
+        binding.sellingPrice.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                try {
+                    if (p0!!.toString() == ".") {
+                        binding.sellingPrice.setText("0.")
+                        binding.sellingPrice.setSelection(Utility.getTextFromEditText(binding.sellingPrice).length)
+                    } else {
+                        if (p0.isNotEmpty()) {
+                            hashMap["sellingPrice"] = p0.toString().toDouble()
+                            liveData.postValue(hashMap)
+                        }
+                    }
+                } catch (e: Exception) {
+                    Utility.printLog("sellingPrice", "$p0 ${e.message}")
+                }
+
+            }
+        })
+        binding.numberTotalPrice.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                try {
+                    if (p0!!.toString() == ".") {
+                        binding.numberTotalPrice.setText("0.")
+                        binding.numberTotalPrice.setSelection(Utility.getTextFromEditText(binding.numberTotalPrice).length)
+                    } else {
+                        if (p0.isNotEmpty()) {
+                            hashMap["numberTotalPrice"] = p0.toString().toDouble()
+                            liveData.postValue(hashMap)
+                        }
+                    }
+                } catch (e: Exception) {
+                    Utility.printLog("numberTotalPrice", "$p0 ${e.message}")
                 }
 
             }
