@@ -57,55 +57,169 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <View
-                android:layout_width="match_parent"
-                android:background="@color/black"
-                android:layout_height="@dimen/_1sdp"/>
+
+            <include layout="@layout/horizontal_view" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_35sdp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="@dimen/_70sdp"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/_5sdp"
-                    android:paddingVertical="@dimen/_1sdp"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_5sdp"
                     android:text="@string/date"
-                    android:theme="@style/textViewForTableLayout"
-                    app:autoSizeMaxTextSize="@dimen/_15ssp"
-                    app:autoSizeMinTextSize="@dimen/_10ssp"
-                    app:autoSizeTextType="uniform"
-                    android:gravity="center"/>
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
 
                 <TextView
                     android:layout_width="@dimen/_70sdp"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/_5sdp"
-                    android:paddingVertical="@dimen/_1sdp"
+                    android:layout_height="match_parent"
                     android:text="@string/main_kat_no"
-                    android:theme="@style/textViewForTableLayout"
-                    app:autoSizeMaxTextSize="@dimen/_15ssp"
-                    app:autoSizeMinTextSize="@dimen/_10ssp"
-                    app:autoSizeTextType="uniform"
-                    android:gravity="center"/>
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
 
                 <TextView
                     android:layout_width="@dimen/_70sdp"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/_5sdp"
-                    android:paddingVertical="@dimen/_1sdp"
+                    android:layout_height="match_parent"
                     android:text="@string/no"
-                    android:theme="@style/textViewForTableLayout"
-                    app:autoSizeMaxTextSize="@dimen/_15ssp"
-                    app:autoSizeMinTextSize="@dimen/_10ssp"
-                    app:autoSizeTextType="uniform"
-                    android:gravity="center"/>
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/kat_name"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/maine_weight"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/bag"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/weight"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/price"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/dollar_price"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/brokerage_price"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/india_rs_symbol"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/total_price"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/number_weight"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/number_price"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/number_percentage"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/number_rate"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/final_price"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/detail"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/month"
+                    android:theme="@style/textViewForTableLayout" />
 
 
             </LinearLayout>
 
+            <include layout="@layout/horizontal_view" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewPartyHistory"
