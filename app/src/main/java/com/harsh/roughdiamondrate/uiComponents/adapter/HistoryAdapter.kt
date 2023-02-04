@@ -3,17 +3,17 @@ package com.harsh.roughdiamondrate.uiComponents.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.harsh.roughdiamondrate.databinding.ListOfHistoryLayoutBinding
+import com.harsh.roughdiamondrate.databinding.ListOfHistoryOfMoneyLayoutBinding
 import com.harsh.roughdiamondrate.model.Data
 
 class HistoryAdapter(private val list:ArrayList<Data>) : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
-    inner class ViewHolder(internal val binding: ListOfHistoryLayoutBinding) :
+    inner class ViewHolder(internal val binding: ListOfHistoryOfMoneyLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            ListOfHistoryLayoutBinding.inflate(
+            ListOfHistoryOfMoneyLayoutBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
