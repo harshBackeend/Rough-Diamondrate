@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,23 +10,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
         android:layout_marginHorizontal="@dimen/_5sdp"
         android:layout_marginVertical="@dimen/_10sdp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutDate"
             style="@style/SingleTextInputLayoutStyle"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_10sdp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:hint="@string/date">
+            android:hint="@string/search">
 
-            <!--this is the actual edit text which takes the input-->
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editDate"
+                android:id="@+id/search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="1"
@@ -38,8 +37,8 @@
             android:id="@+id/enterDetails"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_weight="1.5"
+            android:gravity="center"
             android:text="@string/enter_details"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp"
@@ -57,7 +56,56 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/black"
+                android:layout_height="@dimen/_1sdp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_1sdp"
+                    android:text="@string/date"
+                    android:theme="@style/textViewForTableLayout"
+                    app:autoSizeMaxTextSize="@dimen/_15ssp"
+                    app:autoSizeMinTextSize="@dimen/_10ssp"
+                    app:autoSizeTextType="uniform"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_1sdp"
+                    android:text="@string/main_kat_no"
+                    android:theme="@style/textViewForTableLayout"
+                    app:autoSizeMaxTextSize="@dimen/_15ssp"
+                    app:autoSizeMinTextSize="@dimen/_10ssp"
+                    app:autoSizeTextType="uniform"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_5sdp"
+                    android:paddingVertical="@dimen/_1sdp"
+                    android:text="@string/no"
+                    android:theme="@style/textViewForTableLayout"
+                    app:autoSizeMaxTextSize="@dimen/_15ssp"
+                    app:autoSizeMinTextSize="@dimen/_10ssp"
+                    app:autoSizeTextType="uniform"
+                    android:gravity="center"/>
+
+
+            </LinearLayout>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewPartyHistory"
