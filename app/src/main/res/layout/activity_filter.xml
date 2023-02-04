@@ -69,7 +69,74 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <include layout="@layout/horizontal_view" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:text="@string/date"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/paltyName"
+                    android:theme="@style/textViewForTableLayout"
+                    tools:ignore="TextSizeCheck" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/deposit"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/no"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/withdrawal"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/no"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/detail"
+                    android:theme="@style/textViewForTableLayout" />
+
+            </LinearLayout>
+
+            <include layout="@layout/horizontal_view" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewPartyHistory"

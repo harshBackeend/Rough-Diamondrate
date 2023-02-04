@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -13,85 +12,68 @@
 
         <TextView
             android:id="@+id/dateText"
+            style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="match_parent"
-            android:theme="@style/textViewForTableLayout"
             tools:text="20-25-2022" />
+
+        <include layout="@layout/vertical_view" />
 
         <TextView
             android:id="@+id/partyName"
+            style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/_5sdp"
-            android:paddingVertical="@dimen/_3sdp"
-            android:theme="@style/textViewForTableLayout"
-            app:autoSizeMaxTextSize="@dimen/_15ssp"
-            app:autoSizeMinTextSize="@dimen/_10ssp"
-            app:autoSizeTextType="uniform"
+            android:layout_height="match_parent"
             tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
 
         <TextView
             android:id="@+id/depositText"
             style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/_5sdp"
-            android:paddingVertical="@dimen/_3sdp"
-            app:autoSizeMaxTextSize="@dimen/_15ssp"
-            app:autoSizeMinTextSize="@dimen/_10ssp"
-            app:autoSizeTextType="uniform"
+            android:layout_height="match_parent"
             tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
 
         <TextView
             android:id="@+id/depositNumberText"
             style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/_5sdp"
-            android:paddingVertical="@dimen/_3sdp"
-            app:autoSizeMaxTextSize="@dimen/_15ssp"
-            app:autoSizeMinTextSize="@dimen/_10ssp"
-            app:autoSizeTextType="uniform"
+            android:layout_height="match_parent"
             tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
 
         <TextView
             android:id="@+id/creditText"
             style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/_5sdp"
-            android:paddingVertical="@dimen/_3sdp"
-            app:autoSizeMaxTextSize="@dimen/_15ssp"
-            app:autoSizeMinTextSize="@dimen/_10ssp"
-            app:autoSizeTextType="uniform"
+            android:layout_height="match_parent"
             tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
 
         <TextView
             android:id="@+id/creditNumberText"
             style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/_5sdp"
-            android:paddingVertical="@dimen/_3sdp"
-            app:autoSizeMaxTextSize="@dimen/_15ssp"
-            app:autoSizeMinTextSize="@dimen/_10ssp"
-            app:autoSizeTextType="uniform"
+            android:layout_height="match_parent"
             tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
 
         <TextView
             android:id="@+id/detailText"
             style="@style/textViewForTableLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="3"
-            android:minWidth="@dimen/_70sdp"
-            android:paddingHorizontal="@dimen/_5sdp"
-            android:paddingVertical="@dimen/_3sdp"
-            app:autoSizeMaxTextSize="@dimen/_15ssp"
-            app:autoSizeMinTextSize="@dimen/_10ssp"
-            app:autoSizeTextType="uniform"
-            tools:text="25" />
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            android:maxLines="2"
+            tools:text="harsh" />
 
     </LinearLayout>
+
+    <include layout="@layout/horizontal_view"/>
 
 </LinearLayout>
