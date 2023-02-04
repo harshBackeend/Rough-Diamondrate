@@ -14,7 +14,7 @@ import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.model.ResponseModel
 import com.harsh.roughdiamondrate.repository.MainRepository
 
-class FilterViewModel : ViewModel() {
+class HistoryOfMoneyViewModel : ViewModel() {
 
     fun getHistory(context: Context, partyName: String): LiveData<ResponseModel> {
         val responseModel by lazy { MutableLiveData<ResponseModel>() }

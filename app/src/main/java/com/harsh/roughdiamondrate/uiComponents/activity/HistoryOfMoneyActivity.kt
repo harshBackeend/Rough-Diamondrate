@@ -8,25 +8,25 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.harsh.roughdiamondrate.Utility
-import com.harsh.roughdiamondrate.databinding.ActivityFilterBinding
+import com.harsh.roughdiamondrate.databinding.ActivityHistoryOfMoneyBinding
 import com.harsh.roughdiamondrate.model.IntentKey
 import com.harsh.roughdiamondrate.uiComponents.adapter.HistoryAdapter
 import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
-import com.harsh.roughdiamondrate.viewModel.FilterViewModel
+import com.harsh.roughdiamondrate.viewModel.HistoryOfMoneyViewModel
 
-class FilterActivity : AppCompatActivity() {
+class HistoryOfMoneyActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityFilterBinding
-    private lateinit var viewModel: FilterViewModel
+    private lateinit var binding: ActivityHistoryOfMoneyBinding
+    private lateinit var viewModel: HistoryOfMoneyViewModel
     private var partyName = ""
     lateinit var progressBar: Dialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFilterBinding.inflate(layoutInflater)
+        binding = ActivityHistoryOfMoneyBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel = ViewModelProvider(this)[FilterViewModel::class.java]
+        viewModel = ViewModelProvider(this)[HistoryOfMoneyViewModel::class.java]
 
         if (intent != null) {
             partyName = intent.getStringExtra(IntentKey.partyName)!!.toString()

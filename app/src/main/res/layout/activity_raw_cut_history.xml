@@ -226,7 +226,7 @@
                 android:id="@+id/recyclerViewPartyHistory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/list_of_history_layout" />
+                tools:listitem="@layout/list_of_history_of_money_layout" />
 
 
         </LinearLayout>
