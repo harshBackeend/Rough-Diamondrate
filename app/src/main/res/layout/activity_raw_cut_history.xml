@@ -159,7 +159,8 @@
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
                     android:text="@string/total_price"
-                    android:theme="@style/textViewForTableLayout" />
+                    android:theme="@style/textViewForTableLayout"
+                    tools:ignore="TextSizeCheck" />
 
                 <include layout="@layout/vertical_view" />
 
