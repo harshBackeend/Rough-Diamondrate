@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1.5"
             android:gravity="center"
-            android:text="@string/enter_details"
+            android:text="@string/enter_the_new_cut"
             android:textColor="@color/white"
             android:textSize="@dimen/_14ssp"
             tools:ignore="RelativeOverlap,VisualLintButtonSize" />
@@ -226,7 +226,7 @@
                 android:id="@+id/recyclerViewPartyHistory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/list_of_history_of_money_layout" />
+                tools:listitem="@layout/list_of_raw_cut_history" />
 
 
         </LinearLayout>
