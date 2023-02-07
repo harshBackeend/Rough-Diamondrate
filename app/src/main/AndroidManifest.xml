@@ -15,8 +15,10 @@
         android:theme="@style/Theme.RoughDiamondEastimate"
         tools:targetApi="31">
         <activity
-            android:name=".RawCutHistoryActivity"
-            android:exported="false" />
+            android:name=".uiComponents.activity.RawCutHistoryActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
         <activity
             android:name=".uiComponents.activity.RawCutDetailActivity"
             android:exported="false"

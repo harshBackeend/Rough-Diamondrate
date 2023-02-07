@@ -49,6 +49,7 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_5sdp"
         android:scrollbars="none"
         tools:ignore="UselessParent">
 
@@ -64,6 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
                 android:orientation="horizontal">
+
+                <include layout="@layout/vertical_view" />
 
                 <TextView
                     android:layout_width="@dimen/_70sdp"
@@ -217,6 +220,8 @@
                     android:layout_height="match_parent"
                     android:text="@string/month"
                     android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
 
 
             </LinearLayout>

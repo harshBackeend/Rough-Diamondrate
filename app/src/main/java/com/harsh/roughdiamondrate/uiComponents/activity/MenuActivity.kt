@@ -24,7 +24,7 @@ class MenuActivity : AppCompatActivity() {
         binding.buttonRawCut.setOnClickListener {
             startActivity(
                 Intent(
-                    this, RawCutDetailActivity::class.java
+                    this, RawCutHistoryActivity::class.java
                 )
             )
         }
