@@ -1,7 +1,6 @@
 package com.harsh.roughdiamondrate.viewModel
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -66,8 +65,8 @@ class RawCutDetailViewModel : ViewModel() {
             val result = MainRepository(url!!).getData(requestModel)
             if (result.body() != null) {
                 responseModel.postValue(result.body())
-                Log.e("TAG", "setDataToApi: ${result.body()!!.Message}")
-                Log.e("TAG", "getApi data : ${result.body()}")
+                Utility.printLog("TAG", "setDataToApi: ${result.body()!!.Message}")
+                Utility.printLog("TAG", "getApi data : ${result.body()}")
             }
         }
         return responseModel

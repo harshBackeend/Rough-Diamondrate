@@ -11,5 +11,7 @@ data class ResponseModel(
     @SerializedName("totalAmount")
     var totalAmount: String,
     @SerializedName("Data")
-    var data: ArrayList<Data>
+    var data: ArrayList<Data>,
+    @SerializedName("RawCutHistory")
+    var rawCutHistory: ArrayList<RawCutHistory>
 )

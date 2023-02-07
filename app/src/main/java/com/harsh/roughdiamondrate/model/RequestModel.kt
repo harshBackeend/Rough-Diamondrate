@@ -24,6 +24,8 @@ data class RequestModel(
     var detail: String? = null,
     @SerializedName("methodName")
     var methodName: String? = null,
+
+    //RawCutEntry
     @SerializedName("mainKatNumber")
     var mainKatNumber: String? = null,
     @SerializedName("number")
