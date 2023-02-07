@@ -1,5 +1,6 @@
 package com.harsh.roughdiamondrate.uiComponents.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,12 +9,19 @@ import com.harsh.roughdiamondrate.databinding.ListOfRawCutHistoryBinding
 import com.harsh.roughdiamondrate.model.RawCutHistory
 
 class RawCutHistoryAdapter(
-    private val rawCutHistory: ArrayList<RawCutHistory>,
+    private var rawCutHistoryList: ArrayList<RawCutHistory>,
     val context: Context
 ) : RecyclerView.Adapter<RawCutHistoryAdapter.ViewHolder>() {
 
     inner class ViewHolder(val listOfRawCutHistoryBinding: ListOfRawCutHistoryBinding) :
         RecyclerView.ViewHolder(listOfRawCutHistoryBinding.root)
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun search(list : ArrayList<RawCutHistory>){
+        rawCutHistoryList.clear()
+        rawCutHistoryList = list
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -25,11 +33,11 @@ class RawCutHistoryAdapter(
         )
     }
 
-    override fun getItemCount(): Int = rawCutHistory.size
+    override fun getItemCount(): Int = rawCutHistoryList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val model = rawCutHistory[position]
+        val model = rawCutHistoryList[position]
 
         holder.listOfRawCutHistoryBinding.dateText.text = model.data
         holder.listOfRawCutHistoryBinding.mainKatNumber.text = model.mainKatNumber

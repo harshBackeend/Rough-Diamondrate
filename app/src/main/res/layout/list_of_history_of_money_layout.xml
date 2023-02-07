@@ -10,6 +10,9 @@
         android:layout_height="@dimen/_35sdp"
         android:orientation="horizontal">
 
+        <include layout="@layout/vertical_view" />
+
+
         <TextView
             android:id="@+id/dateText"
             style="@style/textViewForTableLayout"
@@ -51,18 +54,22 @@
             style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="match_parent"
-            tools:text="25" />
+            tools:text="25"
+            tools:ignore="VisualLintBounds" />
 
-        <include layout="@layout/vertical_view" />
+        <include layout="@layout/vertical_view"
+            tools:ignore="VisualLintBounds" />
 
         <TextView
             android:id="@+id/creditNumberText"
             style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="match_parent"
-            tools:text="25" />
+            tools:text="25"
+            tools:ignore="VisualLintBounds" />
 
-        <include layout="@layout/vertical_view" />
+        <include layout="@layout/vertical_view"
+            tools:ignore="VisualLintBounds" />
 
         <TextView
             android:id="@+id/detailText"
@@ -70,10 +77,15 @@
             android:layout_width="@dimen/_70sdp"
             android:layout_height="match_parent"
             android:maxLines="2"
-            tools:text="harsh" />
+            tools:text="harsh"
+            tools:ignore="VisualLintBounds" />
+
+        <include layout="@layout/vertical_view"
+            tools:ignore="VisualLintBounds" />
+
 
     </LinearLayout>
 
-    <include layout="@layout/horizontal_view"/>
+    <include layout="@layout/horizontal_view" />
 
 </LinearLayout>
