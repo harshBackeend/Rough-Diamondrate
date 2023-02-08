@@ -58,7 +58,7 @@ class RawCutHistoryActivity : AppCompatActivity() {
         viewModel.getHistoryOfRawCut(this).observe(this) {
             progressBar.dismiss()
             if (it.Status == "1") {
-                val adapter: RawCutHistoryAdapter = RawCutHistoryAdapter(it.rawCutHistory, this)
+                val adapter by lazy { RawCutHistoryAdapter(it.rawCutHistory, this) }
                 binding.recyclerViewPartyHistory.layoutManager = LinearLayoutManager(this)
                 binding.recyclerViewPartyHistory.adapter = adapter
 
@@ -88,8 +88,6 @@ class RawCutHistoryActivity : AppCompatActivity() {
                         val temp: ArrayList<RawCutHistory> = ArrayList()
                         if (s.toString().isNotEmpty()) {
                             for (d in it.rawCutHistory) {
-                                //or use .equal(text) with you want equal match
-                                //use .toLowerCase() for better matches
                                 if (d.mainKatNumber!!.contains(s.toString().trim())) {
                                     temp.add(d)
                                 }

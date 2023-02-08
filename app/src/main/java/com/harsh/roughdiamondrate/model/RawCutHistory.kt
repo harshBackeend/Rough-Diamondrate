@@ -1,6 +1,7 @@
 package com.harsh.roughdiamondrate.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class RawCutHistory(
 
@@ -24,4 +25,4 @@ data class RawCutHistory(
     @SerializedName("detail") var detail: String? = null,
     @SerializedName("month") var month: String? = null,
     @SerializedName("rowId") var rowId: String? = null
-)
+): Serializable

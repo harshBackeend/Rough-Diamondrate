@@ -1,8 +1,10 @@
 package com.harsh.roughdiamondrate.uiComponents.activity
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
@@ -16,9 +18,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ActivityRawCutDetailBinding
+import com.harsh.roughdiamondrate.model.IntentKey
+import com.harsh.roughdiamondrate.model.RawCutHistory
 import com.harsh.roughdiamondrate.model.ValidationModel
 import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
 import com.harsh.roughdiamondrate.viewModel.RawCutDetailViewModel
+import java.io.Serializable
 import java.util.*
 import kotlin.math.roundToInt
 
@@ -44,6 +49,8 @@ class RawCutDetailActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[RawCutDetailViewModel::class.java]
         liveData = MutableLiveData<HashMap<String, Double>>()
         val hashMap = kotlin.collections.HashMap<String, Double>()
+
+        getTextFromIntent()
 
         hashMap["weight"] = 0.00
         hashMap["price"] = 0.00
@@ -117,6 +124,7 @@ class RawCutDetailActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
+
             override fun afterTextChanged(p0: Editable?) {
                 try {
                     if (p0!!.toString() == ".") {
@@ -328,61 +336,90 @@ class RawCutDetailActivity : AppCompatActivity() {
         }
 
         binding.buttonSend.setOnClickListener {
-                progressBar = ProgressBar.getDialog(this)
-                progressBar.setCancelable(false)
-                progressBar.show()
-                binding.buttonSend.isEnabled = false
-                viewModel.setDataToApi(
-                    Utility.getTextFromEditText(binding.editDate),
-                    Utility.getTextFromEditText(binding.mainKatNumber),
-                    Utility.getTextFromEditText(binding.no),
-                    Utility.getTextFromEditText(binding.katName),
-                    Utility.getTextFromEditText(binding.maineWeight),
-                    Utility.getTextFromEditText(binding.bag),
-                    Utility.getTextFromEditText(binding.weight),
-                    Utility.getTextFromEditText(binding.price),
-                    Utility.getTextFromEditText(binding.dollarPrice),
-                    Utility.getTextFromEditText(binding.brokeragePrice),
-                    Utility.getTextFromEditText(binding.sellingPrice),
-                    Utility.getTextFromEditText(binding.totalPrice),
-                    Utility.getTextFromEditText(binding.numberWeight),
-                    Utility.getTextFromEditText(binding.numberPrice),
-                    Utility.getTextFromEditText(binding.numberPercentage),
-                    Utility.getTextFromEditText(binding.numberTotalPrice),
-                    Utility.getTextFromEditText(binding.finalPrice),
-                    Utility.getTextFromEditText(binding.editDetail),
-                    this
-                ).observe(this) {
-                    Log.e("TAG", "onCreate: $it")
+            progressBar = ProgressBar.getDialog(this)
+            progressBar.setCancelable(false)
+            progressBar.show()
+            binding.buttonSend.isEnabled = false
+            viewModel.setDataToApi(
+                Utility.getTextFromEditText(binding.editDate),
+                Utility.getTextFromEditText(binding.mainKatNumber),
+                Utility.getTextFromEditText(binding.no),
+                Utility.getTextFromEditText(binding.katName),
+                Utility.getTextFromEditText(binding.maineWeight),
+                Utility.getTextFromEditText(binding.bag),
+                Utility.getTextFromEditText(binding.weight),
+                Utility.getTextFromEditText(binding.price),
+                Utility.getTextFromEditText(binding.dollarPrice),
+                Utility.getTextFromEditText(binding.brokeragePrice),
+                Utility.getTextFromEditText(binding.sellingPrice),
+                Utility.getTextFromEditText(binding.totalPrice),
+                Utility.getTextFromEditText(binding.numberWeight),
+                Utility.getTextFromEditText(binding.numberPrice),
+                Utility.getTextFromEditText(binding.numberPercentage),
+                Utility.getTextFromEditText(binding.numberTotalPrice),
+                Utility.getTextFromEditText(binding.finalPrice),
+                Utility.getTextFromEditText(binding.editDetail),
+                this
+            ).observe(this) {
+                Log.e("TAG", "onCreate: $it")
+                Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
+                if (it.Status == "1") {
+                    progressBar.dismiss()
+                    binding.buttonSend.isEnabled = true
+                    Utility.resetEditText(binding.editDate)
+                    Utility.resetEditText(binding.mainKatNumber)
+                    Utility.resetEditText(binding.no)
+                    Utility.resetEditText(binding.katName)
+                    Utility.resetEditText(binding.maineWeight)
+                    Utility.resetEditText(binding.bag)
+                    Utility.resetEditText(binding.weight)
+                    Utility.resetEditText(binding.price)
+                    Utility.resetEditText(binding.dollarPrice)
+                    Utility.resetEditText(binding.brokeragePrice)
+                    Utility.resetEditText(binding.sellingPrice)
+                    Utility.resetEditText(binding.totalPrice)
+                    Utility.resetEditText(binding.numberWeight)
+                    Utility.resetEditText(binding.numberPrice)
+                    Utility.resetEditText(binding.numberPercentage)
+                    Utility.resetEditText(binding.numberTotalPrice)
+                    Utility.resetEditText(binding.finalPrice)
+                    Utility.resetEditText(binding.editDetail)
+                    finish()
+                } else {
+                    progressBar.dismiss()
                     Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
-                    if (it.Status == "1") {
-                        progressBar.dismiss()
-                        binding.buttonSend.isEnabled = true
-                        Utility.resetEditText(binding.editDate)
-                        Utility.resetEditText(binding.mainKatNumber)
-                        Utility.resetEditText(binding.no)
-                        Utility.resetEditText(binding.katName)
-                        Utility.resetEditText(binding.maineWeight)
-                        Utility.resetEditText(binding.bag)
-                        Utility.resetEditText(binding.weight)
-                        Utility.resetEditText(binding.price)
-                        Utility.resetEditText(binding.dollarPrice)
-                        Utility.resetEditText(binding.brokeragePrice)
-                        Utility.resetEditText(binding.sellingPrice)
-                        Utility.resetEditText(binding.totalPrice)
-                        Utility.resetEditText(binding.numberWeight)
-                        Utility.resetEditText(binding.numberPrice)
-                        Utility.resetEditText(binding.numberPercentage)
-                        Utility.resetEditText(binding.numberTotalPrice)
-                        Utility.resetEditText(binding.finalPrice)
-                        Utility.resetEditText(binding.editDetail)
-                        finish()
-                    } else {
-                        progressBar.dismiss()
-                        Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
-                    }
+                }
+            }
+
+        }
+    }
+
+    private fun getTextFromIntent() {
+        try {
+            if (intent != null) {
+                val bundle = intent.getBundleExtra(IntentKey.bundle)
+                val model = bundle!!.serializable<RawCutHistory>(IntentKey.rawCutDetail)
+
+                if (model != null) {
+
                 }
 
             }
+
+        } catch (e: java.lang.Exception) {
+            Utility.printLog("Error", "${e.message}")
+        }
+    }
+
+    inline fun <reified T : Serializable> Bundle.serializable(key: String): T? = when {
+        Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> getSerializable(key, T::class.java)
+        else ->  getSerializable(key) as? T
+    }
+    fun <T : Serializable?> getSerializable(activity: Activity, name: String, clazz: Class<T>): T
+    {
+        return if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+            activity.intent.getSerializableExtra(name, clazz)!!
+        else
+            activity.intent.getSerializableExtra(name) as T
     }
 }
