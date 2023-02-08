@@ -21,7 +21,7 @@ class RawCutHistoryAdapter(
         RecyclerView.ViewHolder(listOfRawCutHistoryBinding.root)
 
     @SuppressLint("NotifyDataSetChanged")
-    fun search(list : ArrayList<RawCutHistory>){
+    fun search(list: ArrayList<RawCutHistory>) {
         rawCutHistoryList = list
         notifyDataSetChanged()
     }
@@ -63,10 +63,8 @@ class RawCutHistoryAdapter(
         holder.listOfRawCutHistoryBinding.month.text = model.month
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context,RawCutDetailActivity::class.java)
-            val bundle = Bundle()
-            bundle.putSerializable(IntentKey.rawCutDetail,model)
-            intent.putExtra(IntentKey.bundle,bundle)
+            val intent = Intent(context, RawCutDetailActivity::class.java)
+            intent.putExtra(IntentKey.rawCutDetail,model)
             context.startActivity(intent)
         }
 

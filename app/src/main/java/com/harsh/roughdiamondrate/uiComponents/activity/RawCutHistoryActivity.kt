@@ -31,17 +31,7 @@ class RawCutHistoryActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[RawCutHistoryViewModel::class.java]
 
 
-        /* binding.search.doAfterTextChanged {
-             val temp: ArrayList<RawCutHistory> = ArrayList()
-             for (d in rawCutHistoryList) {
-                 //or use .equal(text) with you want equal match
-                 //use .toLowerCase() for better matches
-                 if (d.mainKatNumber!!.contains(it.toString())) {
-                     temp.add(d)
-                 }
-             }
-             adapter.search(temp)
-         }*/
+
 
 
 
@@ -101,22 +91,6 @@ class RawCutHistoryActivity : AppCompatActivity() {
                     }
                 })
 
-//                binding.search.addTextChangedListener { editText ->
-//                    val temp: ArrayList<RawCutHistory> = ArrayList()
-//                    if (editText.toString().isNotEmpty()) {
-//                        for (d in it.rawCutHistory) {
-//                            //or use .equal(text) with you want equal match
-//                            //use .toLowerCase() for better matches
-//                            if (d.mainKatNumber!!.contains(editText.toString().trim())) {
-//                                temp.add(d)
-//                            }
-//                        }
-//                        adapter.search(temp)
-//                    }else{
-//                        adapter.search(it.rawCutHistory)
-//                    }
-//
-//                }
             } else {
                 Utility.showToast(this, it.Message, Toast.LENGTH_LONG)
             }

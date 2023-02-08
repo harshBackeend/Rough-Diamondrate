@@ -34,7 +34,8 @@ class RawCutDetailViewModel : ViewModel() {
         numberTotalPrice: String,
         finalPrice: String,
         detail: String,
-        context: Context
+        context: Context,
+        rowId: String = "0"
     ): LiveData<ResponseModel> {
         val responseModel by lazy { MutableLiveData<ResponseModel>() }
 
@@ -58,6 +59,7 @@ class RawCutDetailViewModel : ViewModel() {
             finalPrice = finalPrice,
             detail = detail,
             methodName = MethodName.insertData,
+            rowId = rowId
         )
 
         val url = Utility.getSharedPreferences(context, ApiUrlKey.secondUrl)

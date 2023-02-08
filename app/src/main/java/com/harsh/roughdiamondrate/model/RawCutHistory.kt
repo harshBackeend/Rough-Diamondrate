@@ -1,8 +1,10 @@
 package com.harsh.roughdiamondrate.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
-
+@Parcelize
 data class RawCutHistory(
 
     @SerializedName("date") var data: String? = null,
@@ -25,4 +27,6 @@ data class RawCutHistory(
     @SerializedName("detail") var detail: String? = null,
     @SerializedName("month") var month: String? = null,
     @SerializedName("rowId") var rowId: String? = null
-): Serializable
+
+): Parcelable
+

@@ -1,11 +1,12 @@
 package com.harsh.roughdiamondrate.uiComponents.activity
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
-import android.os.Build
+import android.content.Intent
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
+import android.os.Parcelable
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
@@ -20,10 +21,8 @@ import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ActivityRawCutDetailBinding
 import com.harsh.roughdiamondrate.model.IntentKey
 import com.harsh.roughdiamondrate.model.RawCutHistory
-import com.harsh.roughdiamondrate.model.ValidationModel
 import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
 import com.harsh.roughdiamondrate.viewModel.RawCutDetailViewModel
-import java.io.Serializable
 import java.util.*
 import kotlin.math.roundToInt
 
@@ -50,7 +49,7 @@ class RawCutDetailActivity : AppCompatActivity() {
         liveData = MutableLiveData<HashMap<String, Double>>()
         val hashMap = kotlin.collections.HashMap<String, Double>()
 
-        getTextFromIntent()
+        val rawCutHistory = getTextFromIntent()
 
         hashMap["weight"] = 0.00
         hashMap["price"] = 0.00
@@ -340,6 +339,11 @@ class RawCutDetailActivity : AppCompatActivity() {
             progressBar.setCancelable(false)
             progressBar.show()
             binding.buttonSend.isEnabled = false
+            val rowId = if (rawCutHistory!!.rowId!!.isNotEmpty()) {
+                rawCutHistory.rowId
+            } else {
+                "0"
+            }
             viewModel.setDataToApi(
                 Utility.getTextFromEditText(binding.editDate),
                 Utility.getTextFromEditText(binding.mainKatNumber),
@@ -359,7 +363,8 @@ class RawCutDetailActivity : AppCompatActivity() {
                 Utility.getTextFromEditText(binding.numberTotalPrice),
                 Utility.getTextFromEditText(binding.finalPrice),
                 Utility.getTextFromEditText(binding.editDetail),
-                this
+                this,
+                rowId = rowId.toString()
             ).observe(this) {
                 Log.e("TAG", "onCreate: $it")
                 Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
@@ -394,32 +399,47 @@ class RawCutDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun getTextFromIntent() {
+    private fun getTextFromIntent(): RawCutHistory? {
         try {
             if (intent != null) {
-                val bundle = intent.getBundleExtra(IntentKey.bundle)
-                val model = bundle!!.serializable<RawCutHistory>(IntentKey.rawCutDetail)
 
-                if (model != null) {
+                val rawCutHistory: RawCutHistory =
+                    intent.parcelable<RawCutHistory>(IntentKey.rawCutDetail)!!
 
-                }
+                binding.editDate.setText(rawCutHistory.data)
+                binding.mainKatNumber.setText(rawCutHistory.mainKatNumber)
+                binding.no.setText(rawCutHistory.number)
+                binding.katName.setText(rawCutHistory.katName)
+                binding.maineWeight.setText(rawCutHistory.maineWeight)
+                binding.bag.setText(rawCutHistory.bag)
+                binding.weight.setText(rawCutHistory.weight)
+                binding.price.setText(rawCutHistory.price)
+                binding.dollarPrice.setText(rawCutHistory.dollarPrice)
+                binding.brokeragePrice.setText(rawCutHistory.brokeragePrice)
+                binding.sellingPrice.setText(rawCutHistory.sellingPrice)
+                binding.totalPrice.setText(rawCutHistory.totalPrice)
+                binding.numberWeight.setText(rawCutHistory.numberWeight)
+                binding.numberPrice.setText(rawCutHistory.numberPrice)
+                binding.numberPercentage.setText(rawCutHistory.numberPercentage)
+                binding.numberTotalPrice.setText(rawCutHistory.numberTotalPrice)
+                binding.finalPrice.setText(rawCutHistory.finalPrice)
+                binding.editDetail.setText(rawCutHistory.detail)
 
+                return rawCutHistory
             }
+
+            return null
 
         } catch (e: java.lang.Exception) {
             Utility.printLog("Error", "${e.message}")
+            return null
         }
     }
 
-    inline fun <reified T : Serializable> Bundle.serializable(key: String): T? = when {
-        Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> getSerializable(key, T::class.java)
-        else ->  getSerializable(key) as? T
+    private inline fun <reified T : Parcelable> Intent.parcelable(key: String): T? = when {
+        SDK_INT >= 33 -> getParcelableExtra(key, T::class.java)
+        else -> @Suppress("DEPRECATION") getParcelableExtra(key) as? T
     }
-    fun <T : Serializable?> getSerializable(activity: Activity, name: String, clazz: Class<T>): T
-    {
-        return if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-            activity.intent.getSerializableExtra(name, clazz)!!
-        else
-            activity.intent.getSerializableExtra(name) as T
-    }
+
+
 }

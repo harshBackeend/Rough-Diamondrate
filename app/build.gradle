@@ -5,6 +5,7 @@ plugins {
     // Add the Crashlytics Gradle plugin
     id 'com.google.firebase.crashlytics'
     id 'com.google.firebase.firebase-perf'
+    id 'kotlin-parcelize'
 }
 
 android {

@@ -57,5 +57,7 @@ data class RequestModel(
     @SerializedName("numberTotalPrice")
     var numberTotalPrice: String? = null,
     @SerializedName("finalPrice")
-    var finalPrice: String? = null
+    var finalPrice: String? = null,
+    @SerializedName("rowId")
+    var rowId: String? = null
 )
