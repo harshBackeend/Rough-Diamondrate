@@ -38,6 +38,7 @@ class RawCutDetailActivity : AppCompatActivity() {
     private lateinit var liveData: MutableLiveData<HashMap<String, Double>>
     private lateinit var progressBar: Dialog
     lateinit var viewModel: RawCutDetailViewModel
+    private val hashMap = kotlin.collections.HashMap<String, Double>()
 
 
     @SuppressLint("SetTextI18n")
@@ -47,7 +48,7 @@ class RawCutDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[RawCutDetailViewModel::class.java]
         liveData = MutableLiveData<HashMap<String, Double>>()
-        val hashMap = kotlin.collections.HashMap<String, Double>()
+
 
         val rawCutHistory = getTextFromIntent()
 
@@ -406,24 +407,7 @@ class RawCutDetailActivity : AppCompatActivity() {
                 val rawCutHistory: RawCutHistory =
                     intent.parcelable<RawCutHistory>(IntentKey.rawCutDetail)!!
 
-                binding.editDate.setText(rawCutHistory.data)
-                binding.mainKatNumber.setText(rawCutHistory.mainKatNumber)
-                binding.no.setText(rawCutHistory.number)
-                binding.katName.setText(rawCutHistory.katName)
-                binding.maineWeight.setText(rawCutHistory.maineWeight)
-                binding.bag.setText(rawCutHistory.bag)
-                binding.weight.setText(rawCutHistory.weight)
-                binding.price.setText(rawCutHistory.price)
-                binding.dollarPrice.setText(rawCutHistory.dollarPrice)
-                binding.brokeragePrice.setText(rawCutHistory.brokeragePrice)
-                binding.sellingPrice.setText(rawCutHistory.sellingPrice)
-                binding.totalPrice.setText(rawCutHistory.totalPrice)
-                binding.numberWeight.setText(rawCutHistory.numberWeight)
-                binding.numberPrice.setText(rawCutHistory.numberPrice)
-                binding.numberPercentage.setText(rawCutHistory.numberPercentage)
-                binding.numberTotalPrice.setText(rawCutHistory.numberTotalPrice)
-                binding.finalPrice.setText(rawCutHistory.finalPrice)
-                binding.editDetail.setText(rawCutHistory.detail)
+                setDataToUri(rawCutHistory)
 
                 return rawCutHistory
             }
@@ -434,6 +418,69 @@ class RawCutDetailActivity : AppCompatActivity() {
             Utility.printLog("Error", "${e.message}")
             return null
         }
+    }
+
+    private fun setDataToUri(rawCutHistory: RawCutHistory) {
+        binding.editDate.setText(rawCutHistory.data)
+        binding.mainKatNumber.setText(rawCutHistory.mainKatNumber)
+        binding.no.setText(rawCutHistory.number)
+        binding.katName.setText(rawCutHistory.katName)
+        binding.maineWeight.setText(rawCutHistory.maineWeight)
+        binding.bag.setText(rawCutHistory.bag)
+        binding.weight.setText(rawCutHistory.weight)
+        binding.price.setText(rawCutHistory.price)
+        binding.dollarPrice.setText(rawCutHistory.dollarPrice)
+        binding.brokeragePrice.setText(rawCutHistory.brokeragePrice)
+        binding.sellingPrice.setText(rawCutHistory.sellingPrice)
+        binding.totalPrice.setText(rawCutHistory.totalPrice)
+        binding.numberWeight.setText(rawCutHistory.numberWeight)
+        binding.numberPrice.setText(rawCutHistory.numberPrice)
+        binding.numberPercentage.setText(rawCutHistory.numberPercentage)
+        binding.numberTotalPrice.setText(rawCutHistory.numberTotalPrice)
+        binding.finalPrice.setText(rawCutHistory.finalPrice)
+        binding.editDetail.setText(rawCutHistory.detail)
+
+        if (rawCutHistory.weight.toString().isNotEmpty()) {
+            hashMap["weight"] = rawCutHistory.weight.toString().toDouble()
+        } else {
+            hashMap["weight"] = 0.00
+        }
+        if (rawCutHistory.price.toString().isNotEmpty()) {
+            hashMap["price"] = rawCutHistory.price.toString().toDouble()
+        } else {
+            hashMap["price"] = 0.00
+        }
+        if (rawCutHistory.dollarPrice.toString().isNotEmpty()) {
+            hashMap["dollarPrice"] = rawCutHistory.dollarPrice.toString().toDouble()
+        } else {
+            hashMap["dollarPrice"] = 0.00
+        }
+        if (rawCutHistory.brokeragePrice.toString().isNotEmpty()) {
+            hashMap["brokeragePrice"] = rawCutHistory.brokeragePrice.toString().toDouble()
+        } else {
+            hashMap["brokeragePrice"] = 0.00
+        }
+        if (rawCutHistory.sellingPrice.toString().isNotEmpty()) {
+            hashMap["sellingPrice"] = rawCutHistory.sellingPrice.toString().toDouble()
+        } else {
+            hashMap["sellingPrice"] = 0.00
+        }
+        if (rawCutHistory.numberWeight.toString().isNotEmpty()) {
+            hashMap["numberWeight"] = rawCutHistory.numberWeight.toString().toDouble()
+        } else {
+            hashMap["numberWeight"] = 0.00
+        }
+        if (rawCutHistory.numberPrice.toString().isNotEmpty()) {
+            hashMap["numberPrice"] = rawCutHistory.numberPrice.toString().toDouble()
+        } else {
+            hashMap["numberPrice"] = 0.00
+        }
+        if (rawCutHistory.numberTotalPrice.toString().isNotEmpty()) {
+            hashMap["numberTotalPrice"] = rawCutHistory.numberTotalPrice.toString().toDouble()
+        } else {
+            hashMap["numberTotalPrice"] = 0.00
+        }
+
     }
 
     private inline fun <reified T : Parcelable> Intent.parcelable(key: String): T? = when {
