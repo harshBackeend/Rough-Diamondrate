@@ -35,7 +35,7 @@ class RawCutDetailActivity : AppCompatActivity() {
     /**
      * This use for live calculation in this activity.
      */
-    private lateinit var liveData: MutableLiveData<HashMap<String, Double>>
+    private val liveData by lazy { MutableLiveData<HashMap<String, Double>>() }
     private lateinit var progressBar: Dialog
     lateinit var viewModel: RawCutDetailViewModel
     private val hashMap = kotlin.collections.HashMap<String, Double>()
@@ -47,10 +47,6 @@ class RawCutDetailActivity : AppCompatActivity() {
         binding = ActivityRawCutDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[RawCutDetailViewModel::class.java]
-        liveData = MutableLiveData<HashMap<String, Double>>()
-
-
-        val rawCutHistory = getTextFromIntent()
 
         hashMap["weight"] = 0.00
         hashMap["price"] = 0.00
@@ -60,6 +56,8 @@ class RawCutDetailActivity : AppCompatActivity() {
         hashMap["numberWeight"] = 0.00
         hashMap["numberPrice"] = 0.00
         hashMap["numberTotalPrice"] = 0.00
+
+        val rawCutHistory = getTextFromIntent()
 
         binding.editDate.setOnClickListener {
             val c = Calendar.getInstance()
@@ -77,7 +75,6 @@ class RawCutDetailActivity : AppCompatActivity() {
             )
             datePickerDialog.show()
         }
-
         binding.editDate.inputType = InputType.TYPE_NULL
         binding.editDate.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
@@ -85,10 +82,10 @@ class RawCutDetailActivity : AppCompatActivity() {
                 binding.editDate.performClick()
             }
         }
-
         binding.layoutDate.setOnClickListener {
             binding.editDate.performClick()
         }
+
 
         binding.weight.addTextChangedListener(object : TextWatcher {
 
@@ -310,6 +307,7 @@ class RawCutDetailActivity : AppCompatActivity() {
         liveData.observe(this) {
             val constant = 100
             var secondSum = 0.00
+
             if (it["brokeragePrice"]!! > 0.00) {
                 secondSum =
                     it["weight"]!! * it["price"]!! * it["dollarPrice"]!! * (it["brokeragePrice"]!! / constant)
@@ -333,6 +331,16 @@ class RawCutDetailActivity : AppCompatActivity() {
             if (it["weight"]!! > it["numberWeight"]!!) {
                 binding.finalPrice.setText("${((it["sellingPrice"]!! - it["numberTotalPrice"]!!) / (it["weight"]!! - it["numberWeight"]!!)).roundToInt()}")
             }
+
+            Utility.printLog("weight", "${it["weight"]}")
+            Utility.printLog("price", "${it["price"]}")
+            Utility.printLog("dollarPrice", "${it["dollarPrice"]}")
+            Utility.printLog("brokeragePrice", "${it["brokeragePrice"]}")
+            Utility.printLog("sellingPrice", "${it["sellingPrice"]}")
+            Utility.printLog("numberWeight", "${it["numberWeight"]}")
+            Utility.printLog("numberPrice", "${it["numberPrice"]}")
+            Utility.printLog("numberTotalPrice", "${it["numberTotalPrice"]}")
+
         }
 
         binding.buttonSend.setOnClickListener {
@@ -340,6 +348,7 @@ class RawCutDetailActivity : AppCompatActivity() {
             progressBar.setCancelable(false)
             progressBar.show()
             binding.buttonSend.isEnabled = false
+            Utility.printLog("numberTotalPrice", rawCutHistory!!.rowId!!.toString())
             val rowId = if (rawCutHistory!!.rowId!!.isNotEmpty()) {
                 rawCutHistory.rowId
             } else {
@@ -442,44 +451,29 @@ class RawCutDetailActivity : AppCompatActivity() {
 
         if (rawCutHistory.weight.toString().isNotEmpty()) {
             hashMap["weight"] = rawCutHistory.weight.toString().toDouble()
-        } else {
-            hashMap["weight"] = 0.00
         }
         if (rawCutHistory.price.toString().isNotEmpty()) {
             hashMap["price"] = rawCutHistory.price.toString().toDouble()
-        } else {
-            hashMap["price"] = 0.00
         }
         if (rawCutHistory.dollarPrice.toString().isNotEmpty()) {
             hashMap["dollarPrice"] = rawCutHistory.dollarPrice.toString().toDouble()
-        } else {
-            hashMap["dollarPrice"] = 0.00
         }
         if (rawCutHistory.brokeragePrice.toString().isNotEmpty()) {
             hashMap["brokeragePrice"] = rawCutHistory.brokeragePrice.toString().toDouble()
-        } else {
-            hashMap["brokeragePrice"] = 0.00
         }
         if (rawCutHistory.sellingPrice.toString().isNotEmpty()) {
             hashMap["sellingPrice"] = rawCutHistory.sellingPrice.toString().toDouble()
-        } else {
-            hashMap["sellingPrice"] = 0.00
         }
         if (rawCutHistory.numberWeight.toString().isNotEmpty()) {
             hashMap["numberWeight"] = rawCutHistory.numberWeight.toString().toDouble()
-        } else {
-            hashMap["numberWeight"] = 0.00
         }
         if (rawCutHistory.numberPrice.toString().isNotEmpty()) {
             hashMap["numberPrice"] = rawCutHistory.numberPrice.toString().toDouble()
-        } else {
-            hashMap["numberPrice"] = 0.00
         }
         if (rawCutHistory.numberTotalPrice.toString().isNotEmpty()) {
             hashMap["numberTotalPrice"] = rawCutHistory.numberTotalPrice.toString().toDouble()
-        } else {
-            hashMap["numberTotalPrice"] = 0.00
         }
+        liveData.postValue(hashMap)
 
     }
 
