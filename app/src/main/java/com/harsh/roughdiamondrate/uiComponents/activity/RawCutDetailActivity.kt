@@ -15,6 +15,7 @@ import android.view.View.OnFocusChangeListener
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.harsh.roughdiamondrate.Utility
@@ -345,17 +346,18 @@ class RawCutDetailActivity : AppCompatActivity() {
 
         }
 
+//        Utility.printLog("numberTotalPrice", rawCutHistory.value!!.rowId!!.toString())
+
         binding.buttonSend.setOnClickListener {
             progressBar = ProgressBar.getDialog(this)
             progressBar.setCancelable(false)
             progressBar.show()
             binding.buttonSend.isEnabled = false
-            Utility.printLog("numberTotalPrice", rawCutHistory!!.rowId!!.toString())
-            val rowId = if (rawCutHistory!!.rowId!!.isNotEmpty()) {
-                rawCutHistory.rowId
-            } else {
-                "0"
-            }
+            /* val rowId = if (rawCutHistory.rowId!!.isNotEmpty()) {
+                 rawCutHistory.rowId
+             } else {
+                 "0"
+             }*/
             viewModel.setDataToApi(
                 Utility.getTextFromEditText(binding.editDate),
                 Utility.getTextFromEditText(binding.mainKatNumber),
@@ -376,7 +378,7 @@ class RawCutDetailActivity : AppCompatActivity() {
                 Utility.getTextFromEditText(binding.finalPrice),
                 Utility.getTextFromEditText(binding.editDetail),
                 this,
-                rowId = rowId.toString()
+//                rowId = rowId.toString()
             ).observe(this) {
                 Log.e("TAG", "onCreate: $it")
                 Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
@@ -411,71 +413,69 @@ class RawCutDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun getTextFromIntent(): RawCutHistory? {
+    private fun getTextFromIntent(): LiveData<RawCutHistory> {
+        val rawCutHistory by lazy { MutableLiveData<RawCutHistory>() }
         try {
-            if (intent != null) {
-
-                val rawCutHistory: RawCutHistory =
-                    intent.parcelable<RawCutHistory>(IntentKey.rawCutDetail)!!
-
-                setDataToUri(rawCutHistory)
-
-                return rawCutHistory
-            }
-
-            return null
-
-        } catch (e: java.lang.Exception) {
+            rawCutHistory.postValue(intent.parcelable<RawCutHistory>(IntentKey.rawCutDetail))
+            Utility.printLog("RowId", rawCutHistory.value?.rowId!!)
+            setDataToUri(rawCutHistory)
+        } catch (e: Exception) {
             Utility.printLog("Error", "${e.message}")
-            return null
         }
+        return rawCutHistory
+
     }
 
-    private fun setDataToUri(rawCutHistory: RawCutHistory) {
-        binding.editDate.setText(rawCutHistory.data)
-        binding.mainKatNumber.setText(rawCutHistory.mainKatNumber)
-        binding.no.setText(rawCutHistory.number)
-        binding.katName.setText(rawCutHistory.katName)
-        binding.maineWeight.setText(rawCutHistory.maineWeight)
-        binding.bag.setText(rawCutHistory.bag)
-        binding.weight.setText(rawCutHistory.weight)
-        binding.price.setText(rawCutHistory.price)
-        binding.dollarPrice.setText(rawCutHistory.dollarPrice)
-        binding.brokeragePrice.setText(rawCutHistory.brokeragePrice)
-        binding.sellingPrice.setText(rawCutHistory.sellingPrice)
-        binding.totalPrice.setText(rawCutHistory.totalPrice)
-        binding.numberWeight.setText(rawCutHistory.numberWeight)
-        binding.numberPrice.setText(rawCutHistory.numberPrice)
-        binding.numberPercentage.setText(rawCutHistory.numberPercentage)
-        binding.numberTotalPrice.setText(rawCutHistory.numberTotalPrice)
-        binding.finalPrice.setText(rawCutHistory.finalPrice)
-        binding.editDetail.setText(rawCutHistory.detail)
+    private fun setDataToUri(rawCutHistory: LiveData<RawCutHistory>) {
+        rawCutHistory.observe(this) {
 
-        if (rawCutHistory.weight.toString().isNotEmpty()) {
-            hashMap["weight"] = rawCutHistory.weight.toString().toDouble()
+            binding.editDate.setText(it.data)
+            binding.mainKatNumber.setText(it.mainKatNumber)
+            binding.no.setText(it.number)
+            binding.katName.setText(it.katName)
+            binding.maineWeight.setText(it.maineWeight)
+            binding.bag.setText(it.bag)
+            binding.weight.setText(it.weight)
+            binding.price.setText(it.price)
+            binding.dollarPrice.setText(it.dollarPrice)
+            binding.brokeragePrice.setText(it.brokeragePrice)
+            binding.sellingPrice.setText(it.sellingPrice)
+            binding.totalPrice.setText(it.totalPrice)
+            binding.numberWeight.setText(it.numberWeight)
+            binding.numberPrice.setText(it.numberPrice)
+            binding.numberPercentage.setText(it.numberPercentage)
+            binding.numberTotalPrice.setText(it.numberTotalPrice)
+            binding.finalPrice.setText(it.finalPrice)
+            binding.editDetail.setText(it.detail)
+
+            if (it.weight.toString().isNotEmpty()) {
+                hashMap["weight"] = it.weight.toString().toDouble()
+            }
+            if (it.price.toString().isNotEmpty()) {
+                hashMap["price"] = it.price.toString().toDouble()
+            }
+            if (it.dollarPrice.toString().isNotEmpty()) {
+                hashMap["dollarPrice"] = it.dollarPrice.toString().toDouble()
+            }
+            if (it.brokeragePrice.toString().isNotEmpty()) {
+                hashMap["brokeragePrice"] = it.brokeragePrice.toString().toDouble()
+            }
+            if (it.sellingPrice.toString().isNotEmpty()) {
+                hashMap["sellingPrice"] = it.sellingPrice.toString().toDouble()
+            }
+            if (it.numberWeight.toString().isNotEmpty()) {
+                hashMap["numberWeight"] = it.numberWeight.toString().toDouble()
+            }
+            if (it.numberPrice.toString().isNotEmpty()) {
+                hashMap["numberPrice"] = it.numberPrice.toString().toDouble()
+            }
+            if (it.numberTotalPrice.toString().isNotEmpty()) {
+                hashMap["numberTotalPrice"] = it.numberTotalPrice.toString().toDouble()
+            }
+            liveData.postValue(hashMap)
+
         }
-        if (rawCutHistory.price.toString().isNotEmpty()) {
-            hashMap["price"] = rawCutHistory.price.toString().toDouble()
-        }
-        if (rawCutHistory.dollarPrice.toString().isNotEmpty()) {
-            hashMap["dollarPrice"] = rawCutHistory.dollarPrice.toString().toDouble()
-        }
-        if (rawCutHistory.brokeragePrice.toString().isNotEmpty()) {
-            hashMap["brokeragePrice"] = rawCutHistory.brokeragePrice.toString().toDouble()
-        }
-        if (rawCutHistory.sellingPrice.toString().isNotEmpty()) {
-            hashMap["sellingPrice"] = rawCutHistory.sellingPrice.toString().toDouble()
-        }
-        if (rawCutHistory.numberWeight.toString().isNotEmpty()) {
-            hashMap["numberWeight"] = rawCutHistory.numberWeight.toString().toDouble()
-        }
-        if (rawCutHistory.numberPrice.toString().isNotEmpty()) {
-            hashMap["numberPrice"] = rawCutHistory.numberPrice.toString().toDouble()
-        }
-        if (rawCutHistory.numberTotalPrice.toString().isNotEmpty()) {
-            hashMap["numberTotalPrice"] = rawCutHistory.numberTotalPrice.toString().toDouble()
-        }
-        liveData.postValue(hashMap)
+
 
     }
 
