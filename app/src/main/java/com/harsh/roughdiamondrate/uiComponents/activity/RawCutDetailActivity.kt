@@ -4,9 +4,9 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
+import android.os.Build
 import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
-import android.os.Parcelable
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
@@ -24,6 +24,7 @@ import com.harsh.roughdiamondrate.model.IntentKey
 import com.harsh.roughdiamondrate.model.RawCutHistory
 import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
 import com.harsh.roughdiamondrate.viewModel.RawCutDetailViewModel
+import java.io.Serializable
 import java.util.*
 import kotlin.math.roundToInt
 
@@ -58,7 +59,7 @@ class RawCutDetailActivity : AppCompatActivity() {
         hashMap["numberPrice"] = 0.00
         hashMap["numberTotalPrice"] = 0.00
 
-        val rawCutHistory = getTextFromIntent()
+        val mainId = getTextFromIntent()
 
         binding.editDate.setOnClickListener {
             val c = Calendar.getInstance()
@@ -353,11 +354,9 @@ class RawCutDetailActivity : AppCompatActivity() {
             progressBar.setCancelable(false)
             progressBar.show()
             binding.buttonSend.isEnabled = false
-            /* val rowId = if (rawCutHistory.rowId!!.isNotEmpty()) {
-                 rawCutHistory.rowId
-             } else {
-                 "0"
-             }*/
+            val rowId = mainId.ifEmpty {
+                "0"
+            }
             viewModel.setDataToApi(
                 Utility.getTextFromEditText(binding.editDate),
                 Utility.getTextFromEditText(binding.mainKatNumber),
@@ -378,7 +377,7 @@ class RawCutDetailActivity : AppCompatActivity() {
                 Utility.getTextFromEditText(binding.finalPrice),
                 Utility.getTextFromEditText(binding.editDetail),
                 this,
-//                rowId = rowId.toString()
+                rowId = rowId.toString()
             ).observe(this) {
                 Log.e("TAG", "onCreate: $it")
                 Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
@@ -413,22 +412,33 @@ class RawCutDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun getTextFromIntent(): LiveData<RawCutHistory> {
+    private fun getTextFromIntent(): String {
         val rawCutHistory by lazy { MutableLiveData<RawCutHistory>() }
+        var rowId = ""
         try {
-            rawCutHistory.postValue(intent.parcelable<RawCutHistory>(IntentKey.rawCutDetail))
-            Utility.printLog("RowId", rawCutHistory.value?.rowId!!)
+            if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                rawCutHistory.postValue(
+                    intent.getSerializableExtra(
+                        IntentKey.rawCutDetail,
+                        RawCutHistory::class.java
+                    )
+                )
+            } else {
+                rawCutHistory.postValue(intent.getSerializableExtra(IntentKey.rawCutDetail) as RawCutHistory)
+            }
+
+            rowId = intent.getStringExtra(IntentKey.rowId).toString()
             setDataToUri(rawCutHistory)
         } catch (e: Exception) {
             Utility.printLog("Error", "${e.message}")
         }
-        return rawCutHistory
+        return rowId
 
     }
 
     private fun setDataToUri(rawCutHistory: LiveData<RawCutHistory>) {
-        rawCutHistory.observe(this) {
 
+        rawCutHistory.observe(this) {
             binding.editDate.setText(it.data)
             binding.mainKatNumber.setText(it.mainKatNumber)
             binding.no.setText(it.number)
@@ -447,41 +457,44 @@ class RawCutDetailActivity : AppCompatActivity() {
             binding.numberTotalPrice.setText(it.numberTotalPrice)
             binding.finalPrice.setText(it.finalPrice)
             binding.editDetail.setText(it.detail)
-
-            if (it.weight.toString().isNotEmpty()) {
-                hashMap["weight"] = it.weight.toString().toDouble()
+            try {
+                if (it.weight.toString().isNotEmpty()) {
+                    hashMap["weight"] = it.weight.toString().toDouble()
+                }
+                if (it.price.toString().isNotEmpty()) {
+                    hashMap["price"] = it.price.toString().toDouble()
+                }
+                if (it.dollarPrice.toString().isNotEmpty()) {
+                    hashMap["dollarPrice"] = it.dollarPrice.toString().toDouble()
+                }
+                if (it.brokeragePrice.toString().isNotEmpty()) {
+                    hashMap["brokeragePrice"] = it.brokeragePrice.toString().toDouble()
+                }
+                if (it.sellingPrice.toString().isNotEmpty()) {
+                    hashMap["sellingPrice"] = it.sellingPrice.toString().toDouble()
+                }
+                if (it.numberWeight.toString().isNotEmpty()) {
+                    hashMap["numberWeight"] = it.numberWeight.toString().toDouble()
+                }
+                if (it.numberPrice.toString().isNotEmpty()) {
+                    hashMap["numberPrice"] = it.numberPrice.toString().toDouble()
+                }
+                if (it.numberTotalPrice.toString().isNotEmpty()) {
+                    hashMap["numberTotalPrice"] = it.numberTotalPrice.toString().toDouble()
+                }
+                liveData.postValue(hashMap)
+            } catch (e: Exception) {
+                Utility.printLog("Error", "${e.message}")
             }
-            if (it.price.toString().isNotEmpty()) {
-                hashMap["price"] = it.price.toString().toDouble()
-            }
-            if (it.dollarPrice.toString().isNotEmpty()) {
-                hashMap["dollarPrice"] = it.dollarPrice.toString().toDouble()
-            }
-            if (it.brokeragePrice.toString().isNotEmpty()) {
-                hashMap["brokeragePrice"] = it.brokeragePrice.toString().toDouble()
-            }
-            if (it.sellingPrice.toString().isNotEmpty()) {
-                hashMap["sellingPrice"] = it.sellingPrice.toString().toDouble()
-            }
-            if (it.numberWeight.toString().isNotEmpty()) {
-                hashMap["numberWeight"] = it.numberWeight.toString().toDouble()
-            }
-            if (it.numberPrice.toString().isNotEmpty()) {
-                hashMap["numberPrice"] = it.numberPrice.toString().toDouble()
-            }
-            if (it.numberTotalPrice.toString().isNotEmpty()) {
-                hashMap["numberTotalPrice"] = it.numberTotalPrice.toString().toDouble()
-            }
-            liveData.postValue(hashMap)
 
         }
 
 
     }
 
-    private inline fun <reified T : Parcelable> Intent.parcelable(key: String): T? = when {
-        SDK_INT >= 33 -> getParcelableExtra(key, T::class.java)
-        else -> @Suppress("DEPRECATION") getParcelableExtra(key) as? T
+    private inline fun <reified T : Serializable> Intent.serializable(key: String): T? = when {
+        SDK_INT >= 33 -> getSerializableExtra(key, T::class.java)
+        else -> @Suppress("DEPRECATION") getSerializableExtra(key) as? T
     }
 
 

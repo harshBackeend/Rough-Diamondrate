@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ListOfRawCutHistoryBinding
 import com.harsh.roughdiamondrate.model.IntentKey
 import com.harsh.roughdiamondrate.model.RawCutHistory
@@ -61,10 +62,12 @@ class RawCutHistoryAdapter(
         holder.listOfRawCutHistoryBinding.finalPrice.text = model.finalPrice
         holder.listOfRawCutHistoryBinding.detailText.text = model.detail
         holder.listOfRawCutHistoryBinding.month.text = model.month
+        Utility.printLog("rouId","${model.rowId}")
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, RawCutDetailActivity::class.java)
             intent.putExtra(IntentKey.rawCutDetail,model)
+            intent.putExtra(IntentKey.rowId,model.rowId)
             context.startActivity(intent)
         }
 
