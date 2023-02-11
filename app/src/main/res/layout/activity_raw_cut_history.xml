@@ -216,15 +216,6 @@
 
                 <include layout="@layout/vertical_view" />
 
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
-                    android:text="@string/month"
-                    android:theme="@style/textViewForTableLayout" />
-
-                <include layout="@layout/vertical_view" />
-
-
             </LinearLayout>
 
             <include layout="@layout/horizontal_view" />

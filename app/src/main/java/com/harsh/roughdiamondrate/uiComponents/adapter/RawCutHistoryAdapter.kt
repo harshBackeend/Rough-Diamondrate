@@ -3,7 +3,6 @@ package com.harsh.roughdiamondrate.uiComponents.adapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -61,7 +60,6 @@ class RawCutHistoryAdapter(
         holder.listOfRawCutHistoryBinding.numberTotalPrice.text = model.numberTotalPrice
         holder.listOfRawCutHistoryBinding.finalPrice.text = model.finalPrice
         holder.listOfRawCutHistoryBinding.detailText.text = model.detail
-        holder.listOfRawCutHistoryBinding.month.text = model.month
         Utility.printLog("rouId","${model.rowId}")
 
         holder.itemView.setOnClickListener {

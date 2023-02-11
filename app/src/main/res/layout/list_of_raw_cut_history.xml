@@ -197,16 +197,6 @@
 
         <include layout="@layout/vertical_view" />
 
-        <TextView
-            android:id="@+id/month"
-            style="@style/textViewForTableLayout"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="match_parent"
-            tools:ignore="VisualLintBounds"
-            tools:text="25" />
-
-        <include layout="@layout/vertical_view" />
-
     </LinearLayout>
 
     <include layout="@layout/horizontal_view" />
