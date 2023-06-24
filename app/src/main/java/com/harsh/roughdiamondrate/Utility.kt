@@ -24,22 +24,22 @@ class Utility {
         }
 
         fun setSharedPreferences(activity: Context, Key: String, Value: String) {
-            val sharedpreferences =
+            val sharedPreferences =
                 activity.getSharedPreferences(
                     activity.resources.getString(R.string.app_name),
                     Context.MODE_PRIVATE
                 )
-            val editor = sharedpreferences.edit()
+            val editor = sharedPreferences.edit()
             editor.putString(Key, Value)
             editor.apply()
         }
 
         fun getSharedPreferences(activity: Context, Key: String?): String? {
-            val sharedpreferences = activity.getSharedPreferences(
+            val sharedPreferences = activity.getSharedPreferences(
                 activity.resources.getString(R.string.app_name),
                 Context.MODE_PRIVATE
             )
-            return sharedpreferences.getString(Key, "")
+            return sharedPreferences.getString(Key, "")
         }
 
         fun hideKeyboard(activity: Activity) {

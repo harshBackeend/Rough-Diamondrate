@@ -1,5 +1,3 @@
-@file:Suppress("NAME_SHADOWING")
-
 package com.harsh.roughdiamondrate.uiComponents.activity
 
 import android.app.Dialog
@@ -28,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         viewModel.getRate.observe(this) {
-            Log.e("TAG", "onCreate: $it")
+            Utility.printLog("TAG", "onCreate: $it")
             binding.buttonGetRate.isEnabled = true
             if (it > 0) {
                 binding.textPolishReport.text = it.toString()
@@ -64,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                     viewModel.getUrl(Utility.getTextFromEditText(binding.editDiamondSize), this)
                         .observe(this) {
                             binding.buttonGetRate.isEnabled = true
-                            if (it.Status.equals("1")) {
+                            if (it.Status == "1") {
                                 progressBar.dismiss()
                                 binding.editDiamondSize.text.clear()
                                 startActivity(Intent(this, MenuActivity::class.java))

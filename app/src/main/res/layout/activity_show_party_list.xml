@@ -11,6 +11,7 @@
         android:id="@+id/recyclerViewPartyLis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        tools:itemCount="20"
         tools:listitem="@layout/party_list_item"/>
 
 </LinearLayout>

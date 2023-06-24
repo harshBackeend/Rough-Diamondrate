@@ -254,60 +254,6 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
         })
 
-        /*binding.sellingPrice.addTextChangedListener(object : TextWatcher {
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-                try {
-                    if (p0!!.toString() == ".") {
-                        binding.sellingPrice.setText("0.")
-                        binding.sellingPrice.setSelection(Utility.getTextFromEditText(binding.sellingPrice).length)
-                    } else {
-                        if (p0.isNotEmpty()) {
-                            hashMap["sellingPrice"] = p0.toString().toDouble()
-                            liveData.postValue(hashMap)
-                        }
-                    }
-                } catch (e: Exception) {
-                    Utility.printLog("sellingPrice", "$p0 ${e.message}")
-                }
-
-            }
-        })*/
-
-        /*binding.numberTotalPrice.addTextChangedListener(object : TextWatcher {
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-                try {
-                    if (p0!!.toString() == ".") {
-                        binding.numberTotalPrice.setText("0.")
-                        binding.numberTotalPrice.setSelection(Utility.getTextFromEditText(binding.numberTotalPrice).length)
-                    } else {
-                        if (p0.isNotEmpty()) {
-                            hashMap["numberTotalPrice"] = p0.toString().toDouble()
-                            liveData.postValue(hashMap)
-                        }
-                    }
-                } catch (e: Exception) {
-                    Utility.printLog("numberTotalPrice", "$p0 ${e.message}")
-                }
-
-            }
-        })*/
-
         liveData.observe(this) {
             val constant = 100
             var secondSum = 0.00

@@ -15,7 +15,7 @@ import com.harsh.roughdiamondrate.repository.MainRepository
 
 class MainViewModel : ViewModel() {
 
-    private val baseUrl = "https://script.google.com/macros/s/AKfycbx68bdreUEcNGx8xAp_d2F49lbPeJxihRNKaDTWdXLsAK3gUsKYA9ImKeAzsL2CtWwj/"
+    private val baseUrl = "https://script.google.com/macros/s/AKfycby4CjtH-JGwdIxdKQkcN_3yquhad8Tf6q_Atw1ByBeUzOIzkc9_N38ImWLgwYDpz4EgIw/"
 
     private val getRateData by lazy { MutableLiveData<Float>() }
     val getRate: LiveData<Float>
@@ -57,7 +57,6 @@ class MainViewModel : ViewModel() {
                 if (result.body()!!.Status == "1") {
                     Log.e("TAG", "getUrl: ${result.body()!!.data}")
                     Utility.setSharedPreferences(context, ApiUrlKey.firstUrl, result.body()!!.data[0].url.toString())
-                    Utility.setSharedPreferences(context, ApiUrlKey.secondUrl, result.body()!!.data[1].url.toString())
                 }
                 responseModel.postValue(result.body())
             }
