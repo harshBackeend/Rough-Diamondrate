@@ -42,9 +42,8 @@ class RawCutHistoryAdapter(
 
         val model = rawCutHistoryList[position]
 
-        holder.listOfRawCutHistoryBinding.dateText.text = model.data
+        holder.listOfRawCutHistoryBinding.dateText.text = model.date
         holder.listOfRawCutHistoryBinding.mainKatNumber.text = model.mainKatNumber
-        holder.listOfRawCutHistoryBinding.no.text = model.number
         holder.listOfRawCutHistoryBinding.katName.text = model.katName
         holder.listOfRawCutHistoryBinding.maineWeight.text = model.maineWeight
         holder.listOfRawCutHistoryBinding.bag.text = model.bag
@@ -54,12 +53,20 @@ class RawCutHistoryAdapter(
         holder.listOfRawCutHistoryBinding.brokeragePrice.text = model.brokeragePrice
         holder.listOfRawCutHistoryBinding.sellingPrice.text = model.sellingPrice
         holder.listOfRawCutHistoryBinding.totalPrice.text = model.totalPrice
+        holder.listOfRawCutHistoryBinding.textFinalPrice.text = model.finalPrice
+        holder.listOfRawCutHistoryBinding.textPartyName.text = model.partyName
+        holder.listOfRawCutHistoryBinding.textBrokerName.text = model.brokerName
+        holder.listOfRawCutHistoryBinding.textDays.text = model.numberOfDays
+        holder.listOfRawCutHistoryBinding.textDetail.text = model.detail
+        holder.listOfRawCutHistoryBinding.textOk.text = model.fianlOk
         holder.listOfRawCutHistoryBinding.numberWeight.text = model.numberWeight
         holder.listOfRawCutHistoryBinding.numberPrice.text = model.numberPrice
         holder.listOfRawCutHistoryBinding.numberPercentage.text = model.numberPercentage
         holder.listOfRawCutHistoryBinding.numberTotalPrice.text = model.numberTotalPrice
-        holder.listOfRawCutHistoryBinding.finalPrice.text = model.finalPrice
-        holder.listOfRawCutHistoryBinding.detailText.text = model.detail
+        holder.listOfRawCutHistoryBinding.textNumberPartyName.text = model.numberPartyName
+        holder.listOfRawCutHistoryBinding.textNumberBrokerName.text = model.numberBrokerName
+        holder.listOfRawCutHistoryBinding.textNumberOk.text = model.numberOk
+        holder.listOfRawCutHistoryBinding.textNumberDetail.text = model.numberDetail
         Utility.printLog("rouId","${model.rowId}")
 
         holder.itemView.setOnClickListener {

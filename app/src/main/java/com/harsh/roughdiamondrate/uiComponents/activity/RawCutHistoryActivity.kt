@@ -30,11 +30,6 @@ class RawCutHistoryActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[RawCutHistoryViewModel::class.java]
 
-
-
-
-
-
         binding.enterDetails.setOnClickListener {
             startActivity(Intent(this, RawCutDetailActivity::class.java))
         }

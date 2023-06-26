@@ -28,8 +28,6 @@ data class RequestModel(
     //RawCutEntry
     @SerializedName("mainKatNumber")
     var mainKatNumber: String? = null,
-    @SerializedName("number")
-    var number: String? = null,
     @SerializedName("katName")
     var katName: String? = null,
     @SerializedName("maineWeight")
@@ -48,6 +46,16 @@ data class RequestModel(
     var sellingPrice: String? = null,
     @SerializedName("totalPrice")
     var totalPrice: String? = null,
+    @SerializedName("finalPrice")
+    var finalPrice: String? = null,
+    @SerializedName("partyName")
+    var partyName: String? = null,
+    @SerializedName("brokerName")
+    var brokerName: String? = null,
+    @SerializedName("numberOfDays")
+    var numberOfDays: String? = null,
+    @SerializedName("fianlOk")
+    var fianlOk: String? = null,
     @SerializedName("numberWeight")
     var numberWeight: String? = null,
     @SerializedName("numberPrice")
@@ -56,8 +64,16 @@ data class RequestModel(
     var numberPercentage: String? = null,
     @SerializedName("numberTotalPrice")
     var numberTotalPrice: String? = null,
-    @SerializedName("finalPrice")
-    var finalPrice: String? = null,
+    @SerializedName("numberPartyName")
+    var numberPartyName: String? = null,
+    @SerializedName("numberBrokerName")
+    var numberBrokerName: String? = null,
+    @SerializedName("numberDetail")
+    var numberDetail: String? = null,
+    @SerializedName("numberOk")
+    var numberOk: String? = null,
+    @SerializedName("finalDetail")
+    var finalDetail: String? = null,
     @SerializedName("rowId")
     var rowId: String? = null
 )

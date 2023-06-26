@@ -57,6 +57,7 @@ class MainViewModel : ViewModel() {
                 if (result.body()!!.Status == "1") {
                     Log.e("TAG", "getUrl: ${result.body()!!.data}")
                     Utility.setSharedPreferences(context, ApiUrlKey.firstUrl, result.body()!!.data[0].url.toString())
+                    Utility.setSharedPreferences(context, ApiUrlKey.secondUrl, result.body()!!.data[1].url.toString())
                 }
                 responseModel.postValue(result.body())
             }

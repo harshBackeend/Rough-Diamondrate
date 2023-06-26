@@ -17,37 +17,30 @@
         <activity
             android:name=".uiComponents.activity.RawCutHistoryActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".uiComponents.activity.RawCutDetailActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".uiComponents.activity.ShowPartyList"
             android:exported="false"
-            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".uiComponents.activity.AddMoneyDetailActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".uiComponents.activity.HistoryOfMoneyActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".uiComponents.activity.MenuActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".uiComponents.activity.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

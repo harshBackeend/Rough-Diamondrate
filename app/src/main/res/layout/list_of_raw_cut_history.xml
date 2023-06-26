@@ -33,16 +33,6 @@
         <include layout="@layout/vertical_view" />
 
         <TextView
-            android:id="@+id/no"
-            style="@style/textViewForTableLayout"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="match_parent"
-            tools:ignore="VisualLintBounds"
-            tools:text="25" />
-
-        <include layout="@layout/vertical_view" />
-
-        <TextView
             android:id="@+id/katName"
             style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
@@ -133,6 +123,66 @@
         <include layout="@layout/vertical_view" />
 
         <TextView
+            android:id="@+id/textFinalPrice"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textPartyName"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textBrokerName"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textDays"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textDetail"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textOk"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
             android:id="@+id/numberWeight"
             style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
@@ -175,7 +225,27 @@
         <include layout="@layout/vertical_view" />
 
         <TextView
-            android:id="@+id/finalPrice"
+            android:id="@+id/textNumberPartyName"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textNumberBrokerName"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textNumberDetail"
             style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="match_parent"
@@ -187,7 +257,19 @@
             tools:ignore="VisualLintBounds" />
 
         <TextView
-            android:id="@+id/detailText"
+            android:id="@+id/textNumberOk"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include
+            layout="@layout/vertical_view"
+            tools:ignore="VisualLintBounds" />
+
+        <TextView
+            android:id="@+id/finalDetail"
             style="@style/textViewForTableLayout"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="match_parent"
