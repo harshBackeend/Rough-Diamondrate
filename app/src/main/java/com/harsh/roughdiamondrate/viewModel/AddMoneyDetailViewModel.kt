@@ -13,8 +13,6 @@ import com.harsh.roughdiamondrate.model.MethodName
 import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.model.ResponseModel
 import com.harsh.roughdiamondrate.repository.MainRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class AddMoneyDetailViewModel : ViewModel() {
 
@@ -42,7 +40,7 @@ class AddMoneyDetailViewModel : ViewModel() {
             methodName = MethodName.insertData
         )
         Utility.printLog("startApi", dateValue)
-        val url = Utility.getSharedPreferences(context, ApiUrlKey.firstUrl)
+        val url = Utility.getSharedPreferences(context, ApiUrlKey.monyFile)
         viewModelScope.launchIO {
             val result = MainRepository(url!!).getData(requestModel)
             if (result.body() != null) {

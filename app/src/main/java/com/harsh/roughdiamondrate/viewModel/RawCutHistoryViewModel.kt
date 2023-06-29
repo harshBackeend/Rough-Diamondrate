@@ -19,7 +19,7 @@ class RawCutHistoryViewModel : ViewModel() {
         val responseModel by lazy { MutableLiveData<ResponseModel>() }
 
         val requestModel = RequestModel(methodName = MethodName.getHistory)
-        val url = Utility.getSharedPreferences(context, ApiUrlKey.secondUrl)
+        val url = Utility.getSharedPreferences(context, ApiUrlKey.veFile)
         viewModelScope.launchIO {
             val result = MainRepository(url!!).getData(requestModel)
             if(result.body() != null){

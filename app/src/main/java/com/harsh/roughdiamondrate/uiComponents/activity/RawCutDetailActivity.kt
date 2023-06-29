@@ -3,8 +3,6 @@ package com.harsh.roughdiamondrate.uiComponents.activity
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
-import android.os.Build
-import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
@@ -24,7 +22,6 @@ import com.harsh.roughdiamondrate.model.RawCutHistory
 import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
 import com.harsh.roughdiamondrate.viewModel.RawCutDetailViewModel
 import java.util.*
-import kotlin.math.roundToInt
 
 class RawCutDetailActivity : AppCompatActivity() {
     /**
@@ -262,22 +259,22 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
             if (secondSum > 0.00) {
                 hashMap["sellingPrice"] =
-                    it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum.roundToInt()
-                binding.sellingPrice.setText("${(it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum).roundToInt()}")
+                    it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum.toFloat()
+                binding.sellingPrice.setText("${(it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum).toFloat()}")
             }
 
             if (it["weight"]!! > 0.00) {
-                binding.totalPrice.setText("${(it["sellingPrice"]!! / it["weight"]!!).roundToInt()}")
+                binding.totalPrice.setText("${Utility.roundNumber("#.#",it["sellingPrice"]!! / it["weight"]!!)}")
                 binding.numberPercentage.setText("${(it["numberWeight"]!! / (it["weight"]!! / constant)).toFloat()}")
             }
 
             if (it["numberWeight"]!! > 0 && it["numberPrice"]!! > 0) {
                 hashMap["numberTotalPrice"] = it["numberWeight"]!! * it["numberPrice"]!!
-                binding.numberTotalPrice.setText("${(it["numberWeight"]!! * it["numberPrice"]!!).roundToInt()}")
+                binding.numberTotalPrice.setText("${(it["numberWeight"]!! * it["numberPrice"]!!).toFloat()}")
             }
 
             if (it["weight"]!! > it["numberWeight"]!!) {
-                binding.finalPrice.setText("${((it["sellingPrice"]!! - it["numberTotalPrice"]!!) / (it["weight"]!! - it["numberWeight"]!!)).roundToInt()}")
+                binding.finalPrice.setText("${Utility.roundNumber("#.#",(it["sellingPrice"]!! - it["numberTotalPrice"]!!) / (it["weight"]!! - it["numberWeight"]!!)).toFloat()}")
             }
 
             Utility.printLog("weight", "${it["weight"]}")

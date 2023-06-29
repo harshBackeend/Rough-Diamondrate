@@ -21,7 +21,7 @@ class HistoryOfMoneyViewModel : ViewModel() {
 
         val requestModel = RequestModel(methodName = MethodName.getHistory, paltyName = partyName)
 
-        val url = Utility.getSharedPreferences(context, ApiUrlKey.firstUrl)
+        val url = Utility.getSharedPreferences(context, ApiUrlKey.monyFile)
         viewModelScope.launchIO {
             try {
                 val result = MainRepository(url!!).getData(requestModel)

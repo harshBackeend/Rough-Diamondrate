@@ -29,5 +29,13 @@ class MenuActivity : AppCompatActivity() {
             )
         }
 
+        binding.buttonReadyToSell.setOnClickListener {
+            startActivity(
+                Intent(
+                    this, TaiyarVeActivity::class.java
+                )
+            )
+        }
+
     }
 }

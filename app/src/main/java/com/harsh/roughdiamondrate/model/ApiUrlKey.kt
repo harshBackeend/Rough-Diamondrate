@@ -2,6 +2,6 @@ package com.harsh.roughdiamondrate.model
 
 object ApiUrlKey {
 
-    const val firstUrl:String= "FirstApiUrl"
-    const val secondUrl:String= "secondApiUrl"
+    const val monyFile:String= "FirstApiUrl"
+    const val veFile:String= "secondApiUrl"
 }

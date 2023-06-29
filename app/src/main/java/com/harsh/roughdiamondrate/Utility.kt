@@ -10,6 +10,8 @@ import android.widget.Toast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class Utility {
 
@@ -71,6 +73,18 @@ class Utility {
             editText.text.clear()
         }
 
+        fun roundNumber(patten:String,number:Double):Double{
+
+            return if(patten.isNotEmpty()){
+
+                val df = DecimalFormat("#.#")
+                df.roundingMode = RoundingMode.UP
+                df.format(number).toDouble()
+
+            }else{
+                0.0;
+            }
+        }
 
     }
 }

@@ -34,6 +34,17 @@
             android:textSize="@dimen/_15ssp"
             tools:ignore="VisualLintButtonSize" />
 
+        <Button
+            android:id="@+id/buttonReadyToSell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/solid_color_6a1b9a"
+            android:fadeScrollbars="false"
+            android:text="@string/tiyar_ve"
+            android:textSize="@dimen/_15ssp"
+            tools:ignore="VisualLintButtonSize" />
+
     </LinearLayout>
 
 

@@ -21,7 +21,7 @@ class ShowPartyListViewModel : ViewModel() {
 
         val requestModel = RequestModel(methodName = MethodName.getList)
 
-        val url = Utility.getSharedPreferences(context, ApiUrlKey.firstUrl)
+        val url = Utility.getSharedPreferences(context, ApiUrlKey.monyFile)
         viewModelScope.launchIO {
             val result = MainRepository(url!!).getData(requestModel)
             if (result.body() != null) {
