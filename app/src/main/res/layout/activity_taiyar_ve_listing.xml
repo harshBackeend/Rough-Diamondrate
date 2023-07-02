@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".uiComponents.activity.RawCutHistoryActivity">
+    android:layout_height="match_parent"
+    tools:context=".uiComponents.activity.TaiyarVeListingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -81,7 +82,7 @@
                 <TextView
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
-                    android:text="@string/main_kat_no"
+                    android:text="@string/no"
                     android:theme="@style/textViewForTableLayout"
                     tools:ignore="TextSizeCheck" />
 
@@ -90,31 +91,15 @@
                 <TextView
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
-                    android:text="@string/kat_name"
-                    android:theme="@style/textViewForTableLayout" />
-
-                <include layout="@layout/vertical_view" />
-
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
-                    android:text="@string/maine_weight"
-                    android:theme="@style/textViewForTableLayout" />
-
-                <include layout="@layout/vertical_view" />
-
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
-                    android:text="@string/bag"
-                    android:theme="@style/textViewForTableLayout" />
-
-                <include layout="@layout/vertical_view" />
-
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
                     android:text="@string/weight"
+                    android:theme="@style/textViewForTableLayout" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/ve_weight"
                     android:theme="@style/textViewForTableLayout" />
 
                 <include layout="@layout/vertical_view" />
@@ -130,7 +115,7 @@
                 <TextView
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
-                    android:text="@string/dollar_price"
+                    android:text="@string/percentage"
                     android:theme="@style/textViewForTableLayout" />
 
                 <include layout="@layout/vertical_view" />
@@ -138,7 +123,7 @@
                 <TextView
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
-                    android:text="@string/brokerage_price"
+                    android:text="@string/payment"
                     android:theme="@style/textViewForTableLayout" />
 
                 <include layout="@layout/vertical_view" />
@@ -146,26 +131,8 @@
                 <TextView
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
-                    android:text="@string/india_rs_symbol"
+                    android:text="@string/perotti"
                     android:theme="@style/textViewForTableLayout" />
-
-                <include layout="@layout/vertical_view" />
-
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
-                    android:text="@string/total_price"
-                    android:theme="@style/textViewForTableLayout"
-                    tools:ignore="TextSizeCheck" />
-
-                <include layout="@layout/vertical_view" />
-
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
-                    android:text="@string/f_bhav"
-                    android:theme="@style/textViewForTableLayout"
-                    tools:ignore="TextSizeCheck" />
 
                 <include layout="@layout/vertical_view" />
 
@@ -199,7 +166,7 @@
                 <TextView
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
-                    android:text="@string/detail"
+                    android:text="@string/cvd"
                     android:theme="@style/textViewForTableLayout"
                     tools:ignore="TextSizeCheck" />
 
@@ -208,7 +175,7 @@
                 <TextView
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
-                    android:text="@string/ok"
+                    android:text="@string/brokeragePercentage"
                     android:theme="@style/textViewForTableLayout"
                     tools:ignore="TextSizeCheck" />
 
@@ -217,7 +184,16 @@
                 <TextView
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
-                    android:text="@string/number_weight"
+                    android:text="@string/brokerage_price"
+                    android:theme="@style/textViewForTableLayout"
+                    tools:ignore="TextSizeCheck" />
+
+                <include layout="@layout/vertical_view" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:text="@string/after_brokerage"
                     android:theme="@style/textViewForTableLayout" />
 
                 <include layout="@layout/vertical_view" />
@@ -225,39 +201,7 @@
                 <TextView
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
-                    android:text="@string/number_price"
-                    android:theme="@style/textViewForTableLayout" />
-
-                <include layout="@layout/vertical_view" />
-
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
-                    android:text="@string/number_percentage"
-                    android:theme="@style/textViewForTableLayout" />
-
-                <include layout="@layout/vertical_view" />
-
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
-                    android:text="@string/number_rate"
-                    android:theme="@style/textViewForTableLayout" />
-
-                <include layout="@layout/vertical_view" />
-
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
-                    android:text="@string/paltyName"
-                    android:theme="@style/textViewForTableLayout" />
-
-                <include layout="@layout/vertical_view" />
-
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
-                    android:text="@string/brokerName"
+                    android:text="@string/payment_detail"
                     android:theme="@style/textViewForTableLayout" />
 
                 <include layout="@layout/vertical_view" />
@@ -274,14 +218,6 @@
                     android:layout_width="@dimen/_70sdp"
                     android:layout_height="match_parent"
                     android:text="@string/ok"
-                    android:theme="@style/textViewForTableLayout" />
-
-                <include layout="@layout/vertical_view" />
-
-                <TextView
-                    android:layout_width="@dimen/_70sdp"
-                    android:layout_height="match_parent"
-                    android:text="@string/detail"
                     android:theme="@style/textViewForTableLayout" />
 
                 <include layout="@layout/vertical_view" />

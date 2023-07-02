@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_35sdp"
+        android:orientation="horizontal">
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textDate"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="20-25-2022" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textNo"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textWeight"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textVeWeight"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textPrice"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textPercentage"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textPayment"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textPeroti"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textPartyName"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textBrokerName"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textDays"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textCVD"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textBrokerPercentage"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textBrokerage"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textAfterBrokerage"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textPaymentDetail"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textDetail"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+        <TextView
+            android:id="@+id/textOk"
+            style="@style/textViewForTableLayout"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="match_parent"
+            tools:ignore="VisualLintBounds"
+            tools:text="25" />
+
+        <include layout="@layout/vertical_view" />
+
+    </LinearLayout>
+
+    <include layout="@layout/horizontal_view" />
+
+</LinearLayout>

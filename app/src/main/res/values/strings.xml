@@ -40,6 +40,7 @@
     <string name="price">ભાવ</string>
     <string name="dollar_price">ડોલર</string>
     <string name="brokerage_price">દલાલી</string>
+    <string name="brokeragePercentage">દલાલી %</string>
     <string name="selling_price">વેચ વાનો નો ભાવ</string>
     <string name="india_rs_symbol">₹</string>
     <string name="number_weight">નંબર વજન</string>
@@ -54,8 +55,15 @@
     <string name="search">શોધો.</string>
     <string name="enter_the_new_cut">નવી કટ નાખો.</string>
     <string name="f_bhav">f bhav</string>
-    <string name="broker">દલાલ</string>
-    <string name="days">days</string>
+    <string name="brokerName">દલાલ નામ</string>
+    <string name="days">દિવસ</string>
     <string name="ok">Ok</string>
     <string name="tiyar_ve">તીયાર વે</string>
+    <string name="ve_weight">વે વજન</string>
+    <string name="percentage">-%</string>
+    <string name="payment">પેમેન્ટ</string>
+    <string name="perotti">પેરોટી</string>
+    <string name="after_brokerage">દલાલી બાદ</string>
+    <string name="cvd">CVD</string>
+    <string name="payment_detail">પેમેન્ટ વિગત</string>
 </resources>

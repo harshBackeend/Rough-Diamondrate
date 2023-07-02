@@ -3,7 +3,6 @@ package com.harsh.roughdiamondrate.uiComponents.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.harsh.roughdiamondrate.R
 import com.harsh.roughdiamondrate.databinding.ActivityMenuBinding
 
 class MenuActivity : AppCompatActivity() {
@@ -32,7 +31,7 @@ class MenuActivity : AppCompatActivity() {
         binding.buttonReadyToSell.setOnClickListener {
             startActivity(
                 Intent(
-                    this, TaiyarVeActivity::class.java
+                    this, TaiyarVeListingActivity::class.java
                 )
             )
         }

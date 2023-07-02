@@ -13,5 +13,7 @@ data class ResponseModel(
     @SerializedName("Data")
     var data: ArrayList<Data>,
     @SerializedName("RawCutHistory")
-    var rawCutHistory: ArrayList<RawCutHistory>
+    var rawCutHistory: ArrayList<RawCutHistory>,
+    @SerializedName("taiyarVeList")
+    var taiyarVeList: ArrayList<TaiyarVeList>
 )
