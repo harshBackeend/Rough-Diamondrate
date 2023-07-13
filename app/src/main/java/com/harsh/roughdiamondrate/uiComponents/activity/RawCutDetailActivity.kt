@@ -328,7 +328,7 @@ class RawCutDetailActivity : AppCompatActivity() {
                 this,
                 rowId = rowId
             ).observe(this) {
-                Log.e("TAG", "onCreate: $it")
+                Utility.printLog("TAG", "onCreate: $it")
                 Toast.makeText(this, it.Message, Toast.LENGTH_LONG).show()
                 if (it.Status == "1") {
                     progressBar.dismiss()
@@ -372,7 +372,6 @@ class RawCutDetailActivity : AppCompatActivity() {
             Utility.printLog("Error", "${e.message}")
         }
         return rowId
-
     }
 
     private fun setDataToUri(rawCutHistory: LiveData<RawCutHistory>) {

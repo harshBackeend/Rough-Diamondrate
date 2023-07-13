@@ -230,7 +230,7 @@
                 android:id="@+id/recyclerViewPartyHistory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/list_of_raw_cut_history" />
+                tools:listitem="@layout/list_of_taiyar_ve" />
 
 
         </LinearLayout>

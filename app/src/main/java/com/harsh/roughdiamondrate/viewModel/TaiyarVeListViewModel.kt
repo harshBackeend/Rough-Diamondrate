@@ -13,43 +13,21 @@ import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.model.ResponseModel
 import com.harsh.roughdiamondrate.repository.MainRepository
 
-class AddMoneyDetailViewModel : ViewModel() {
+class TaiyarVeListViewModel : ViewModel() {
 
-
-    fun setDataToApi(
-        dateValue: String,
-        paltyName: String,
-        deposit: String,
-        depositNumber: String,
-        withdrawal: String,
-        withdrawalNumber: String,
-        detail: String,
-        context: Context
-    ): LiveData<ResponseModel> {
+    fun getTaiyarVeList(context: Context): LiveData<ResponseModel> {
         val responseModel by lazy { MutableLiveData<ResponseModel>() }
 
-        val requestModel = RequestModel(
-            dateValue = dateValue,
-            paltyName = paltyName,
-            deposit = deposit,
-            depositNumber = depositNumber,
-            withdrawal = withdrawal,
-            withdrawalNumber = withdrawalNumber,
-            detail = detail,
-            methodName = MethodName.insertData
-        )
-        Utility.printLog("startApi", dateValue)
-        val url = Utility.getSharedPreferences(context, ApiUrlKey.monyFile)
+        val requestModel = RequestModel(methodName = MethodName.getHistoryTaiyarVe)
+        val url = Utility.getSharedPreferences(context, ApiUrlKey.veFile)
         viewModelScope.launchIO {
             val result = MainRepository(url!!).getData(requestModel)
-            if (result.body() != null) {
+            if(result.body() != null){
                 responseModel.postValue(result.body())
                 Utility.printLog("TAG", "setDataToApi: ${result.body()!!.Message}")
                 Utility.printLog("TAG", "getApi data : ${result.body()}")
             }
         }
-
         return responseModel
     }
-
 }

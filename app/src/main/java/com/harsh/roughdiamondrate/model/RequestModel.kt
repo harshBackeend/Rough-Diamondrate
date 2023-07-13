@@ -74,6 +74,24 @@ data class RequestModel(
     var numberOk: String? = null,
     @SerializedName("finalDetail")
     var finalDetail: String? = null,
+    @SerializedName("no")
+    var no: String? = null,
+    @SerializedName("veWeight")
+    var veWeight: String? = null,
+    @SerializedName("percentage")
+    var percentage: String? = null,
+    @SerializedName("peroti")
+    var peroti: String? = null,
+    @SerializedName("payment")
+    var payment: String? = null,
+    @SerializedName("cvd")
+    var cvd: String? = null,
+    @SerializedName("brokeragePercentage")
+    var brokeragePercentage: String? = null,
+    @SerializedName("paymentDetail")
+    var paymentDetail: String? = null,
+    @SerializedName("ok")
+    var ok: String? = null,
     @SerializedName("rowId")
     var rowId: String? = null
 )
