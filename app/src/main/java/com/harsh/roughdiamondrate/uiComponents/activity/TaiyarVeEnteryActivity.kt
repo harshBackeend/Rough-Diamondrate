@@ -295,16 +295,18 @@ class TaiyarVeEnteryActivity : AppCompatActivity() {
         val rawCutHistory by lazy { MutableLiveData<TaiyarVeList>() }
         var rowId = ""
         try {
-
             rawCutHistory.postValue(intent.getSerializableExtra(IntentKey.taiyarDetail) as TaiyarVeList)
 
             rowId = intent.getStringExtra(IntentKey.rowId).toString()
+
             setDataToUri(rawCutHistory)
+
         } catch (e: Exception) {
             Utility.printLog("Error", "${e.message}")
         }
         return rowId
     }
+
     private fun setDataToUri(rawCutHistory: LiveData<TaiyarVeList>) {
 
         rawCutHistory.observe(this) {
