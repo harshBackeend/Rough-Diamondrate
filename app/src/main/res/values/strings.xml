@@ -58,6 +58,52 @@
     <string name="brokerName">દલાલ નામ</string>
     <string name="days">દિવસ</string>
     <string name="ok">Ok</string>
+
+    <!--start kachi_cat-->
+    <string name="sKaWeight">સ કા.વજન</string>
+    <string name="sToWeight">સ તૈ.વજન</string>
+    <string name="soKaWeight">સો કા.વજન</string>
+    <string name="soToWeight">સો તૈ.વજન</string>
+    <string name="rowWeight">કાચું વજન</string>
+    <string name="w_1">w-1</string>
+    <string name="w_2">w-2</string>
+    <string name="w_3">w-3</string>
+    <string name="palet">પ્લેટ</string>
+    <string name="total">ટોટલ</string>
+    <string name="other_hp_out">other/hp આઉટ</string>
+    <string name="after_total">બાદ ટોટલ</string>
+    <string name="total_nag">ટોટલ નંગ</string>
+    <string name="total_Weight">ટોટલ વજન</string>
+    <string name="row_ready">કાચી તૈયાર</string>
+
+    <!--Ready Cat-->
+    <string name="sum_after_total">sum બાદ ટોટલ</string>
+    <string name="sum_4p_ok_number">sum 4P OK નંગ</string>
+    <string name="sum_4p_ok_weight">sum 4P OK વજન</string>
+    <string name="avg_print_p">avg પ્રિન્ટ %</string>
+    <string name="avg_w_1_p">avg w-1%</string>
+    <string name="avg_w_2_p">avg w-2%</string>
+    <string name="avg_w_3_p">avg w-3%</string>
+    <string name="avg_goli_p">avg goli%</string>
+    <string name="avg_a_p">avg a+%</string>
+    <string name="avg_palsa_p">avg palsa%</string>
+    <string name="avg_goli">avg goli</string>
+    <string name="avg_a">avg a+</string>
+    <string name="avg_palsa">avg palsa</string>
+    <string name="avg_new">avg new</string>
+    <string name="sum_pata_number">sum પટ્ટા નંગ</string>
+    <string name="sum_pata_weight">sum પટ્ટા વજન</string>
+    <string name="avg_file_p">avg ફાઇનલ %</string>
+    <string name="sum_to_weight">sum તૈ વજન</string>
+    <string name="sum_to_number">sum તૈ નંગ</string>
+    <string name="sum_1">sum 1</string>
+    <string name="sum_2">sum 2</string>
+    <string name="sum_3">sum 3</string>
+    <string name="sum_row_number">sum કાચા નંગ</string>
+    <string name="sum_row_weight">sum કાચું વજન</string>
+    <string name="sum_ready_number">sum તૈયાર નંગ</string>
+    <string name="sum_ready_weight">sum તૈયાર વજન</string>
+
     <string name="tiyar_ve">તીયાર વે</string>
     <string name="ve_weight">વે વજન</string>
     <string name="percentage">-%</string>
@@ -66,4 +112,6 @@
     <string name="after_brokerage">દલાલી બાદ</string>
     <string name="cvd">CVD</string>
     <string name="payment_detail">પેમેન્ટ વિગત</string>
+    <string name="kat">કટ</string>
+    <string name="p">%</string>
 </resources>
