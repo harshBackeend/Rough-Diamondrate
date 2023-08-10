@@ -28,6 +28,14 @@ class MenuActivity : AppCompatActivity() {
             )
         }
 
+        binding.buttonKatEntry.setOnClickListener {
+            startActivity(
+                Intent(
+                    this, RawCutHistoryActivity::class.java
+                )
+            )
+        }
+
         binding.buttonReadyToSell.setOnClickListener {
             startActivity(
                 Intent(

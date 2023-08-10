@@ -15,6 +15,9 @@
         android:theme="@style/Theme.RoughDiamondEastimate"
         tools:targetApi="31">
         <activity
+            android:name=".uiComponents.activity.KatEntryMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".uiComponents.activity.MainReadyCatDetailActivity"
             android:exported="false" />
         <activity

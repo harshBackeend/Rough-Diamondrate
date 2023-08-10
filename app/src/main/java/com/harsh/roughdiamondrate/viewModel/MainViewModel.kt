@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.Utility.Companion.launchIO
 import com.harsh.roughdiamondrate.model.ApiUrlKey
@@ -55,9 +56,27 @@ class MainViewModel : ViewModel() {
             val result = MainRepository(baseUrl).getData(requestModel)
             if (result.body() != null) {
                 if (result.body()!!.Status == "1") {
-                    Log.e("Response", "getUrl: ${result.body()!!.data}")
-                    Utility.setSharedPreferences(context, ApiUrlKey.monyFile, result.body()!!.data[0].url.toString())
-                    Utility.setSharedPreferences(context, ApiUrlKey.veFile, result.body()!!.data[1].url.toString())
+                    try {
+                        Log.e("Response", "getUrl: ${result.body()!!.data}")
+                        Utility.setSharedPreferences(
+                            context,
+                            ApiUrlKey.monyFile,
+                            result.body()!!.data[0].url.toString()
+                        )
+                        Utility.setSharedPreferences(
+                            context,
+                            ApiUrlKey.veFile,
+                            result.body()!!.data[1].url.toString()
+                        )
+                        Utility.setSharedPreferences(
+                            context,
+                            ApiUrlKey.entryFile,
+                            result.body()!!.data[2].url.toString()
+                        )
+                    }catch (e:Exception){
+                        FirebaseCrashlytics.getInstance().recordException(e);
+                    }
+
                 }
                 responseModel.postValue(result.body())
             }

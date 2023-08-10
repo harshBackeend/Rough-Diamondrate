@@ -114,4 +114,7 @@
     <string name="payment_detail">પેમેન્ટ વિગત</string>
     <string name="kat">કટ</string>
     <string name="p">%</string>
+    <string name="kat_ni_entry_karo">કટ ની એન્ટ્રી  કરો</string>
+    <string name="main_kachi_kat">મૈન કાચી કટ</string>
+    <string name="main_ready_kat">મૈન તૈયાર કટ</string>
 </resources>
