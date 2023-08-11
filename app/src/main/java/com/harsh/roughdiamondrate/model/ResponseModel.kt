@@ -15,5 +15,9 @@ data class ResponseModel(
     @SerializedName("RawCutHistory")
     var rawCutHistory: ArrayList<RawCutHistory>,
     @SerializedName("taiyarVeList")
-    var taiyarVeList: ArrayList<TaiyarVeList>
+    var taiyarVeList: ArrayList<TaiyarVeList>,
+    @SerializedName("RowCatDetail")
+    var rowCatDetail:RowCatDetailModel? = null,
+    @SerializedName("ReadyCatDetail")
+    var readyCatDetail:ReadyCatDetailModel? = null
 )
