@@ -93,5 +93,7 @@ data class RequestModel(
     @SerializedName("ok")
     var ok: String? = null,
     @SerializedName("rowId")
-    var rowId: String? = null
+    var rowId: String? = null,
+    @SerializedName("catNumber")
+    var catNumber: String? = null
 )
