@@ -40,6 +40,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lines="1"
+                        android:focusable="false"
                         android:theme="@style/textViewAndEditText"
                         tools:ignore="VisualLintTextFieldSize" />
 
@@ -60,6 +61,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lines="1"
+                        android:focusable="false"
                         android:theme="@style/textViewAndEditText"
                         tools:ignore="VisualLintTextFieldSize" />
 
@@ -102,6 +104,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lines="1"
+                        android:focusable="false"
                         android:theme="@style/textViewAndEditText"
                         tools:ignore="VisualLintTextFieldSize" />
 
@@ -127,6 +130,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -146,6 +150,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -165,6 +170,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -192,6 +198,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -211,6 +218,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -237,6 +245,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -263,6 +272,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -290,6 +300,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -309,6 +320,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -328,6 +340,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -354,6 +367,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -380,6 +394,7 @@
                             android:id="@+id/editSumToNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
@@ -400,6 +415,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -426,6 +442,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -453,6 +470,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -472,6 +490,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -499,6 +518,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -518,6 +538,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -545,6 +566,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -564,6 +586,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -591,6 +614,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -610,6 +634,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -637,6 +662,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 
@@ -656,6 +682,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lines="1"
+                            android:focusable="false"
                             android:theme="@style/textViewAndEditText"
                             tools:ignore="VisualLintTextFieldSize" />
 

@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ReadyCatDetailModel(
     @SerializedName("cat") var cat: String? = null,
+    @SerializedName("sumAfterTotal") var sumAfterTotal: String? = null,
     @SerializedName("total4POkNumber") var total4POkNumber: String? = null,
     @SerializedName("total4POkWeight") var total4POkWeight: String? = null,
     @SerializedName("avgPrient") var avgPrient: String? = null,
