@@ -40,7 +40,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lines="1"
-                        android:focusable="false"
+                        android:inputType="number"
                         android:theme="@style/textViewAndEditText"
                         tools:ignore="VisualLintTextFieldSize" />
 

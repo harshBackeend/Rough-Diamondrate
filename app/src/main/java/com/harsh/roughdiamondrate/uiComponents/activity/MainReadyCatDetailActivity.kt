@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowId.FocusObserver
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.harsh.roughdiamondrate.R
@@ -20,7 +21,7 @@ class MainReadyCatDetailActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainReadyCatDetailBinding
     lateinit var viewModel: MainReadyKatViewModel
     private lateinit var progressBar: Dialog
-    private lateinit var readyCatDetailModel:ReadyCatDetailModel
+    private lateinit var readyCatDetailModel: ReadyCatDetailModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +29,36 @@ class MainReadyCatDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[MainReadyKatViewModel::class.java]
 
+        binding.layoutDate.visibility = View.GONE;
+        binding.buttonSend.visibility = View.VISIBLE;
+
 
         binding.buttonReset.setOnClickListener {
+            binding.layoutDate.visibility = View.GONE
             binding.layoutMainData.visibility = View.GONE
             binding.buttonSend.visibility = View.VISIBLE
-            binding.editDate.visibility = View.GONE
             binding.editCat.setText("")
+            binding.editDate.setText("")
+            binding.editSumAfterTotal.setText("")
+            binding.editSum4pOkNumber.setText("")
+            binding.editSum4pOkWeight.setText("")
+            binding.editAvgPrintP.setText("")
+            binding.editSum4pOkWeight.setText("")
+            binding.editAvgGoli.setText("")
+            binding.editAvgA.setText("")
+            binding.editAvgPalsa.setText("")
+            binding.editSumPataNumber.setText("")
+            binding.editAvgFileP.setText("")
+            binding.editSumPataWeight.setText("")
+            binding.editSumToNumber.setText("")
+            binding.editSumToWeight.setText("")
+            binding.editSum1.setText("")
+            binding.editSum2.setText("")
+            binding.editSum3.setText("")
+            binding.editSumRowNumber.setText("")
+            binding.editSumRowWeight.setText("")
+            binding.editSumReadyNumber.setText("")
+            binding.editSumReadyWeight.setText("")
         }
 
         binding.buttonSend.setOnClickListener {
@@ -45,6 +70,10 @@ class MainReadyCatDetailActivity : AppCompatActivity() {
                     .observe(this) {
                         progressBar.dismiss()
                         if (it.Status == "1") {
+                            binding.buttonSend.visibility = View.GONE
+                            binding.layoutDate.visibility = View.VISIBLE
+                            binding.layoutMainData.visibility = View.VISIBLE
+                            binding.editCat.isFocusable = false
                             readyCatDetailModel = it.readyCatDetail!!
                             binding.editCat.setText(readyCatDetailModel.cat)
                             binding.editDate.setText(readyCatDetailModel.date)
@@ -79,7 +108,19 @@ class MainReadyCatDetailActivity : AppCompatActivity() {
         }
 
         binding.buttonSendEntry.setOnClickListener {
-
+            if (binding.layoutMainData.visibility == View.VISIBLE) {
+                progressBar = ProgressBar.getDialog(this)
+                progressBar.setCancelable(false)
+                progressBar.show()
+                viewModel.setReadyKatDetailInSheet(readyCatDetailModel, this).observe(this) {
+                    if (it.Status == "1") {
+                        binding.buttonReset.performClick()
+                        progressBar.dismiss()
+                    } else {
+                        progressBar.dismiss()
+                    }
+                }
+            }
         }
     }
 }

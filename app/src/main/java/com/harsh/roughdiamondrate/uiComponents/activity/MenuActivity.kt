@@ -31,7 +31,7 @@ class MenuActivity : AppCompatActivity() {
         binding.buttonKatEntry.setOnClickListener {
             startActivity(
                 Intent(
-                    this, RawCutHistoryActivity::class.java
+                    this, MainReadyCatDetailActivity::class.java
                 )
             )
         }
