@@ -13,48 +13,87 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-        <Button
-            android:id="@+id/buttonMoney"
+        <LinearLayout
+            android:id="@+id/layoutMenuHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/solid_color_6a1b9a"
-            android:fadeScrollbars="false"
-            android:text="@string/money"
-            android:textSize="@dimen/_15ssp"
-            tools:ignore="VisualLintButtonSize" />
+            android:visibility="visible"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonRawCut"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/solid_color_6a1b9a"
-            android:fadeScrollbars="false"
-            android:text="@string/raw_cut"
-            android:textSize="@dimen/_15ssp"
-            tools:ignore="VisualLintButtonSize" />
+            <Button
+                android:id="@+id/buttonMoney"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_color_6a1b9a"
+                android:fadeScrollbars="false"
+                android:text="@string/money"
+                android:textSize="@dimen/_15ssp"
+                tools:ignore="VisualLintButtonSize" />
 
-        <Button
-            android:id="@+id/buttonReadyToSell"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/solid_color_6a1b9a"
-            android:fadeScrollbars="false"
-            android:text="@string/tiyar_ve"
-            android:textSize="@dimen/_15ssp"
-            tools:ignore="VisualLintButtonSize" />
+            <Button
+                android:id="@+id/buttonRawCut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/solid_color_6a1b9a"
+                android:fadeScrollbars="false"
+                android:text="@string/raw_cut"
+                android:textSize="@dimen/_15ssp"
+                tools:ignore="VisualLintButtonSize" />
 
-        <Button
-            android:id="@+id/buttonKatEntry"
+            <Button
+                android:id="@+id/buttonReadyToSell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/solid_color_6a1b9a"
+                android:fadeScrollbars="false"
+                android:text="@string/tiyar_ve"
+                android:textSize="@dimen/_15ssp"
+                tools:ignore="VisualLintButtonSize" />
+
+            <Button
+                android:id="@+id/buttonKatEntry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/solid_color_6a1b9a"
+                android:fadeScrollbars="false"
+                android:text="@string/kat_ni_entry_karo"
+                android:textSize="@dimen/_15ssp"
+                tools:ignore="VisualLintButtonSize" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutEntry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/solid_color_6a1b9a"
-            android:fadeScrollbars="false"
-            android:text="@string/kat_ni_entry_karo"
-            android:textSize="@dimen/_15ssp"
-            tools:ignore="VisualLintButtonSize" />
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/buttonReady"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_color_6a1b9a"
+                android:fadeScrollbars="false"
+                android:text="@string/main_ready_kat"
+                android:textSize="@dimen/_15ssp"
+                tools:ignore="VisualLintButtonSize" />
+
+            <Button
+                android:id="@+id/buttonRawCutDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/solid_color_6a1b9a"
+                android:fadeScrollbars="false"
+                android:text="@string/main_kachi_kat"
+                android:textSize="@dimen/_15ssp"
+                tools:ignore="VisualLintButtonSize" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -61,6 +61,7 @@
                         android:layout_height="wrap_content"
                         android:lines="1"
                         android:theme="@style/textViewAndEditText"
+                        android:focusable="false"
                         tools:ignore="VisualLintTextFieldSize" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -109,6 +110,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -128,6 +130,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -147,6 +150,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -174,6 +178,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -193,6 +198,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -212,6 +218,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -240,6 +247,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -259,6 +267,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -286,6 +295,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -305,6 +315,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -332,6 +343,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -351,6 +363,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -378,6 +391,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -397,6 +411,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -424,6 +439,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -443,6 +459,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -462,6 +479,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -489,6 +507,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -508,6 +527,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -527,6 +547,7 @@
                             android:layout_height="wrap_content"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
+                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>

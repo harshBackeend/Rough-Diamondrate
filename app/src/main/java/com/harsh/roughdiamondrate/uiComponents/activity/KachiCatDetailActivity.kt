@@ -19,6 +19,8 @@ class KachiCatDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[KachiCatDetailViewModel::class.java]
 
+        binding
+
         binding.buttonReset.setOnClickListener {
             binding.layoutData.visibility = View.GONE
             binding.editDate.visibility = View.GONE

@@ -3,6 +3,7 @@ package com.harsh.roughdiamondrate.uiComponents.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.harsh.roughdiamondrate.databinding.ActivityMenuBinding
 
 class MenuActivity : AppCompatActivity() {
@@ -20,6 +21,7 @@ class MenuActivity : AppCompatActivity() {
                 )
             )
         }
+
         binding.buttonRawCut.setOnClickListener {
             startActivity(
                 Intent(
@@ -29,11 +31,28 @@ class MenuActivity : AppCompatActivity() {
         }
 
         binding.buttonKatEntry.setOnClickListener {
+            binding.layoutMenuHolder.visibility = View.GONE
+            binding.layoutEntry.visibility = View.VISIBLE
+        }
+
+        binding.buttonReady.setOnClickListener {
             startActivity(
                 Intent(
                     this, MainReadyCatDetailActivity::class.java
                 )
             )
+            binding.layoutMenuHolder.visibility = View.GONE
+            binding.layoutEntry.visibility = View.VISIBLE
+        }
+
+        binding.buttonRawCutDetail.setOnClickListener {
+            startActivity(
+                Intent(
+                    this, KachiCatDetailActivity::class.java
+                )
+            )
+            binding.layoutMenuHolder.visibility = View.GONE
+            binding.layoutEntry.visibility = View.VISIBLE
         }
 
         binding.buttonReadyToSell.setOnClickListener {
