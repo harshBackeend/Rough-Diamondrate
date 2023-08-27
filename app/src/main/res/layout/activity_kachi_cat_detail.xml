@@ -39,6 +39,7 @@
                         android:id="@+id/editCat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="number"
                         android:lines="1"
                         android:theme="@style/textViewAndEditText"
                         tools:ignore="VisualLintTextFieldSize" />
@@ -59,9 +60,9 @@
                         android:id="@+id/editDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:focusable="false"
                         android:lines="1"
                         android:theme="@style/textViewAndEditText"
-                        android:focusable="false"
                         tools:ignore="VisualLintTextFieldSize" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -75,9 +76,9 @@
                     android:background="@drawable/solid_color_6a1b9a"
                     android:text="@string/send"
                     android:textSize="@dimen/_15ssp"
-                    tools:visibility="visible"
                     android:visibility="gone"
-                    tools:ignore="VisualLintButtonSize" />
+                    tools:ignore="VisualLintButtonSize"
+                    tools:visibility="visible" />
 
             </LinearLayout>
 
@@ -86,9 +87,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical"
                 android:visibility="gone"
-                tools:visibility="visible"
-                android:orientation="vertical">
+                tools:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -108,9 +109,9 @@
                             android:id="@+id/editSKaWeight"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -128,9 +129,9 @@
                             android:id="@+id/editSToWeight"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -148,9 +149,9 @@
                             android:id="@+id/editSP"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -176,9 +177,9 @@
                             android:id="@+id/editSoKaWeight"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -196,9 +197,9 @@
                             android:id="@+id/editSoToWeight"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -216,9 +217,9 @@
                             android:id="@+id/editSoP"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -245,9 +246,9 @@
                             android:id="@+id/editRowWeight"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -265,9 +266,9 @@
                             android:id="@+id/editPalet"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -293,9 +294,9 @@
                             android:id="@+id/editW1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -313,9 +314,9 @@
                             android:id="@+id/editW1P"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -341,9 +342,9 @@
                             android:id="@+id/editW2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -361,9 +362,9 @@
                             android:id="@+id/editW2P"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -389,9 +390,9 @@
                             android:id="@+id/editW3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -409,9 +410,9 @@
                             android:id="@+id/editW3P"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -437,9 +438,9 @@
                             android:id="@+id/editTotal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -457,9 +458,9 @@
                             android:id="@+id/editOtherHpOut"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -477,9 +478,9 @@
                             android:id="@+id/editAfterTotal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -505,9 +506,9 @@
                             android:id="@+id/editTotalNag"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -525,9 +526,9 @@
                             android:id="@+id/editTotalWeight"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -545,9 +546,9 @@
                             android:id="@+id/editRowReady"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:focusable="false"
                             android:lines="1"
                             android:theme="@style/textViewAndEditText"
-                            android:focusable="false"
                             tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
