@@ -67,7 +67,7 @@ class MainReadyKatViewModel : ViewModel() {
             totalRowWeight = readyCatDetailModel.totalRowWeight,
             totalReadyNo = readyCatDetailModel.totalReadyNo,
             totalReadyWeight = readyCatDetailModel.totalReadyWeight,
-            date = readyCatDetailModel.date,
+            dateValue = readyCatDetailModel.date,
             methodName = MethodName.setReadyCatDetail
         )
         val responseModel by lazy { MutableLiveData<ResponseModel>() }
