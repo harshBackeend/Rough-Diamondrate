@@ -73,7 +73,6 @@ class MainReadyCatDetailActivity : AppCompatActivity() {
                             binding.buttonSend.visibility = View.GONE
                             binding.layoutDate.visibility = View.VISIBLE
                             binding.layoutMainData.visibility = View.VISIBLE
-                            binding.editCat.isFocusable = false
                             readyCatDetailModel = it.readyCatDetail!!
                             binding.editCat.setText(readyCatDetailModel.cat)
                             binding.editDate.setText(readyCatDetailModel.date)

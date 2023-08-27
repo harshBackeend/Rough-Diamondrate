@@ -64,37 +64,6 @@
                 tools:ignore="VisualLintButtonSize" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layoutEntry"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/buttonReady"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/solid_color_6a1b9a"
-                android:fadeScrollbars="false"
-                android:text="@string/main_ready_kat"
-                android:textSize="@dimen/_15ssp"
-                tools:ignore="VisualLintButtonSize" />
-
-            <Button
-                android:id="@+id/buttonRawCutDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/solid_color_6a1b9a"
-                android:fadeScrollbars="false"
-                android:text="@string/main_kachi_kat"
-                android:textSize="@dimen/_15ssp"
-                tools:ignore="VisualLintButtonSize" />
-
-        </LinearLayout>
-
     </LinearLayout>
 
 

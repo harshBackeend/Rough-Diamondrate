@@ -31,28 +31,11 @@ class MenuActivity : AppCompatActivity() {
         }
 
         binding.buttonKatEntry.setOnClickListener {
-            binding.layoutMenuHolder.visibility = View.GONE
-            binding.layoutEntry.visibility = View.VISIBLE
-        }
-
-        binding.buttonReady.setOnClickListener {
             startActivity(
                 Intent(
-                    this, MainReadyCatDetailActivity::class.java
+                    this, KatEntryMenuActivity::class.java
                 )
             )
-            binding.layoutMenuHolder.visibility = View.GONE
-            binding.layoutEntry.visibility = View.VISIBLE
-        }
-
-        binding.buttonRawCutDetail.setOnClickListener {
-            startActivity(
-                Intent(
-                    this, KachiCatDetailActivity::class.java
-                )
-            )
-            binding.layoutMenuHolder.visibility = View.GONE
-            binding.layoutEntry.visibility = View.VISIBLE
         }
 
         binding.buttonReadyToSell.setOnClickListener {

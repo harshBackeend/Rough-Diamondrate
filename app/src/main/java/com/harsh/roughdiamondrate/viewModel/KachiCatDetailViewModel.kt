@@ -55,11 +55,13 @@ class KachiCatDetailViewModel : ViewModel() {
             totalStone = rowCatDetailModel.totalStone,
             totalWeight = rowCatDetailModel.totalWeight,
             rowReady = rowCatDetailModel.rowReady,
-            date = rowCatDetailModel.date,
-            methodName = MethodName.setReadyCatDetail
+            dateValue = rowCatDetailModel.date,
+            methodName = MethodName.setRowCatDetail
         )
         val responseModel by lazy { MutableLiveData<ResponseModel>() }
         val url = Utility.getSharedPreferences(context, ApiUrlKey.entryFile)
+        Utility.printLog("date",rowCatDetailModel.date+"")
+        Utility.printLog("RequestModel",requestModel.toString())
         viewModelScope.launchIO {
             val result = MainRepository(url!!).getData(requestModel)
             if (result.body() != null) {

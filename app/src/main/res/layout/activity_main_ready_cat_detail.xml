@@ -39,8 +39,8 @@
                         android:id="@+id/editCat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:lines="1"
                         android:inputType="number"
+                        android:lines="1"
                         android:theme="@style/textViewAndEditText"
                         tools:ignore="VisualLintTextFieldSize" />
 
@@ -61,7 +61,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lines="1"
-                        android:focusable="false"
                         android:theme="@style/textViewAndEditText"
                         tools:ignore="VisualLintTextFieldSize" />
 

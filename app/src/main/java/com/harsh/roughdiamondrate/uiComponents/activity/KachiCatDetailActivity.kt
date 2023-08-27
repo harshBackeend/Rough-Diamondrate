@@ -33,7 +33,6 @@ class KachiCatDetailActivity : AppCompatActivity() {
             binding.layoutData.visibility = View.GONE
             binding.layoutDate.visibility = View.GONE
             binding.buttonSend.visibility = View.VISIBLE
-            binding.editCat.isFocusable = true
             binding.editCat.setText("")
             binding.editDate.setText("")
             binding.editSKaWeight.setText("")
@@ -87,7 +86,6 @@ class KachiCatDetailActivity : AppCompatActivity() {
                             binding.buttonSend.visibility = View.GONE
                             binding.layoutDate.visibility = View.VISIBLE
                             binding.layoutData.visibility = View.VISIBLE
-                            binding.editCat.isFocusable = false
                             rowCatDetailModel = it.rowCatDetail!!
                             binding.editCat.setText(rowCatDetailModel.cat)
                             binding.editDate.setText(rowCatDetailModel.date)
