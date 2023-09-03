@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.harsh.roughdiamondrate.R
 import com.harsh.roughdiamondrate.databinding.ActivityShowPartyListBinding
 import com.harsh.roughdiamondrate.uiComponents.adapter.PartyListAdapter
 import com.harsh.roughdiamondrate.uiComponents.commanUiView.ProgressBar
@@ -20,7 +21,7 @@ class ShowPartyList : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityShowPartyListBinding.inflate(layoutInflater);
+        binding = ActivityShowPartyListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[ShowPartyListViewModel::class.java]
 
@@ -35,6 +36,10 @@ class ShowPartyList : AppCompatActivity() {
         viewModel.getPartyList(this).observe(this) {
             if (it.Status == "1") {
                 progressBar.dismiss()
+                binding.layoutTotalMoney.textPartyName.text = getString(R.string.total)
+
+                binding.layoutTotalMoney.textPartyTotal.text = if (it.totalMoney!!.isNotEmpty()) it.totalMoney else "-"
+
                 val adapter by lazy { PartyListAdapter(it.data, this) }
                 binding.recyclerViewPartyLis.layoutManager = LinearLayoutManager(this)
                 binding.recyclerViewPartyLis.adapter = adapter

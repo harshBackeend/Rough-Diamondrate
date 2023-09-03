@@ -10,6 +10,8 @@ data class ResponseModel(
     var Status: String,
     @SerializedName("totalAmount")
     var totalAmount: String,
+    @SerializedName("totalMony")
+    var totalMoney: String? = null,
     @SerializedName("Data")
     var data: ArrayList<Data>,
     @SerializedName("RawCutHistory")
@@ -17,7 +19,7 @@ data class ResponseModel(
     @SerializedName("taiyarVeList")
     var taiyarVeList: ArrayList<TaiyarVeList>,
     @SerializedName("RowCatDetail")
-    var rowCatDetail:RowCatDetailModel? = null,
+    var rowCatDetail: RowCatDetailModel? = null,
     @SerializedName("ReadyCatDetail")
-    var readyCatDetail:ReadyCatDetailModel? = null
+    var readyCatDetail: ReadyCatDetailModel? = null
 )
