@@ -105,7 +105,47 @@ class KachiCatDetailActivity : AppCompatActivity() {
                             binding.editRowReady.setText(rowCatDetailModel.rowReady)
                             binding.editPalet.setText(rowCatDetailModel.plate)
                             try {
-
+                                val multi = 100;
+                                binding.editSP.setText(
+                                    "${
+                                        Utility.roundNumber(
+                                            "#.##",
+                                            (rowCatDetailModel.sToWeight?.toDouble()!! / rowCatDetailModel.sKaWeight!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
+                                binding.editSoP.setText(
+                                    "${
+                                        Utility.roundNumber(
+                                            "#.##",
+                                            (rowCatDetailModel.soToWeight?.toDouble()!! / rowCatDetailModel.soKaWeight!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
+                                binding.editW1P.setText(
+                                    "${
+                                        Utility.roundNumber(
+                                            "#.##",
+                                            (rowCatDetailModel.w1?.toDouble()!! / rowCatDetailModel.total!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
+                                binding.editW2P.setText(
+                                    "${
+                                        Utility.roundNumber(
+                                            "#.##",
+                                            (rowCatDetailModel.w2?.toDouble()!! / rowCatDetailModel.total!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
+                                binding.editW3P.setText(
+                                    "${
+                                        Utility.roundNumber(
+                                            "#.##",
+                                            (rowCatDetailModel.w3?.toDouble()!! / rowCatDetailModel.total!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
                             }catch (e:Exception){
                                 FirebaseCrashlytics.getInstance().recordException(e)
                             }
