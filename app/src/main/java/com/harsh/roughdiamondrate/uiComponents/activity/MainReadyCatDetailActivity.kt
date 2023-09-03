@@ -8,6 +8,7 @@ import android.view.View
 import android.view.WindowId.FocusObserver
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.harsh.roughdiamondrate.R
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.databinding.ActivityMainReadyCatDetailBinding
@@ -96,6 +97,59 @@ class MainReadyCatDetailActivity : AppCompatActivity() {
                             binding.editSumRowWeight.setText(readyCatDetailModel.totalRowWeight)
                             binding.editSumReadyNumber.setText(readyCatDetailModel.totalReadyNo)
                             binding.editSumReadyWeight.setText(readyCatDetailModel.totalReadyWeight)
+                            try {
+                                val multi = 100;
+                                binding.editAvgPrintPP.setText(
+                                    "${
+                                        Utility.roundNumber(
+                                            "#.##",
+                                            (readyCatDetailModel.total4POkWeight?.toDouble()!! / readyCatDetailModel.sumAfterTotal!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
+                                binding.editAvgFilePP.setText(
+                                    "${
+                                        Utility.roundNumber(
+                                            "#.##",
+                                            (readyCatDetailModel.totalPataWeight?.toDouble()!! / readyCatDetailModel.sumAfterTotal!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
+                                binding.editSum1P.setText(
+                                    "${
+                                        Utility.roundNumber(
+                                            "#.##",
+                                            (readyCatDetailModel.total1?.toDouble()!! / readyCatDetailModel.totalToWeight!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
+                                binding.editSum2P.setText(
+                                    "${
+                                        Utility.roundNumber(    
+                                            "#.##",
+                                            (readyCatDetailModel.total2?.toDouble()!! / readyCatDetailModel.totalToWeight!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
+                                binding.editSum3P.setText(
+                                    "${
+                                        Utility.roundNumber(
+                                            "#.##",
+                                            (readyCatDetailModel.total3?.toDouble()!! / readyCatDetailModel.totalToWeight!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
+                                binding.editSumReadyP.setText(
+                                    "${
+                                        Utility.roundNumber(
+                                            "#.##",
+                                            (readyCatDetailModel.totalReadyNo ?.toDouble()!! / readyCatDetailModel.totalRowNo!!.toDouble()) * multi
+                                        )
+                                    }"
+                                )
+                            } catch (e: Exception) {
+                                FirebaseCrashlytics.getInstance().recordException(e)
+                            }
                             progressBar.dismiss()
                         } else {
                             progressBar.dismiss()

@@ -73,11 +73,11 @@ class Utility {
             editText.text.clear()
         }
 
-        fun roundNumber(patten:String,number:Double):Double{
+        fun roundNumber(patten:String = "#.#",number:Double):Double{
 
             return if(patten.isNotEmpty()){
 
-                val df = DecimalFormat("#.#")
+                val df = DecimalFormat(patten)
                 df.roundingMode = RoundingMode.UP
                 df.format(number).toDouble()
 
