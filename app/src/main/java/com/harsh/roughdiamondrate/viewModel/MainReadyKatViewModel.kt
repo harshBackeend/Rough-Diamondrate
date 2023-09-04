@@ -24,13 +24,18 @@ class MainReadyKatViewModel : ViewModel() {
         val url = Utility.getSharedPreferences(context, ApiUrlKey.entryFile)
         viewModelScope.launchIO {
             val result = MainRepository(url!!).getData(requestModel)
-            if (result.body() != null) {
-                if (result.body()!!.Status == "1") {
-                    responseModel.postValue(result.body())
-                    Utility.printLog("TAG", "setDataToApi: ${result.body()!!.Message}")
-                    Utility.printLog("TAG", "getApi data : ${result.body()}")
+            try {
+                if (result.body() != null) {
+                    if (result.body()!!.Status == "1") {
+                        responseModel.postValue(result.body())
+                        Utility.printLog("TAG", "setDataToApi: ${result.body()!!.Message}")
+                        Utility.printLog("TAG", "getApi data : ${result.body()}")
+                    }
                 }
+            } catch (e: Exception) {
+                FirebaseCrashlytics.getInstance().recordException(e)
             }
+
         }
         return responseModel
     }

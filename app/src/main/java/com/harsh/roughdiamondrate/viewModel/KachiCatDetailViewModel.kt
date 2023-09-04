@@ -5,11 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.harsh.roughdiamondrate.Utility
 import com.harsh.roughdiamondrate.Utility.Companion.launchIO
 import com.harsh.roughdiamondrate.model.ApiUrlKey
 import com.harsh.roughdiamondrate.model.MethodName
-import com.harsh.roughdiamondrate.model.ReadyCatDetailModel
 import com.harsh.roughdiamondrate.model.RequestModel
 import com.harsh.roughdiamondrate.model.ResponseModel
 import com.harsh.roughdiamondrate.model.RowCatDetailModel
@@ -23,12 +23,16 @@ class KachiCatDetailViewModel : ViewModel() {
         val url = Utility.getSharedPreferences(context, ApiUrlKey.entryFile)
         viewModelScope.launchIO {
             val result = MainRepository(url!!).getData(requestModel)
-            if (result.body() != null) {
-                if (result.body()!!.Status == "1") {
-                    responseModel.postValue(result.body())
-                    Utility.printLog("TAG", "setDataToApi: ${result.body()!!.Message}")
-                    Utility.printLog("TAG", "getApi data : ${result.body()}")
+            try {
+                if (result.body() != null) {
+                    if (result.body()!!.Status == "1") {
+                        responseModel.postValue(result.body())
+                        Utility.printLog("TAG", "setDataToApi: ${result.body()!!.Message}")
+                        Utility.printLog("TAG", "getApi data : ${result.body()}")
+                    }
                 }
+            } catch (e: Exception) {
+                FirebaseCrashlytics.getInstance().recordException(e)
             }
         }
         return responseModel
@@ -60,16 +64,20 @@ class KachiCatDetailViewModel : ViewModel() {
         )
         val responseModel by lazy { MutableLiveData<ResponseModel>() }
         val url = Utility.getSharedPreferences(context, ApiUrlKey.entryFile)
-        Utility.printLog("date",rowCatDetailModel.date+"")
-        Utility.printLog("RequestModel",requestModel.toString())
+        Utility.printLog("date", rowCatDetailModel.date + "")
+        Utility.printLog("RequestModel", requestModel.toString())
         viewModelScope.launchIO {
             val result = MainRepository(url!!).getData(requestModel)
-            if (result.body() != null) {
-                if (result.body()!!.Status == "1") {
-                    responseModel.postValue(result.body())
-                    Utility.printLog("TAG", "setDataToApi: ${result.body()!!.Message}")
-                    Utility.printLog("TAG", "getApi data : ${result.body()}")
+            try {
+                if (result.body() != null) {
+                    if (result.body()!!.Status == "1") {
+                        responseModel.postValue(result.body())
+                        Utility.printLog("TAG", "setDataToApi: ${result.body()!!.Message}")
+                        Utility.printLog("TAG", "getApi data : ${result.body()}")
+                    }
                 }
+            } catch (e: Exception) {
+                FirebaseCrashlytics.getInstance().recordException(e)
             }
         }
 
