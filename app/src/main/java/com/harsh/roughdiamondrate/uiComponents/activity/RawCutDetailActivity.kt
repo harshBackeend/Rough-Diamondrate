@@ -222,6 +222,34 @@ class RawCutDetailActivity : AppCompatActivity() {
             }
         })
 
+        binding.sellingPrice.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                try {
+                    if (p0!!.toString() == ".") {
+                        binding.sellingPrice.setText("0.")
+                        binding.sellingPrice.setSelection(Utility.getTextFromEditText(binding.sellingPrice).length)
+                    } else {
+                        if (p0.isNotEmpty()) {
+                            hashMap["sellingPrice"] = p0.toString().toDouble()
+                            liveData.postValue(hashMap)
+                        }
+                    }
+                } catch (e: Exception) {
+                    Utility.printLog("sellingPrice", "$p0 ${e.message}")
+                }
+
+
+            }
+        })
+
         binding.numberPrice.addTextChangedListener(object : TextWatcher {
 
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -251,16 +279,17 @@ class RawCutDetailActivity : AppCompatActivity() {
 
         liveData.observe(this) {
             val constant = 100
-            var secondSum = 0.00
+//            var secondSum = 0.00
 
-            if (it["brokeragePrice"]!! > 0.00) {
+            /*if (it["brokeragePrice"]!! > 0.00) {
                 secondSum =
                     it["weight"]!! * it["price"]!! * it["dollarPrice"]!! * (it["brokeragePrice"]!! / constant)
-            }
-            if (secondSum > 0.00) {
-                hashMap["sellingPrice"] =
-                    it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum.toFloat()
-                binding.sellingPrice.setText("${(it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum).toFloat()}")
+            }*/
+            if (it["sellingPrice"]!! > 0.00) {
+
+                /*hashMap["sellingPrice"] =
+                    it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum.toFloat()*/
+//                binding.sellingPrice.setText("${(it["weight"]!! * it["price"]!! * it["dollarPrice"]!! + secondSum).toFloat()}")
             }
 
             if (it["weight"]!! > 0.00) {
